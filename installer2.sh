@@ -14,6 +14,7 @@ sudo apt dist-upgrade -y 1>/dev/null 2>/dev/null
 echo "Cleaning up..."
 sudo apt autoremove -y 1>/dev/null 2>/dev/null
 
+echo "Part 2 done!"
 echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5

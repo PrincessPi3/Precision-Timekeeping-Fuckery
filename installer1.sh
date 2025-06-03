@@ -12,6 +12,7 @@ sudo rpi-update
 echo "Configuring Raspberry Pi..."
 sudo raspi-config
 
+echo "Part 1 done!"
 echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5

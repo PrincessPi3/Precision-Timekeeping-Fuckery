@@ -72,6 +72,7 @@ fi
 echo "Cleaning up..."
 sudo apt autoremove 1>/dev/null 2>/dev/null # cleanup
 
+echo "Part 3 done!"
 echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5
