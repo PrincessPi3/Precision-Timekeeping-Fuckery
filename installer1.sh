@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
 
+sudo apt update
+
+# updoot
+echo "Updating software lists..."
+sudo apt update 1>/dev/null
+
+echo "Installing utils..."
+sudo apt install raspi-utils 1>/dev/null
+sudo apt install "raspi*" 1>/dev/null
+
 # updoot this
 echo "Updating this repo..."
 git pull 1>/dev/null 2>/dev/null
