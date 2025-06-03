@@ -24,7 +24,7 @@ telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 
 # stop da services
-bash ./services.sh stop
+bash ./services.sh stop 1>/dev/null
 
 # backup conf
 bash ./dump_configs.sh
@@ -39,7 +39,4 @@ sudo bash -c "cat $telegraf_new > $telegraf"
 sudo bash -c "cat $udev_new > $udev_rule"
 
 # start da services
-bash ./services.sh start
-
-# show services status
-# bash ./services.sh status
+bash ./services.sh start 1>/dev/null
