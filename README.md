@@ -115,6 +115,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* import
 		* data source
 	    * fix
+		* Raspberry OS Lite
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh

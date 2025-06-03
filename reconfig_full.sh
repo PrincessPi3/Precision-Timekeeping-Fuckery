@@ -30,7 +30,7 @@ bash ./stop_services.sh
 bash ./dump_configs.sh
 
 # replace dem by truncation
-echo "Placing the new config files"
+echo "Placing the new config files by truncation"
 sudo bash -c "cat $gpsd_new > $gpsd"
 sudo bash -c "cat $chrony_new > $chrony"
 sudo bash -c "cat $grafana_new > $grafana"

@@ -22,10 +22,14 @@ sudo cp /etc/influxdb/influxdb.conf $dname/influxdb.conf
 sudo cp /etc/telegraf/telegraf.conf $dname/telegraf.conf
 
 if [ -f /etc/udev/rules.d/50-tty.rules ]; then
-    sudo cp /etc/udev/rules.d/50-tty.rules $dname/50-tty.rules 2> /dev/null
+    echo "/etc/udev/rules.d/50-tty.rules found, copying as well"
+    sudo cp /etc/udev/rules.d/50-tty.rules $dname/50-tty.rules
 fi
 
 echo "Fixing permissions in $dname"
 sudo chown -R $username:$username $dname
 sudo chmod 775 $dname
 sudo chmod 664 $dname/*
+
+echo "Compressing up $dname to $dname.tar.gz
+tar czf $dname.tar.gz $dname

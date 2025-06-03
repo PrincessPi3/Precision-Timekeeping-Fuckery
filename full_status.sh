@@ -1,6 +1,6 @@
 #!/bin/bash
 # status of services
-bash ./status_services
+bash ./status_services.sh
 
 # test pps
 echo "Testing PPS"
@@ -13,9 +13,6 @@ cgps
 # check gpsmon
 echo "Checking Timekeeping GPS"
 gpsmon
-
-# chek chrony sources
-# chronyc sources
 
 # do same with watch
 echo "Watching chronyc sources"

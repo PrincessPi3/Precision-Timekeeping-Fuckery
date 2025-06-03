@@ -2,8 +2,8 @@
 set -e
 
 # change boot target to cli before deleting desktop environ
-echo "Changing boot target to cli"
-sudo systemctl set-default multi-user.target
+# echo "Changing boot target to cli"
+# sudo systemctl set-default multi-user.target
 
 # nuke old packages
 # sudo apt purge cups cups-browsed pulseaudio* bluetooth libgl* xserver* lightdm* raspberrypi-ui-mods vlc* lxde* chromium* desktop* gnome* gstreamer* gtk* hicolor-icon-theme* lx* mesa* -y

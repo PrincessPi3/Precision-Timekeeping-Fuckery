@@ -3,6 +3,7 @@
 echo "Updating this repo"
 git pull
 
+# run da raspberry pi config script
 sudo raspi-config
 
 echo "Rebooting in 5 minutes"
