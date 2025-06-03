@@ -2,17 +2,17 @@
 set -e
 
 echo "Updating this repo..."
-git pull 1>/dev/null 2>/dev/null
+git pull 1>/dev/null
 
 # updoot
 echo "Updating software lists..."
-sudo apt update 1>/dev/null 2>/dev/null
+sudo apt update 1>/dev/null
 
 echo "Fully upgrading, this may take a while..."
 sudo apt dist-upgrade -y 1>/dev/null
 
 echo "Cleaning up..."
-sudo apt autoremove -y 1>/dev/null 2>/dev/null
+sudo apt autoremove -y 1>/dev/null
 
 echo "Part 2 done!"
 echo "Rebooting now!"
