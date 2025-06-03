@@ -108,7 +108,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 * uninstall desktop/etc
 	* change boot target to cli
 * README
-	* installer1-4.sh
+	* installer1-3.sh
 	* grafana
 		* url
 		* default login
