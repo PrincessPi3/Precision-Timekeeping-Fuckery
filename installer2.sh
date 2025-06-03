@@ -6,13 +6,13 @@ git pull 1>/dev/null
 
 # updoot
 echo "Updating software lists..."
-sudo apt update 1>/dev/null
+sudo apt update
 
 echo "Fully upgrading, this may take a while..."
-sudo apt dist-upgrade -y 1>/dev/null
+sudo apt dist-upgrade -y
 
 echo "Cleaning up..."
-sudo apt autoremove -y 1>/dev/null
+sudo apt autoremove -y
 
 echo "Part 2 done!"
 echo "Rebooting now!"
