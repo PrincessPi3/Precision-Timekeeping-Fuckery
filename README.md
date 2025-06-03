@@ -97,6 +97,8 @@ Upload ~/Garfana-Visualization.json to create dashboard
   
   
 **todo**
+* case
+* gps sma antenna adaptor
 * ntp server
 	* outside dial in
 		* cloudflare tunnel?
