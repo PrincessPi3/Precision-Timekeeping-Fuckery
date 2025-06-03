@@ -5,9 +5,11 @@ set -e
 echo "Updating this repo..."
 git pull 1>/dev/null
 
+echo "Updating Raspberry Pi firmware..."
 sudo rpi-update
 
 # run da raspberry pi config script
+echo "Configuring Raspberry Pi..."
 sudo raspi-config
 
 echo "Rebooting now!"
