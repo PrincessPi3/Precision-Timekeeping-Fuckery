@@ -123,35 +123,35 @@ Upload ~/Garfana-Visualization.json to create dashboard
 				* url http://127.0.0.1:8086
 				* timeout 5
 				* database Chrony_Stats
-				* connect and test
-				* build dashboard
+				* save and test
+				* new dashboard
 				* import a dashbboard->Garfana-Visualization.json
 				* edit and update each pannel
 				* save dashboard
-	* Raspberry OS Lite
-	* Document scripts
-		* chrony_statistics.sh
-		* services.sh
-		* full_status.sh
-		* cleanup.sh
-		* dump_configs.sh
-		* nuke_logs.sh
-		* reconfig_full.sh
-	* Remove unneeded services and packages
-	* link to docs of all the services and tools
-		* influxdb
-		* chrony
-		* gpsd
-		* telegraf
-		* garfana
-		* syslog-ng
-		* u-blox software
-		* modules
-			* chipsets
-				* datasheet
-			* specific boards
-				* datasheet
-	* installer with reboot cron for sequence?
+* Raspberry OS Lite
+* Document scripts
+	* chrony_statistics.sh
+	* services.sh
+	* full_status.sh
+	* cleanup.sh
+	* dump_configs.sh
+	* nuke_logs.sh
+	* reconfig_full.sh
+* Remove unneeded services and packages
+* link to docs of all the services and tools
+	* influxdb
+	* chrony
+	* gpsd
+	* telegraf
+	* garfana
+	* syslog-ng
+	* u-blox software
+	* modules
+		* chipsets
+			* datasheet
+		* specific boards
+			* datasheet
+* installer with reboot cron for sequence?
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
