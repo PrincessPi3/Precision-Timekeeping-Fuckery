@@ -2,11 +2,11 @@
 set -e
 
 echo "Updating this repo..."
-git pull 1>/dev/null
+git pull 1>/dev/null 2>/dev/null
 
 # updoot
 echo "Updating software lists..."
-sudo apt update
+sudo apt update 1>/dev/null 2>/dev/null
 
 echo "Fully upgrading, this may take a while..."
 sudo apt dist-upgrade -y
