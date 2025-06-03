@@ -1,13 +1,6 @@
 #!/bin/bash
 set -e
 
-# change boot target to cli before deleting desktop environ
-# echo "Changing boot target to cli"
-# sudo systemctl set-default multi-user.target
-
-# nuke old packages
-# sudo apt purge cups cups-browsed pulseaudio* bluetooth libgl* xserver* lightdm* raspberrypi-ui-mods vlc* lxde* chromium* desktop* gnome* gstreamer* gtk* hicolor-icon-theme* lx* mesa* -y
-
 # grafana repo and install
 echo "Add Grafana repo"
 sudo mkdir -p /etc/apt/keyrings/
@@ -38,7 +31,7 @@ echo "Getting new software lists"
 sudo apt update
 
 echo "Installing packages"
-sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng -y
+sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotp neovim -y
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
