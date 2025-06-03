@@ -8,11 +8,8 @@ fi
 
 # handle users serial shit
 ## self
-echo "Giving your user the right permissions"
-sudo usermod -aG tty $username
-sudo usermod -aG root $username
+echo "Giving  $username the right permissions"
 sudo usermod -aG dialout $username
-sudo usermod -aG plugdev $username
 ## service users
 echo "Giving service users the right permissions"
 sudo usermod -aG dialout gpsd

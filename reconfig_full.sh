@@ -35,6 +35,8 @@ sudo bash -c "cat $chrony_new > $chrony"
 sudo bash -c "cat $grafana_new > $grafana"
 sudo bash -c "cat $influxdb_new > $influxdb"
 sudo bash -c "cat $telegraf_new > $telegraf"
+
+sudo touch $udev_rule # workaround because weird error
 sudo bash -c "cat $udev_new > $udev_rule"
 
 # restart da services
