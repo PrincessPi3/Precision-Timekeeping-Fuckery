@@ -45,7 +45,7 @@ grep -q -e "GPS PPS signals" /boot/firmware/config.txt
 grepconfig=$?
 
 # configure the overlay
-if [ $grepconfi -eq 0 ]; then
+if [ $grepconfig -eq 0 ]; then
     echo "/boot/firmware/config.txt already updated, skipping"
 else
     echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart"
