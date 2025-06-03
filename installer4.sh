@@ -29,6 +29,6 @@ sudo systemctl enable grafana-server
 sudo systemctl enable syslog-ng
 
 # reboot rq
-echo "Rebooting in 5 minutes"
+echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5

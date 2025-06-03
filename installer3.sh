@@ -27,10 +27,10 @@ else
 fi
 
 # install em
-echo "Getting new software lists"
-sudo apt update
+echo "Getting new software lists..."
+sudo apt update 2>/dev/null 1>/dev/null
 
-echo "Installing packages"
+echo "Installing packages, this may take a while..."
 sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional -y 2>/dev/null 1>/dev/null
 
 # check if /boot/firmware/config.txt is configured yet
@@ -61,8 +61,8 @@ else
 fi
 
 echo "Cleaning up"
-sudo apt autoremove # cleanup
+sudo apt autoremove 2>/dev/null 1>/dev/null # cleanup
 
-echo "Rebooting in 5 minutes"
+echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5

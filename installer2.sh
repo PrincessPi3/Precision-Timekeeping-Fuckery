@@ -2,15 +2,15 @@
 set -e
 
 # updoot
-echo "Updating software lists"
-sudo apt update
+echo "Updating software lists..."
+sudo apt update 2>/dev/null 1>/dev/null
 
-echo "Fully upgrading"
-sudo apt dist-upgrade -y
+echo "Fully upgrading, this may take a while..."
+sudo apt dist-upgrade -y 2>/dev/null 1>/dev/null
 
-echo "Cleaning up"
-sudo apt autoremove
+echo "Cleaning up..."
+sudo apt autoremove -y 2>/dev/null 1>/dev/null
 
-echo "Rebooting in 5 minutes"
+echo "Rebooting now!"
 sudo reboot
 # sudo shutdown -r +5
