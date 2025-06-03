@@ -7,4 +7,5 @@ git pull
 sudo raspi-config
 
 echo "Rebooting in 5 minutes"
-sudo shutdown -r +5
+sudo reboot
+# $sudo shutdown -r +5
