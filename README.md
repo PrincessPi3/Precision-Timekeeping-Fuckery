@@ -109,6 +109,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 	* change boot target to cli
 * README
 	* installer1-4.sh
+		* sudo apt update && sudo apt install git -y
 	* grafana
 		* url
 		* default login
@@ -124,6 +125,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* dump_configs.sh
 		* nuke_logs.sh
 		* reconfig_full.sh
+	* Remove unneeded services and packages
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
