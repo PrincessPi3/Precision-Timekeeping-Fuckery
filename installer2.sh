@@ -56,7 +56,7 @@ gerppps=$?
 if [ $gerppps -eq 0 ]; then
     echo "pps-gpio already in /etc/modules, skipping"
 else
-    echo "Adding pps-gpio to modules"
+    echo "Adding pps-gpio to /etc/modules"
     sudo bash -c "echo 'pps-gpio' >> /etc/modules"
 fi
 
