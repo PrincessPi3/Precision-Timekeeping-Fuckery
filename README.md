@@ -110,6 +110,8 @@ Upload ~/Garfana-Visualization.json to create dashboard
 * README
 	* installer1-4.sh
 		* sudo apt update && sudo apt install git -y
+		* git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeeping-Fuckery
+		* cd ~/Precision-Timekeeping-Fuckery
 	* grafana
 		* url
 		* default login
@@ -126,6 +128,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* nuke_logs.sh
 		* reconfig_full.sh
 	* Remove unneeded services and packages
+	* link to docs of all the services and tools
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
