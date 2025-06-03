@@ -3,7 +3,7 @@ set -e
 
 # updoot this
 echo "Updating this repo..."
-git pull 1>/dev/null
+git pull 1>/dev/null 2>/dev/null
 
 echo "Updating Raspberry Pi firmware..."
 sudo rpi-update

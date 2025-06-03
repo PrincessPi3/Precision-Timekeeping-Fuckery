@@ -2,7 +2,7 @@
 set -e
 
 echo "Updating this repo..."
-git pull 1>/dev/null
+git pull 1>/dev/null 2>/dev/null
 
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER

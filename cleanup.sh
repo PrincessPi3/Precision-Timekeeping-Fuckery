@@ -9,4 +9,4 @@ rm -rf old 2>/dev/null
 rm -rf conf-* 2>/dev/null
 
 echo "Git pulling"
-git pull
+git pull 1>/dev/null 2>/dev/null

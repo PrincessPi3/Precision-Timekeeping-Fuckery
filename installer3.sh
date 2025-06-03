@@ -2,7 +2,7 @@
 # set -e
 
 echo "Updating this repo..."
-git pull 1>/dev/null
+git pull 1>/dev/null 2>/dev/null
 
 # grafana repo and install
 echo "Add Grafana repo..."
