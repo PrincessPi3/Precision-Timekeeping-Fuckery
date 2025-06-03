@@ -108,14 +108,15 @@ Upload ~/Garfana-Visualization.json to create dashboard
 * uninstall desktop/etc
 	* change boot target to cli
 * README
-	* installer1-3.sh
+	* installer1-4.sh
 	* grafana
 		* url
 		* default login
 		* import
 		* data source
 	    * fix
-		* Raspberry OS Lite
+	* Raspberry OS Lite
+	* Document scripts
 		* chrony_statistics.sh
 		* services.sh
 		* full_status.sh
