@@ -1,18 +1,12 @@
 #!/bin/bash
 set -e
 
-# sudo apt update
-
 # change boot target to cli before deleting desktop environ
-# sudo systemctl set-default multi-user.target
+echo "Changing boot target to cli"
+sudo systemctl set-default multi-user.target
 
 # nuke old packages
 # sudo apt purge cups cups-browsed pulseaudio* bluetooth libgl* xserver* lightdm* raspberrypi-ui-mods vlc* lxde* chromium* desktop* gnome* gstreamer* gtk* hicolor-icon-theme* lx* mesa* -y
-
-# sudo apt dist-upgrade -y
-
-# install packages
-sudo apt install influxdb pps-tools gpsd gpsd-clients chrony syslog-ng -y
 
 # grafana repo and install
 sudo mkdir -p /etc/apt/keyrings/
@@ -29,9 +23,25 @@ https://repos.influxdata.com/influxdata-archive.key \
 && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
 | sudo tee /etc/apt/sources.list.d/influxdata.list
 
+echo "Getting new software lists"
 sudo apt update
-sudo apt install telegraf grafana -y
 
+echo "Installing packages"
+sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng -y
+
+# configure the overlay
+echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart"
+sudo bash -c "echo '# the next 3 lines are for GPS PPS signals' >> /boot/firmware/config.txt"
+sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt"
+sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt"
+sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here too
+
+# add pps-gpio to modules
+echo "Adding pps-gpio to modules"
+sudo bash -c "echo 'pps-gpio' >> /etc/modules"
+
+echo "Cleaning Up"
 sudo apt autoremove # cleanup
 
-sudo reboot
+echo "Rebooting in 5 minutes"
+sudo shutdown -r +5

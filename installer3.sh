@@ -1,15 +1,36 @@
 #!/bin/bash
-set -e # die on any error
+set -e
+if [ ! -z $SUDO_USER ]; then
+    username=$SUDO_USER
+else
+    username=$USER
+fi
 
-# configure the overlay
-echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart"
-sudo bash -c "echo '# the next 3 lines are for GPS PPS signals' >> /boot/firmware/config.txt"
-sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt"
-sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt"
-sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here too
+# handle users serial shit
+## self
+echo "Giving your user the right permissions"
+sudo usermod -aG tty $username
+sudo usermod -aG root $username
+sudo usermod -aG dialout $username
+sudo usermod -aG plugdev $username
+## service users
+echo "Giving service users the right permissions"
+sudo usermod -aG dialout gpsd
+sudo usermod -aG dialout _chrony
 
-# add pps-gpio to modules
-echo "Adding pps-gpio to modules"
-sudo bash -c "echo 'pps-gpio' >> /etc/modules"
+# reconfigure to normal mode
+echo "Starting configure script"
+bash ./reconfig_full.sh ./working-normal-level-conf
 
-sudo shutdown -r +1
+# enable services
+echo "Enabling Services"
+sudo systemctl enable gpsd
+sudo systemctl enable chrony
+sudo systemctl enable influxdb
+sudo systemctl enable telegraf
+sudo systemctl enable grafana-server
+sudo systemctl enable syslog-ng
+
+# reboot rq
+echo "Rebooting in 5 minutes"
+sudo shutdown -r +5
