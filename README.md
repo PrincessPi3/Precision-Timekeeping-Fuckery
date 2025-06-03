@@ -117,7 +117,12 @@ Upload ~/Garfana-Visualization.json to create dashboard
 	    * fix
 		* Raspberry OS Lite
 		* chrony_statistics.sh
-		* services.h
+		* services.sh
+		* full_status.sh
+		* cleanup.sh
+		* dump_configs.sh
+		* nuke_logs.sh
+		* reconfig_full.sh
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
