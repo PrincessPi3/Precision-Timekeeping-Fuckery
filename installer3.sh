@@ -31,7 +31,7 @@ echo "Getting new software lists"
 sudo apt update
 
 echo "Installing packages"
-sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditionals -y 2>/dev/null
+sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional -y 2>/dev/null 1>/dev/null
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
