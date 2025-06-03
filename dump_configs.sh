@@ -31,5 +31,6 @@ sudo chown -R $username:$username $dname
 sudo chmod 775 $dname
 sudo chmod 664 $dname/*
 
-echo "Compressing up $dname to $dname.tar.gz"
+echo "Compressing up and deleting $dname to $dname.tar.gz"
 tar czf $dname.tar.gz $dname
+rm -rf $dname
