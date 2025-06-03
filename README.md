@@ -97,7 +97,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
   
   
 **todo**
-* x ntp server
+* ntp server
 	* outside dial in
 		* cloudflare tunnel?
 * change gps settings
@@ -137,7 +137,6 @@ Upload ~/Garfana-Visualization.json to create dashboard
 	* dump_configs.sh
 	* nuke_logs.sh
 	* reconfig_full.sh
-* Remove unneeded services and packages
 * link to docs of all the services and tools
 	* influxdb
 	* chrony
@@ -154,14 +153,3 @@ Upload ~/Garfana-Visualization.json to create dashboard
 * installer with reboot cron for sequence?
 
 **known bugs**
-doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
-
-notes:
-	reboots
-	grafana
-		connections->data sources
-		add influxdb
-		new dashboard
-			import
-			edit each panel and select influxdb as data source if issues
-	doubling of appending to /boot/firmaware/config.txt and /etc/modules
