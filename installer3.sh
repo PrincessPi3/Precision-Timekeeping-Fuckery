@@ -8,7 +8,7 @@ git pull 1>/dev/null 2>/dev/null
 echo "Add Grafana repo..."
 sudo mkdir -p /etc/apt/keyrings/
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
-echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list 1>/dev/null
 
 # telegraf repo and install
 echo "Add Telegraf repo..."
@@ -19,7 +19,7 @@ https://repos.influxdata.com/influxdata-archive.key \
 | gpg --dearmor \
 | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive.gpg > /dev/null \
 && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
-| sudo tee /etc/apt/sources.list.d/influxdata.list
+| sudo tee /etc/apt/sources.list.d/influxdata.list 1>/dev/null
 
 # remove dat key file thing
 if [ -f ./influxdata-archive.key ]; then
