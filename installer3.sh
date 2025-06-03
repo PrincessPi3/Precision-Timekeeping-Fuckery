@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+# set -e
 
 # grafana repo and install
 echo "Add Grafana repo"
