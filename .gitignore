@@ -1,0 +1,7 @@
+old
+*.bak*
+scratch.*
+chrony_statistics.log
+conf-*
+log_backup_*
+influxdata-archive.key
