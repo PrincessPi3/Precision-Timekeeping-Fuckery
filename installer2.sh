@@ -25,7 +25,6 @@ if [ -f ./influxdata-archive.key ]; then
 else
     echo "./influxdata-archive.key not found, skipping delete"
 fi
-fi
 
 # install em
 echo "Getting new software lists"
