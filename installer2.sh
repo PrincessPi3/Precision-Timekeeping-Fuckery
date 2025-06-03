@@ -40,8 +40,12 @@ sudo apt update
 echo "Installing packages"
 sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng -y
 
+# check if /boot/firmware/config.txt is configured yet
+grep -q -e "GPS PPS signals" /boot/firmware/config.txt
+grepconfig=$?
+
 # configure the overlay
-if [ $(grep -q "GPS PPS signals" /boot/firmware/config.txt) -eq 0 ]; then
+if [ $grepconfi -eq 0 ]; then
     echo "/boot/firmware/config.txt already updated, skipping"
 else
     echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart"
@@ -51,8 +55,12 @@ else
     sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here to
 fi
 
+# check if pps-gpio is in /etc/modules already
+grep -e "pps-gpio" /etc/modules
+gerppps=$?
+
 # add pps-gpio to modules
-if [ $(grep -q "pps-gpios" /boot/firmware/config.txt) -eq 0 ]; then
+if [ $gerppps -eq 0 ]; then
     echo "pps-gpio already in /etc/modules, skipping"
 else
     echo "Adding pps-gpio to modules"
