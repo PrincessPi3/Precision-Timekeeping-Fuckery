@@ -6,8 +6,8 @@ echo "Updating software lists..."
 sudo apt update 1>/dev/null 2>/dev/null
 
 echo "Installing utils..."
-sudo apt install raspi-utils
-sudo apt install "raspi*"
+sudo apt install -y raspi-utils
+sudo apt install -y "raspi*"
 
 # updoot this
 echo "Updating this repo..."
