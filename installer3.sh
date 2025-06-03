@@ -42,7 +42,7 @@ sudo apt purge -y bluetooth* usb* wireless* pci* fonts* build-essential bluez* a
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional raspi* 1>/dev/null
+sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional raspi-utils raspi* 1>/dev/null
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
