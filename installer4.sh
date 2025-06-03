@@ -32,6 +32,7 @@ sudo systemctl enable grafana-server 1>/dev/null
 sudo systemctl enable telegraf 1>/dev/null
 sudo systemctl enable grafana-server 1>/dev/null
 sudo systemctl enable syslog-ng 1>/dev/null
+sudo systemctl enable logrotate 1>/dev/null
 
 # reboot rq
 echo "Rebooting now!"

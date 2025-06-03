@@ -5,6 +5,8 @@ set -e
 echo "Updating this repo..."
 git pull 1>/dev/null
 
+sudo rpi-update
+
 # run da raspberry pi config script
 sudo raspi-config
 

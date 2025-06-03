@@ -36,11 +36,11 @@ sudo apt update 1>/dev/null 2>/dev/null
 # clean up
 echo "Disabling and removing unneeded junk..."
 sudo systemctl disable bluetooth 1>/dev/null 2>/dev/null
-sudo apt purge bluetooth -y 1>/dev/null 2>/dev/null
+sudo apt purge -y bluetooth* usb* wireless* pci* fonts* build-essential bluez* alsa* 1>/dev/null 2>/dev/null
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional -y 1>/dev/null 2>/dev/null
+sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional 1>/dev/null 2>/dev/null
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
