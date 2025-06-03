@@ -1,5 +1,9 @@
 #!/bin/bash
 set -e
+
+echo "Updating this repo..."
+git pull 1>/dev/null
+
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
 else

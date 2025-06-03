@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "Updating this repo..."
+git pull 1>/dev/null
+
 # updoot
 echo "Updating software lists..."
 sudo apt update 1>/dev/null 2>/dev/null
