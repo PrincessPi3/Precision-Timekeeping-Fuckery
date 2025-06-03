@@ -118,6 +118,16 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* import
 		* data source
 	    * fix
+		* current
+			* connections->data sources->add data source->influxdb
+				* url http://127.0.0.1:8086
+				* timeout 5
+				* database Chrony_Stats
+				* connect and test
+				* build dashboard
+				* import a dashbboard->Garfana-Visualization.json
+				* edit and update each pannel
+				* save dashboard
 	* Raspberry OS Lite
 	* Document scripts
 		* chrony_statistics.sh
