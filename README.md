@@ -109,7 +109,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 	* change boot target to cli
 * README
 	* installer1-4.sh
-		* sudo apt update && sudo apt install git -y
+		* sudo apt update && sudo apt install -y git
 		* git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeeping-Fuckery
 		* cd ~/Precision-Timekeeping-Fuckery
 	* grafana
