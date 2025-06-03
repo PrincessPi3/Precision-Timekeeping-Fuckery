@@ -64,5 +64,5 @@ echo "Cleaning up"
 sudo apt autoremove # cleanup
 
 echo "Rebooting in 5 minutes"
-sudo reboot
-# sudo shutdown -r +5
+# sudo reboot
+sudo shutdown -r +5
