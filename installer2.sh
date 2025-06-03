@@ -5,6 +5,8 @@ set -e
 echo "Changing boot target to cli"
 sudo systemctl set-default multi-user.target
 
+sudo raspi-config
+
 # nuke old packages
 # sudo apt purge cups cups-browsed pulseaudio* bluetooth libgl* xserver* lightdm* raspberrypi-ui-mods vlc* lxde* chromium* desktop* gnome* gstreamer* gtk* hicolor-icon-theme* lx* mesa* -y
 
@@ -23,6 +25,7 @@ https://repos.influxdata.com/influxdata-archive.key \
 && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
 | sudo tee /etc/apt/sources.list.d/influxdata.list
 
+# install em
 echo "Getting new software lists"
 sudo apt update
 
