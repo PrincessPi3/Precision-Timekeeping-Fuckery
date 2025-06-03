@@ -141,6 +141,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 				* datasheet
 			* specific boards
 				* datasheet
+	* installer with reboot cron for sequence?
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
