@@ -129,6 +129,18 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* reconfig_full.sh
 	* Remove unneeded services and packages
 	* link to docs of all the services and tools
+		* influxdb
+		* chrony
+		* gpsd
+		* telegraf
+		* garfana
+		* syslog-ng
+		* u-blox software
+		* modules
+			* chipset
+				* datasheet
+			* specific board
+				* datasheet
 
 **known bugs**
 doubling of appending to /boot/firmaware/config.txt and /etc/modules when running intstaller3.sh
