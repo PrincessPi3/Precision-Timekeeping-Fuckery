@@ -31,7 +31,7 @@ fi
 
 # updoot
 echo "Getting new software lists..."
-sudo apt update 1>/dev/null 2>/dev/null
+sudo apt update 1>/dev/null
 
 # clean up
 echo "Disabling unneeded junk..."
