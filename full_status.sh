@@ -1,6 +1,6 @@
 #!/bin/bash
 # status of services
-bash ./status_services.sh
+bash ./services.sh status
 
 # test pps
 echo "Testing PPS"

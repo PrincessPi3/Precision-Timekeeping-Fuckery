@@ -24,7 +24,7 @@ telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 
 # stop da services
-bash ./stop_services.sh
+bash ./services.sh stop
 
 # backup conf
 bash ./dump_configs.sh
@@ -38,8 +38,8 @@ sudo bash -c "cat $influxdb_new > $influxdb"
 sudo bash -c "cat $telegraf_new > $telegraf"
 sudo bash -c "cat $udev_new > $udev_rule"
 
-# restart da services
-bash ./start_services.sh
+# start da services
+bash ./services.sh start
 
 # show services status
-# bash ./status_services.sh
+# bash ./services.sh status
