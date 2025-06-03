@@ -72,7 +72,7 @@ else
 fi
 
 echo "Cleaning up..."
-sudo apt autoremove 1>/dev/null 2>/dev/null # cleanup
+sudo apt autoremove -y 1>/dev/null # cleanup
 
 echo "Part 3 done!"
 echo "Rebooting now!"
