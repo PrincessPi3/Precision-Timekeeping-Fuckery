@@ -10,3 +10,5 @@ rm -rf conf-* 2>/dev/null
 
 echo "Git pulling"
 git pull 1>/dev/null 2>/dev/null
+
+echo "Cleanup done!"
