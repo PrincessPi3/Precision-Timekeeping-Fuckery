@@ -5,8 +5,6 @@ set -e
 echo "Changing boot target to cli"
 sudo systemctl set-default multi-user.target
 
-sudo raspi-config
-
 # nuke old packages
 # sudo apt purge cups cups-browsed pulseaudio* bluetooth libgl* xserver* lightdm* raspberrypi-ui-mods vlc* lxde* chromium* desktop* gnome* gstreamer* gtk* hicolor-icon-theme* lx* mesa* -y
 
