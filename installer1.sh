@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# updoot this
-echo "Updating this repo"
-git pull
-
 # updoot
 echo "Updating software lists"
 sudo apt update

@@ -48,7 +48,7 @@ else
     sudo bash -c "echo '# the next 3 lines are for GPS PPS signals' >> /boot/firmware/config.txt"
     sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt"
     sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt"
-`   sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here to
+    sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here to
 fi
 
 # add pps-gpio to modules
