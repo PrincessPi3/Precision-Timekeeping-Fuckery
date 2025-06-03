@@ -24,7 +24,7 @@ telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 
 # stop da services
-bash ./services.sh stop 1>/dev/null
+bash ./services.sh stop 1>/dev/null 2>/dev/null
 
 # backup conf
 bash ./dump_configs.sh
