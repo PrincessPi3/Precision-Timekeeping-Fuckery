@@ -59,7 +59,7 @@ else
     sudo bash -c "echo 'pps-gpio' >> /etc/modules"
 fi
 
-echo "Cleaning Up"
+echo "Cleaning up"
 sudo apt autoremove # cleanup
 
 echo "Rebooting in 5 minutes"
