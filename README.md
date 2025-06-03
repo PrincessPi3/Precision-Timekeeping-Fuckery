@@ -137,9 +137,9 @@ Upload ~/Garfana-Visualization.json to create dashboard
 		* syslog-ng
 		* u-blox software
 		* modules
-			* chipset
+			* chipsets
 				* datasheet
-			* specific board
+			* specific boards
 				* datasheet
 
 **known bugs**

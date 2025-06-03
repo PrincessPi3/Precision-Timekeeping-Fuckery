@@ -33,6 +33,11 @@ fi
 echo "Getting new software lists..."
 sudo apt update 1>/dev/null 2>/dev/null
 
+# clean up
+echo "Disabling and removing unneeded junk..."
+sudo systemctl disable bluetooth 1>/dev/null 2>/dev/null
+sudo apt purge bluetooth 1>/dev/null 2>/dev/null
+
 echo "Installing packages, this may take a while..."
 sudo apt install telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional -y 1>/dev/null 2>/dev/nul
 
