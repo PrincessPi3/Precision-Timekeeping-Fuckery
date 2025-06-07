@@ -154,4 +154,11 @@ Upload ~/Garfana-Visualization.json to create dashboard
 			* datasheet
 * installer with reboot cron for sequence?
 
+
+notes:
+gps cable delay :  RG-85 : 0.051 ns/cm
+10ft in cm: 304.8
+gps cable delay: 304.8*0.051 = 15.5448ns, round up to 16ns
+
+
 **known bugs**
