@@ -1,4 +1,6 @@
 Added RTC (https://www.adafruit.com/product/3013)
+    added packages python3-smbus i2c-tools to installer
+    updated installer to set gpio baud to 921600
 NEO GPS Module
     Wiring
         Changed to 5v mode

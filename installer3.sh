@@ -42,7 +42,7 @@ sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" build-essentia
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional
+sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional python3-smbus i2c-tools
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
@@ -52,11 +52,17 @@ grepconfig=$?
 if [ $grepconfig -eq 0 ]; then
     echo "/boot/firmware/config.txt already updated, skipping..."
 else
+    # pps and gpio uart
     echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart..."
-    sudo bash -c "echo '# the next 3 lines are for GPS PPS signals' >> /boot/firmware/config.txt"
-    sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt"
-    sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt"
+    sudo bash -c "echo '# GPS PPS GPIO Signal' >> /boot/firmware/config.txt"
+    sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt" # pps
+    
+    sudo bash -c "echo '# GPS GPIO UART' >> /boot/firmware/config.txt"
+    sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt" # enable uart
     sudo bash -c "echo 'init_uart_baud=921600' >> /boot/firmware/config.txt" # set baudrate here to
+    # i2c
+    sudo bash -c "echo '# I2C Hardware RTC Overlay' >> /boot/firmware/config.txt"
+    sudo bash -c "echo 'dtoverlay=i2c-rtc,ds3231' >> /boot/firmware/config.txt"
 fi
 
 # check if pps-gpio is in /etc/modules already

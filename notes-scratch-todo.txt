@@ -2,6 +2,18 @@ rtc module
     ds3231
         product page: https://www.adafruit.com/product/3013
         product tutorial: https://learn.adafruit.com/adafruit-ds3231-precision-rtc-breakout/overview
+            install packages python3-smbus i2c-tools
+            enable i2c support in raspi-config
+                interfacing options->i2c->
+                    enable <Yes>
+                    kernel module loaded by default <Yes>
+            check that i2c-dev is in /etc/modules
+            add `dtoverlay=i2c-rtc,ds3231` to /boot/firmware/config.txt
+            reboot
+            detect/test module `sudo i2cdetect -y 1`
+                looking for address 68
+            
+
         raspberry pi RTC tutorial: https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-rtc-time
         pinout: https://learn.adafruit.com/adafruit-ds3231-precision-rtc-breakout/pinouts
         battery:  CR1220
