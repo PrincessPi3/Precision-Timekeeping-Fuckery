@@ -14,7 +14,9 @@ echo "Updating Raspberry Pi firmware..."
 sudo rpi-update
 
 # run da raspberry pi config script
-echo "Configuring Raspberry Pi..."
+echo "Configure Raspberry Pi..."
+echo -e "Enable I2C Support in raspi-config\n\tInterface Options->I2C->\n\tenable <Yes>\n\tkernel module loaded by default <Yes>\n\nInterface Options->Serial Port\n\tWould you like a login shell to be accessible over       │
+                              │ serial? <No>\n\tWould you like the serial port hardware to be enabled? <Yes>"
 sudo raspi-config
 
 echo "Part 1 done!"
