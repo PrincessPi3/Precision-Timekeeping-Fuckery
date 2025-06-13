@@ -16,6 +16,7 @@ influxdb="/etc/influxdb/influxdb.conf"
 telegraf="/etc/telegraf/telegraf.conf"
 udev_rule="/etc/udev/rules.d/50-tty.rules"
 bootfirmwareconfig="/boot/firmware/config.txt"
+hwclockset="/lib/udev/hwclock-set"
 ## new conf file paths
 gpsd_new=""$1/gpsd""
 chrony_new="$1/chrony.conf"
@@ -24,6 +25,7 @@ influxdb_new="$1/influxdb.conf"
 telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 bootfirmwareconfig_new="$1/boot-firmware-config.txt"
+hwclockset_new="$1/hwclock-set"
 
 # stop da services
 bash ./services.sh stop 1>/dev/null 2>/dev/null
