@@ -35,13 +35,20 @@ bash ./services.sh stop 1>/dev/null 2>/dev/null
 bash ./dump_configs.sh
 
 # replace dem by truncation
-echo "Placing the new config files by truncation"
+echo "Placing the new config files by truncation..."
+echo -e "\tConfiguring gpsd"
 sudo bash -c "cat $gpsd_new > $gpsd"
+echo -e "\tConfiguring chrony"
 sudo bash -c "cat $chrony_new > $chrony"
+echo -e "\tConfiguring grafana"
 sudo bash -c "cat $grafana_new > $grafana"
+echo -e "\tConfiguring influxdb"
 sudo bash -c "cat $influxdb_new > $influxdb"
+echo -e "\tConfiguring telegraf"
 sudo bash -c "cat $telegraf_new > $telegraf"
+echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
+echo -e "\tConfiguring heclockset"
 sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet

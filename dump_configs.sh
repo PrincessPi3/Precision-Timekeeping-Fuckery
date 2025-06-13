@@ -15,13 +15,21 @@ echo "Making $dname"
 mkdir $dname
 
 echo "Copying the config files"
+echo -e "\tBacking up gpsd config"
 sudo cp /etc/default/gpsd $dname/gpsd
+echo -e "\tBacking up chrony config"
 sudo cp /etc/chrony/chrony.conf $dname/chrony.conf 
+echo -e "\tBacking up grafana config"
 sudo cp /etc/grafana/grafana.ini $dname/grafana.ini 
+echo -e "\tBacking up influxdb config"
 sudo cp /etc/influxdb/influxdb.conf $dname/influxdb.conf
+echo -e "\tBacking up telegraf config"
 sudo cp /etc/telegraf/telegraf.conf $dname/telegraf.conf
+echo -e "\tBacking up /boot/firmware/config.txt"
 sudo cp /boot/firmware/config.txt $dname/boot-firmware-config.txt
+echo -e "\tBacking up gheclock-set config"
 sudo cp /lib/udev/hwclock-set $dname/hwclock-set
+echo -e "\tBacking up /etc/modules"
 sudo cp /etc/modules $dname/etc-modules
 
 if [ -f /etc/udev/rules.d/50-tty.rules ]; then
