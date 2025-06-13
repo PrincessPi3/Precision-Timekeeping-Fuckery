@@ -4,7 +4,7 @@ bash ./services.sh status
 
 # test pps
 echo "Testing PPS"
-sudo ppstest /dev/pps*
+sudo ppstest /dev/pps0
 
 # check gps
 echo "Checking Normal GPS"
