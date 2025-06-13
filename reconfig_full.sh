@@ -60,7 +60,7 @@ else
     # 
     # sudo bash -c "echo '# GPS GPIO UART' >> /boot/firmware/config.txt"
     # sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt" # enable uart
-    # sudo bash -c "echo 'init_uart_baud=230400' >> /boot/firmware/config.txt" # set baudrate here too
+    # sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here too
     # # i2c
     # sudo bash -c "echo '# I2C Hardware RTC Overlay' >> /boot/firmware/config.txt"
     # sudo bash -c "echo 'dtoverlay=i2c-rtc,ds3231' >> /boot/firmware/config.txt"

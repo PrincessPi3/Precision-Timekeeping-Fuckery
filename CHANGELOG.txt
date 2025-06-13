@@ -1,13 +1,13 @@
 Added RTC (https://www.adafruit.com/product/3013)
     added packages python3-smbus i2c-tools to installer
-    updated installer to set gpio baud to 230400
+    updated installer to set gpio baud to 460800
     added rtc i2c overlay /boot/firmware/config.txt
     removed fake-hwclock package
 NEO GPS Module
     Wiring
         Changed to 5v mode
     U-Center-2 (https://www.u-blox.com/en/u-center-2)
-        Changed Baudrate UART1 to 230400
+        Changed Baudrate UART1 to 460800
         Time Pulse Mode
             Antenna Cable Delay set to the calculated 14ns
 Installer
