@@ -49,7 +49,7 @@ sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
 echo -e "\tConfiguring hwclockset"
-sudo bash -c "cat $hwclockset_new" # > $hwclockset"
+sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
@@ -61,7 +61,7 @@ if [ $grepconfig -eq 0 ]; then # if config exists, skip
 else
     # APPEND to /boot/firmware/config.txt
     echo "Appending configs to /boot/firmware/config.txt"
-    sudo bash -c "cat $bootfirmwareconfig_new >> $bootfirmwareconfig"
+    sudo bash -c "cat $bootfirmwareconfig_new; echo $bootfirmwareconfig"
     # pps and gpio uart
     # echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart..."
     # sudo bash -c "echo '# GPS PPS GPIO Signal' >> /boot/firmware/config.txt"
