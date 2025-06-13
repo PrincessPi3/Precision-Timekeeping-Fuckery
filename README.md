@@ -109,8 +109,6 @@ Upload ~/Garfana-Visualization.json to create dashboard
 	* adjust time delay to be closer to
 	* higher baudrate
 		1. 230400
-		2. 460800
-		3. 921600
 * README
 	* installer1-4.sh
 		* sudo apt update && sudo apt install -y git

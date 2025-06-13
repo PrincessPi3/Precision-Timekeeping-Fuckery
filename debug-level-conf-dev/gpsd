@@ -4,8 +4,8 @@
 DEVICES="/dev/ttyS0 /dev/pps0"
 
 # -n means start without a client connection (i.e. at boot)
-# -s 115200 is to set baud to 921600
-GPSD_OPTIONS="-n -s 921600"
+# -s 115200 is to set baud to 230400
+GPSD_OPTIONS="-n -s 230400"
 
 # also start in general
 START_DAEMON="true"
