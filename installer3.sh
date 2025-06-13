@@ -77,7 +77,7 @@ sudo usermod -aG dialout gpsd
 sudo usermod -aG dialout _chrony
 
 
-echo "3 complete" > ./status.txt
+echo "installer3.sh complete" >> ./status.txt
 
 echo "Part 3 done!"
 # echo "Rebooting now!"

@@ -14,7 +14,7 @@ sudo apt dist-upgrade -y
 echo "Cleaning up..."
 sudo apt autoremove -y
 
-echo "3 complete" > ./status.txt
+echo "Installer2.sh complete" >> ./status.txt
 
 echo "Part 2 done!"
 # echo "Rebooting now!"

@@ -20,7 +20,7 @@ echo -e "Enable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Woul
 read -p "Press ENTER to Continue"
 sudo raspi-config
 
-echo "3 complete" > ./status.txt
+echo "Installer1.sh complete" >> ./status.txt
 
 echo "Part 1 done!"
 # echo "Rebooting now!"
