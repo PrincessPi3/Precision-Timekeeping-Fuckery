@@ -45,6 +45,8 @@ sudo systemctl enable syslog-ng 1>/dev/null
 echo -e "\tEnabling logrotate on boot"
 sudo systemctl enable logrotate 1>/dev/null
 
+rm -f ./status.txt
+
 # reboot rq
 echo "Part 4 done!"
 # echo "Rebooting now!"

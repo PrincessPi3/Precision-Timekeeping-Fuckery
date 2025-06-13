@@ -61,6 +61,8 @@ fi
 echo "Cleaning up..."
 sudo apt autoremove -y # cleanup
 
+echo "3 complete" > ./status.txt
+
 echo "Part 3 done!"
 # echo "Rebooting now!"
 # sudo reboot
