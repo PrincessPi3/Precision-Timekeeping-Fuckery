@@ -5,7 +5,7 @@ dtoverlay=pps-gpio,gpiopin=18
 
 ## GPS GPIO UART
 enable_uart=1
-init_uart_baud=115200
+init_uart_baud=460800
 
 ## I2C Hardware RTC Overlay
 dtoverlay=i2c-rtc,ds3231
