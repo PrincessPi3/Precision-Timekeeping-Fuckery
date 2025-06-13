@@ -56,7 +56,7 @@ grep -q -e "GPS PPS signals" /boot/firmware/config.txt
 grepconfig=$?
 
 # configure the overlay
-if [ $grepconfig -ne 0 ]; then # if config exists, skip
+if [ $grepconfig -eq 0 ]; then # if config exists, skip
     echo "/boot/firmware/config.txt already updated, skipping..."
 else
     # APPEND to /boot/firmware/config.txt
