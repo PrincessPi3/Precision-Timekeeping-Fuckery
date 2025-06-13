@@ -26,7 +26,7 @@ echo "Starting configure script..."
 # running (warn level) 
 # bash ./reconfig_full.sh ./working-warn-level-conf
 # debug/dev mode
-bash ./reconfig_full.sh ./working-debug-level-conf-dev
+bash ./reconfig_full.sh ./debug-level-conf-dev
 
 # enable services
 echo "Enabling Services..."
