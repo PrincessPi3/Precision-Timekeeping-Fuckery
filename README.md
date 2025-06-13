@@ -46,7 +46,7 @@
 	2. GPS RX to RPi Physical Pin 8 (GPIO 14 / TX (UART))
 	3. GPS TX to RPi Physical Pin 10 (GPIO 15 / RX (UART))
 	4. GPS PPS to RPi Physical Pin 12 (GPIO 18)
-	5. GPS VIN to RPi Physical Physical 4 (5 volts)
+	5. GPS VIN to RPi Physical Pin 4 (5 volts)
 3. I2C RTC Module
 	1. RTC GND to Rpi Physical Pin 9 (GND)
 	3. RTC SDA to RPi Physical Pin 3 (GPIO 2 / SDA1 (I2C))
