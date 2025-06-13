@@ -21,7 +21,12 @@ sudo usermod -aG dialout _chrony
 
 # reconfigure to normal mode
 echo "Starting configure script..."
-bash ./reconfig_full.sh ./working-normal-level-conf
+# quiet level
+# bash ./reconfig_full.sh ./reconfig_full.sh ./working-normal-level-conf
+# running (warn level) 
+# bash ./reconfig_full.sh ./working-warn-level-conf
+# debug/dev mode
+bash ./reconfig_full.sh ./working-debug-level-conf-dev
 
 # enable services
 echo "Enabling Services..."

@@ -11,9 +11,7 @@ rtc module
         notes:
             https://serverfault.com/questions/1093101/chrony-hosting-time-with-rtc-as-authoritative-clock-on-an-air-gapped-isolated?__cf_chl_tk=G_sZX4ClltOv3fQJpH1q2a65tx4O2s_H_FObeBQ2UyU-1749831141-1.0.1.1-W0v5fl8cCrf0tIpB0pAqIb93L5MuoWeebiHm7iLGAlo
             https://stackoverflow.com/questions/49730407/how-to-do-one-shot-time-sync-using-chrony
-    add bat
-    wire up
-    do oneshot sync
+    do oneshot sync?
     script set every x seconds
         `sudo hwclock -r`
 change gps to use 5v if possible so rtc can use 3v

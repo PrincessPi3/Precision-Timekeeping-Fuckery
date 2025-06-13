@@ -42,11 +42,16 @@
 	2. SSH Access
 	3. sudo permissions
 2. A timing specific GPS module, wired to the Raspberry Pi GPIOs:
-	1. GPS GND to RPi pin 6
-	2. GPS VIN to RPi pin 2 or 4
-	3. GPS PPS to RPi pin 12 (GPIO 18)
-	4. GPS RX to RPi pin 8
-	5. GPS TX to RPi pin 10
+	1. GPS GND to RPi Physical Pin 6 (GND)
+	2. GPS RX to RPi Physical Pin 8 (GPIO 14 / TX (UART))
+	3. GPS TX to RPi Physical Pin 10 (GPIO 15 / RX (UART))
+	4. GPS PPS to RPi Physical Pin 12 (GPIO 18)
+	5. GPS VIN to RPi Physical Physical 4 (5 volts)
+3. I2C RTC Module
+	1. RTC GND to Rpi Physical Pin 9 (GND)
+	3. RTC SDA to RPi Physical Pin 3 (GPIO 2 / SDA1 (I2C))
+	4. RTC RCL to RPi Physical Pin 5 (GPIO 4 / SCL1 (I2C))
+	5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Install
 Clone the repo  
@@ -99,16 +104,13 @@ Upload ~/Garfana-Visualization.json to create dashboard
 **todo**
 * case
 * gps sma antenna adaptor
-* ntp server
-	* outside dial in
-		* cloudflare tunnel?
 * change gps settings
+	* use 5v
+	* adjust time delay to be closer to
 	* higher baudrate
 		1. 230400
 		2. 460800
 		3. 921600
-* uninstall desktop/etc
-	* change boot target to cli
 * README
 	* installer1-4.sh
 		* sudo apt update && sudo apt install -y git

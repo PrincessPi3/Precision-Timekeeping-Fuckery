@@ -1,0 +1,8 @@
+Added RTC (https://www.adafruit.com/product/3013)
+NEO GPS Module
+    Wiring
+        Changed to 5v mode
+    U-Center-2 (https://www.u-blox.com/en/u-center-2)
+        Changed Baudrate UART1 to 921600 # 460800
+        Time Pulse Mode
+            Antenna Cable Delay set to the calculated 14ns
