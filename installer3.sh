@@ -61,6 +61,22 @@ fi
 echo "Cleaning up..."
 sudo apt autoremove -y # cleanup
 
+if [ ! -z $SUDO_USER ]; then
+    username=$SUDO_USER
+else
+    username=$USER
+fi
+
+# handle users serial shit
+## self
+echo "Giving  $username the right permissions..."
+sudo usermod -aG dialout $username
+## service users
+echo "Giving service users the right permissions..."
+sudo usermod -aG dialout gpsd
+sudo usermod -aG dialout _chrony
+
+
 echo "3 complete" > ./status.txt
 
 echo "Part 3 done!"

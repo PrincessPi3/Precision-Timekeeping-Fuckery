@@ -29,7 +29,7 @@ hwclockset_new="$1/hwclock-set"
 crontab_new="$1/root-crontab"
 
 # stop da services
-bash ./services.sh stop 1>/dev/null 2>/dev/null
+bash ./services.sh stop
 
 # backup conf
 bash ./dump_configs.sh
