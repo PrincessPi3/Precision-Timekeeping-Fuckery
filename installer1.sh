@@ -21,6 +21,7 @@ read -p "Press ENTER to Continue"
 sudo raspi-config
 
 echo "Part 1 done!"
-echo "Rebooting now!"
-sudo reboot
-# sudo shutdown -r +5
+# echo "Rebooting now!"
+# sudo reboot
+echo "Rebooting in 2 minutes!!"
+sudo shutdown -r +2

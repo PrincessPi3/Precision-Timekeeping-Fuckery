@@ -47,6 +47,7 @@ sudo systemctl enable logrotate 1>/dev/null
 
 # reboot rq
 echo "Part 4 done!"
-echo "Rebooting now!"
-sudo reboot
-# sudo shutdown -r +5
+# echo "Rebooting now!"
+# sudo reboot
+echo "Rebooting in 2 minutes!!"
+sudo shutdown -r +2
