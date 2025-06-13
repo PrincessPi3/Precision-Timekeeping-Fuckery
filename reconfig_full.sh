@@ -26,6 +26,7 @@ telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 bootfirmwareconfig_new="$1/boot-firmware-config.txt"
 hwclockset_new="$1/hwclock-set"
+crontab_new="$1/root-crontab"
 
 # stop da services
 bash ./services.sh stop 1>/dev/null 2>/dev/null
@@ -65,6 +66,9 @@ else
     # sudo bash -c "echo '# I2C Hardware RTC Overlay' >> /boot/firmware/config.txt"
     # sudo bash -c "echo 'dtoverlay=i2c-rtc,ds3231' >> /boot/firmware/config.txt"
 fi
+
+echo "Setting up crontab"
+sudo crontab $crontab_new
 
 # start da services
 bash ./services.sh start 1>/dev/null
