@@ -20,6 +20,9 @@ sudo cp /etc/chrony/chrony.conf $dname/chrony.conf
 sudo cp /etc/grafana/grafana.ini $dname/grafana.ini 
 sudo cp /etc/influxdb/influxdb.conf $dname/influxdb.conf
 sudo cp /etc/telegraf/telegraf.conf $dname/telegraf.conf
+sudo cp /boot/firmware/config.txt $dname/boot-firmware-config.txt
+sudo cp /lib/udev/hwclock-set $dname/hwclock-set
+sudo cp /etc/modules $dname/etc-modules
 
 if [ -f /etc/udev/rules.d/50-tty.rules ]; then
     echo "/etc/udev/rules.d/50-tty.rules found, copying as well..."
