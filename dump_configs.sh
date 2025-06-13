@@ -45,3 +45,5 @@ sudo chmod 664 $dname/*
 echo "Compressing up and deleting $dname to $dname.tar.gz..."
 tar czf $dname.tar.gz $dname
 rm -rf $dname
+
+echo "dump_configs complete" > ./status.txt

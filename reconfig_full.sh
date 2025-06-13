@@ -70,3 +70,5 @@ sudo crontab $crontab_new
 
 # start da services
 bash ./services.sh start # 1>/dev/null
+
+echo "reconfig_full complete" > ./status.txt
