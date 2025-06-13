@@ -15,6 +15,7 @@ grafana="/etc/grafana/grafana.ini"
 influxdb="/etc/influxdb/influxdb.conf"
 telegraf="/etc/telegraf/telegraf.conf"
 udev_rule="/etc/udev/rules.d/50-tty.rules"
+bootfirmwareconfig="/boot/firmware/config.txt"
 ## new conf file paths
 gpsd_new=""$1/gpsd""
 chrony_new="$1/chrony.conf"
@@ -22,6 +23,7 @@ grafana_new="$1/grafana.ini"
 influxdb_new="$1/influxdb.conf"
 telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
+bootfirmwareconfig_new="$1/boot-firmware-config.txt"
 
 # stop da services
 bash ./services.sh stop 1>/dev/null 2>/dev/null
@@ -37,6 +39,29 @@ sudo bash -c "cat $grafana_new > $grafana"
 sudo bash -c "cat $influxdb_new > $influxdb"
 sudo bash -c "cat $telegraf_new > $telegraf"
 sudo bash -c "cat $udev_new > $udev_rule"
+
+# check if /boot/firmware/config.txt is configured yet
+grep -q -e "GPS PPS signals" /boot/firmware/config.txt
+grepconfig=$?
+
+# configure the overlay
+if [ $grepconfig -eq 0 ]; then # if config exists, skip
+    echo "/boot/firmware/config.txt already updated, skipping..."
+else
+    # APPEND to /boot/firmware/config.txt
+    sudo bash -c "cat $bootfirmwareconfig >> $bootfirmwareconfig_new"
+    # pps and gpio uart
+    # echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart..."
+    # sudo bash -c "echo '# GPS PPS GPIO Signal' >> /boot/firmware/config.txt"
+    # sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt" # pps
+    # 
+    # sudo bash -c "echo '# GPS GPIO UART' >> /boot/firmware/config.txt"
+    # sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt" # enable uart
+    # sudo bash -c "echo 'init_uart_baud=921600' >> /boot/firmware/config.txt" # set baudrate here to
+    # # i2c
+    # sudo bash -c "echo '# I2C Hardware RTC Overlay' >> /boot/firmware/config.txt"
+    # sudo bash -c "echo 'dtoverlay=i2c-rtc,ds3231' >> /boot/firmware/config.txt"
+fi
 
 # start da services
 bash ./services.sh start 1>/dev/null

@@ -21,3 +21,11 @@ watch chronyc sources
 # track
 echo "Watching chronyc tracking"
 watch -n 10 chronyc tracking
+
+# i2c
+echo "Detecting I2C Devices"
+sudo i2cdetect -y 1
+
+# rtc
+echo "Reading from hardware RTC"
+sudo hwclock -r

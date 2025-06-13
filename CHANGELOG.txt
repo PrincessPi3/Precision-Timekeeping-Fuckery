@@ -1,6 +1,8 @@
 Added RTC (https://www.adafruit.com/product/3013)
     added packages python3-smbus i2c-tools to installer
     updated installer to set gpio baud to 921600
+    added rtc i2c overlay /boot/firmware/config.txt
+    removed fake-hwclock package
 NEO GPS Module
     Wiring
         Changed to 5v mode
@@ -8,3 +10,7 @@ NEO GPS Module
         Changed Baudrate UART1 to 921600
         Time Pulse Mode
             Antenna Cable Delay set to the calculated 14ns
+Installer
+    updated with new settings
+    set /boot/firmware/config.txt to be appended to by a config file for ease
+    added package picocom
