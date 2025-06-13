@@ -23,11 +23,13 @@ echo "Watching chronyc tracking"
 watch -n 10 chronyc tracking
 
 # i2c
-echo "Detecting I2C Devices"
+clear
+echo -e "Detecting I2C Devices\n"
 sudo i2cdetect -y 1
-read -p "Press enter to continue"
+read -p -e "\nPress ENTER to Continue..."
 
 # rtc
-echo "Reading from hardware RTC"
+clear
+echo -e "Reading from hardware RTC\n"
 sudo hwclock -r
-read -p "Press enter to continue"
+read -p -e "\nPress ENTER to Continue..."
