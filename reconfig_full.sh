@@ -63,21 +63,10 @@ else
     echo "Appending configs to /boot/firmware/config.txt"
     sudo bash -c "cat $bootfirmwareconfig_new >> $bootfirmwareconfig"
     echo $?
-    # pps and gpio uart
-    # echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart..."
-    # sudo bash -c "echo '# GPS PPS GPIO Signal' >> /boot/firmware/config.txt"
-    # sudo bash -c "echo 'dtoverlay=pps-gpio,gpiopin=18' >> /boot/firmware/config.txt" # pps
-    # 
-    # sudo bash -c "echo '# GPS GPIO UART' >> /boot/firmware/config.txt"
-    # sudo bash -c "echo 'enable_uart=1' >> /boot/firmware/config.txt" # enable uart
-    # sudo bash -c "echo 'init_uart_baud=115200' >> /boot/firmware/config.txt" # set baudrate here too
-    # # i2c
-    # sudo bash -c "echo '# I2C Hardware RTC Overlay' >> /boot/firmware/config.txt"
-    # sudo bash -c "echo 'dtoverlay=i2c-rtc,ds3231' >> /boot/firmware/config.txt"
 fi
 
 echo "Setting up crontab"
 sudo crontab $crontab_new
 
 # start da services
-bash ./services.sh start 1>/dev/null
+bash ./services.sh start # 1>/dev/null
