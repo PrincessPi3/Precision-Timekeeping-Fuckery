@@ -41,6 +41,7 @@ sudo bash -c "cat $grafana_new > $grafana"
 sudo bash -c "cat $influxdb_new > $influxdb"
 sudo bash -c "cat $telegraf_new > $telegraf"
 sudo bash -c "cat $udev_new > $udev_rule"
+sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt

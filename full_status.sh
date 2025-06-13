@@ -4,7 +4,7 @@ bash ./services.sh status
 
 # test pps
 echo "Testing PPS"
-sudo ppstest /dev/pps0
+sudo ppstest /dev/pps*
 
 # check gps
 echo "Checking Normal GPS"
@@ -25,7 +25,9 @@ watch -n 10 chronyc tracking
 # i2c
 echo "Detecting I2C Devices"
 sudo i2cdetect -y 1
+pause
 
 # rtc
 echo "Reading from hardware RTC"
 sudo hwclock -r
+pause
