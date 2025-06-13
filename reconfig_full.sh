@@ -49,7 +49,7 @@ sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
 echo -e "\tConfiguring hwclockset"
-sudo bash -c "cat $hwclockset_new > $hwclockset"
+sudo bash -c "cat $hwclockset_new" # > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt
