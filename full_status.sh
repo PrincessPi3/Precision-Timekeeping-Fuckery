@@ -35,3 +35,6 @@ echo -e "Reading from hardware RTC\n"
 sudo hwclock -r
 echo -e "\nPress ENTER to Continue..."
 read -p ""
+
+# clean up
+clear
