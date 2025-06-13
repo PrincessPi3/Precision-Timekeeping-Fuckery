@@ -30,13 +30,19 @@ bash ./reconfig_full.sh ./debug-level-conf-dev
 
 # enable services
 echo "Enabling Services..."
+echo -e "\tEnabling gpsd on boot"
 sudo systemctl enable gpsd 1>/dev/null
+echo -e "\tEnabling chrony on boot"
 sudo systemctl enable chrony 1>/dev/null
+echo -e "\tEnabling influxdb on boot"
 sudo systemctl enable influxdb 1>/dev/null
-sudo systemctl enable grafana-server 1>/dev/null
+echo -e "\tEnabling telegraf on boot"
 sudo systemctl enable telegraf 1>/dev/null
+echo -e "\tEnabling chrony on boot"
 sudo systemctl enable grafana-server 1>/dev/null
+echo -e "\tEnabling syslog-ng on boot"
 sudo systemctl enable syslog-ng 1>/dev/null
+echo -e "\tEnabling logrotate on boot"
 sudo systemctl enable logrotate 1>/dev/null
 
 # reboot rq
