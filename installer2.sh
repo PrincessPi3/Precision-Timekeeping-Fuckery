@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "Updating this repo..."
-git pull 1>/dev/null 2>/dev/null
+# echo "Updating this repo..."
+# git pull 1>/dev/null 2>/dev/null
 
 # updoot
 echo "Updating software lists..."
