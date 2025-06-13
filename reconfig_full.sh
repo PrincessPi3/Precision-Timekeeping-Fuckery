@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # dir on any error
+# set -e  # die on any error
 
 # make sure dir works
 if [ -z $1 ] || [ ! -d "$1" ]; then
@@ -48,7 +48,7 @@ echo -e "\tConfiguring telegraf"
 sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
-echo -e "\tConfiguring heclockset"
+echo -e "\tConfiguring hwclockset"
 sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
