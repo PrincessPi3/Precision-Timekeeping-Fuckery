@@ -60,6 +60,7 @@ if [ $grepconfig -eq 0 ]; then # if config exists, skip
     echo "/boot/firmware/config.txt already updated, skipping..."
 else
     # APPEND to /boot/firmware/config.txt
+    echo "Appending configs to /boot/firmware/config.txt"
     sudo bash -c "cat $bootfirmwareconfig_new >> $bootfirmwareconfig"
     # pps and gpio uart
     # echo "Adding lines to /boot/firmware/config.txt to enable pps and gpio uart..."
