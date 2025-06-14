@@ -26,7 +26,7 @@ watch chronyc sources
 
 # track
 echo "Watching chronyc tracking"
-watch -n 10 chronyc tracking
+watch chronyc tracking
 
 # i2c
 clear
@@ -38,6 +38,7 @@ hold_for_enter
 clear
 echo -e "Reading from hardware RTC\n"
 sudo hwclock -r
+hold_for_enter
 
 # devices
 ## tty devices
