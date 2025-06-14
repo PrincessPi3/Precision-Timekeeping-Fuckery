@@ -24,6 +24,6 @@ echo "Fixing Permissions on Repo"
 sudo chown $username:$username -R /home/$username/Precision-Timekeeping-Fuckery
 
 echo "installer_auto.sh complete" > ./status.txt
-chmod $username:$username ./status.txt
+chown $username:$username ./status.txt
 echo "Done!"
 
