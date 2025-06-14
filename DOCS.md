@@ -50,7 +50,7 @@
 5. `cd ~/Precision-Timekeeping-Fuckery && bash installer4.sh` (will reboot)
 6. `curl -s https://gitlab.com/princesspi/general-scripts-and-system-ssssssetup/-/raw/master/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL`
 7. `exec $SHELL`
-9. `webrtc_config.sh`
+9. `webhook_config.sh`
 8. `sudo reboot`
 8. Grafana
     1. open grafana web interface in a browser: `http://<ip>:3000`
