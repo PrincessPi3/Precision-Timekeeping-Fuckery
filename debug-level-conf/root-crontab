@@ -1,3 +1,3 @@
 # m h  dom mon dow   command
-# set hardware I2C RTC every hour
-0 * * * * bash /usr/sbin/hwclock -w
+# set hardware I2C RTC every 5 minutes
+*/5 * * * * bash /usr/sbin/hwclock -w
