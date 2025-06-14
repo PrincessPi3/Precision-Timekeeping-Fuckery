@@ -66,6 +66,7 @@ else
 fi
 
 echo "Setting up crontab"
+sudo crontab -e
 sudo crontab $crontab_new
 
 # start da services
