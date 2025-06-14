@@ -25,4 +25,3 @@ echo "installer_auto.sh complete" > ./status.txt
 
 echo "Running installer1.sh"
 bash installer1.sh
-
