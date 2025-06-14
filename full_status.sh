@@ -71,5 +71,11 @@ echo "hwclock status"
 sudo hwclock --verbose
 hold_for_enter
 
+# root crontab
+clear
+echo "root crontab"
+sudo crontab -l
+hold_for_enter
+
 # clean up
 clear
