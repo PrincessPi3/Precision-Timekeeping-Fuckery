@@ -22,6 +22,7 @@ function backup_logs() {
     sudo cp $telegraf $dname/telegraf.log
     sudo cp $grafana $dnamme/grafana.log
     sudo cp $syslog $dname/syslog
+    sudo cp $rootcrontab $dname/syslog
 
     # fix permissions
     sudo chown -R $USER:$USER $dname
@@ -43,8 +44,7 @@ function clear_logs() {
     sudo bash -c "echo '' > $telegraf"
     sudo bash -c "echo '' > $grafana"
     sudo bash -c " echo '' > $rootcrontab"
-    # sudo bash -c "echo '' > $syslog" # leaving syslog alone for now
-}
+    sudo bash -c "echo '' > $syslog"
 
 backup_logs
 clear_logs
