@@ -1,4 +1,4 @@
 # m h  dom mon dow   command
 # set hardware I2C RTC hourly
 0 * * * * bash -c "/usr/sbin/hwclock -w 2>> /var/log/root-crontab.log"
-@reboot bash /usr/share/customscripts/ifnet "/usr/share/customscripts/webhook bootup" 2>> /var/log/root-crontab.log
+@reboot bash -c '/usr/share/customscripts/ifnet "/usr/share/customscripts/webhook bootup" 2>> /var/log/root-crontab.log'
