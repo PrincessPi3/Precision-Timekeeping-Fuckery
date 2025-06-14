@@ -1,4 +1,16 @@
 ## Install
+### Hardware
+1. Raspberry Pi of any type
+2. Timing Specific GPS Module [U-BLOX ublox LEA-M8T-0-10 HUAWEI GPS Module](https://www.ebay.com/itm/134243322249)
+3. High Precision RTC Module like [Adafruit DS3231 Precision RTC Breakout](https://www.adafruit.com/product/3013)
+4. CR1220 Battery for RTC
+5. Female to Female jumper/dupont wires
+6. Raspberry Pi Case that Exposes GPIO
+7. (GPS Antenna)[https://www.aliexpress.us/item/3256808971033962.html]
+8. (Cable for GPS Antenna)[https://www.amazon.com/Superbat-coaxial-Bulkhead-Adapter-Equipment/dp/B07FC8PVZS?th=1]
+9. (GPS Antenna Adaptor)[https://www.amazon.com/dp/B00CVR4NN0]
+
+### Setup Pi
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
 2. `cd ~/Precision-Timekeeping-Fuckery`
 3. `bash installer1.sh` (will reboot)
