@@ -68,10 +68,12 @@ fi
 ## self
 echo "Giving  $username the right permissions..."
 sudo usermod -aG dialout $username
+sudo usermod -a -G i2c $username
 ## service users
 echo "Giving service users the right permissions..."
 sudo usermod -aG dialout gpsd
 sudo usermod -aG dialout _chrony
+sudo usermod -a -G i2c _chrony
 
 echo "installer3.sh complete" >> ./status.txt
 
