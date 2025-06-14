@@ -61,26 +61,44 @@
     5. `sudo reboot`
 
 ## Scripts
-`uninstall.sh` uninstalls everything
-`chrony_statistics.sh` uses the python script chrony_statistics.py and feeds it copies of tracking statistics to calculate offset
-`cleanup.sh` remove old files 
-`dump_configs.sh` make a backup of all configs
-`full_status.sh` show status of all of the componants of Precision-Timekeeping-Fuckery one by one
-`installer_auto.sh` script to initialize the install, it is run first
-* usage: `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
-`installer1.sh` first manual installer script. runs rpi-config and optionall rpi-update
-`installer2.sh` second manual installer script. performs a dist-upgrade and an autoremove
-`installer3.sh` third manual installer script. adds grafana and telegram repos, uninstalls and disables unneeded junk, installs packages, adds pps-gpio to /etc/modules if not there, autoremove, gives users the right groups
-`installer4.sh` final manual installer script. runs `reconfig_full.sh` and enables the services on boot
-`nuke_logs.sh` does just what it says on the tin
-`reconfig_full.sh` reconfigures services in one of the directories
-* usage: `bash reconfig_full <config_directory>`
-`services.sh` runs an operation on all of the relevant services
-* usage: `bash services.sh [start|status|stop|restart|reload|enable|disable]`
-`show_running_configs.sh` shows the current config files, one by one
-`cable-delay-calc.xlsx` spreadsheet to estimate cable delay in ns
+* `uninstall.sh` uninstalls everything
+* `chrony_statistics.sh` uses the python script chrony_statistics.py and feeds it copies of tracking statistics to calculate offset
+*`cleanup.sh` remove old files 
+* `dump_configs.sh` make a backup of all configs
+* `full_status.sh` show status of all of the componants of Precision-Timekeeping-Fuckery one by one
+* `installer_auto.sh` script to initialize the install, it is run first
+    * usage: `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
+* `installer1.sh` first manual installer script. runs rpi-config and optionall rpi-update
+* `installer2.sh` second manual installer script. performs a dist-upgrade and an autoremove
+* `installer3.sh` third manual installer script. adds grafana and telegram repos, uninstalls and disables unneeded junk, installs packages, adds pps-gpio to /etc/modules if not there, autoremove, gives users the right groups
+* `installer4.sh` final manual installer script. runs `reconfig_full.sh` and enables the services on boot
+* `nuke_logs.sh` does just what it says on the tin
+* `reconfig_full.sh` reconfigures services in one of the directories
+    * usage: `bash reconfig_full <config_directory>`
+* `services.sh` runs an operation on all of the relevant services
+    * usage: `bash services.sh [start|status|stop|restart|reload|enable|disable]`
+* `show_running_configs.sh` shows the current config files, one by one
+* `cable-delay-calc.xlsx` spreadsheet to estimate cable delay in ns
 
 ## Files
-`status.txt` this shows the progress of an ongoing install, it is automatically created at the start and deleted at the end
-`CHANGEOG.txt` this is all the latest changes
-`version.txt` version of Precision-Timekeeping-Fuckery
+* `status.txt` this shows the progress of an ongoing install, it is automatically created at the start and deleted at the end
+* `CHANGEOG.txt` this is all the latest changes
+* `version.txt` version of Precision-Timekeeping-Fuckery
+
+## Logs
+### Chrony Logs
+* `sudo tail -f /var/log/chrony/tracking.log`
+* `sudo tail -f /var/log/chrony/statistics.log`
+* `sudo tail -f /var/log/chrony/measurements.log`
+
+### Telegraf Logs
+* `sudo tail -f /var/log/telegraf/telegraf.log`
+
+### Grafana Logs 
+* `sudo tail -f /var/log/grafana/grafana.log`
+
+### Influxdb Logs
+* `sudo tail -f /var/log/syslog`
+
+### Root Crontab Logs
+* `sudo tail -f /var/log/root-crontab.log`
