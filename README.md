@@ -54,7 +54,7 @@
 
 ### Install
 #### Auto
- `curl https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh | sudo "$SHELL"`  
+ `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo "$SHELL"`  
   
 #### Manual
 Clone the repo  
