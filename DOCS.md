@@ -41,7 +41,7 @@
     4. Configure settings as you like them
     5. Burn
 #### Login to Raspberry Pi
-1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
+1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL`
 3. `cd ~/Precision-Timekeeping-Fuckery && bash installer1.sh` (will reboot)
 5. `cd ~/Precision-Timekeeping-Fuckery && bash installer2.sh` (will reboot)
 7. `cd ~/Precision-Timekeeping-Fuckery && bash installer3.sh` (will reboot)

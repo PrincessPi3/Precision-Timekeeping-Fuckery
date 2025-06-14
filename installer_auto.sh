@@ -20,10 +20,9 @@ cd /home/$username
 git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git
 cd /home/$username/Precision-Timekeeping-Fuckery
 
-# echo "Fixing Permissions on Repo"
-# sudo chown $username:$username -R /home/$username/Precision-Timekeeping-Fuckery
-
+echo "Stage 1 Complete"
 echo "installer_auto.sh complete" > ./status.txt
-# chown $username:$username ./status.txt
-echo "Done!"
+
+echo "Running installer1.sh"
+bash installer1.sh
 
