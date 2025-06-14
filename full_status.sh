@@ -1,4 +1,10 @@
 #!/bin/bash
+
+function hold_for_enter() {
+    echo -e "\nPress ENTER to Continue..."
+    read -p ""
+}
+
 # status of services
 bash ./services.sh status
 
@@ -26,15 +32,31 @@ watch -n 10 chronyc tracking
 clear
 echo -e "Detecting I2C Devices\n"
 sudo i2cdetect -y 1
-echo -e "\nPress ENTER to Continue..."
-read -p ""
+hold_for_enter
 
 # rtc
 clear
 echo -e "Reading from hardware RTC\n"
 sudo hwclock -r
-echo -e "\nPress ENTER to Continue..."
-read -p ""
+
+# devices
+## tty devices
+clear 
+echo "tty devices"
+ls -lAh /dev/tty*
+hold_for_enter
+
+## pps devices
+clear
+echo "pps devices"
+ls -lAh /dev/pps*
+hold_for_enter
+
+# i2c devices
+clear
+echo "i2c devices"
+ls -lAh /dev/i2c*
+hold_for_enter
 
 # clean up
 clear
