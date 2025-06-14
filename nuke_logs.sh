@@ -45,6 +45,7 @@ function clear_logs() {
     sudo bash -c "echo '' > $grafana"
     sudo bash -c " echo '' > $rootcrontab"
     sudo bash -c "echo '' > $syslog"
+}
 
 backup_logs
 clear_logs
