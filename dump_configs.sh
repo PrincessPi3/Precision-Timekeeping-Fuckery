@@ -30,7 +30,7 @@ sudo cp /boot/firmware/config.txt $dname/boot-firmware-config.txt
 echo -e "\tBacking up gheclock-set config"
 sudo cp /lib/udev/hwclock-set $dname/hwclock-set
 echo -e "\tBacking up root crontab"
-sudo crontab -l $dname/root-crontab
+sudo crontab -l > $dname/root-crontab
 echo -e "\tBacking up /etc/modules"
 sudo cp /etc/modules $dname/root-crontab
 
