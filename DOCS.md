@@ -37,3 +37,6 @@
 `services.sh` runs an operation on all of the relevant services
 * usage: `bash services.sh [start|status|stop|restart|reload|enable|disable]`
 `show_running_configs.sh` shows the current config files, one by one
+
+## Files
+`status.txt` this shows the progress of an ongoing install, it is automatically created at the start and deleted at the end
