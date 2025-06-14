@@ -19,7 +19,6 @@
 **Test PPS**
 * `sudo ppstest /dev/pps0`
   
-
 ### Logs Stuff
 **Chrony Logs**  
 * `sudo tail -f /var/log/chrony/tracking.log`

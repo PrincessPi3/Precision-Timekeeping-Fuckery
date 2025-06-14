@@ -15,4 +15,4 @@ cd /home/$username
 git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git
 cd /home/$username/Precision-Timekeeping-Fuckery
 echo "installer_auto.sh complete" > ./status.txt
-bash installer1.sh
+# bash installer1.sh
