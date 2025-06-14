@@ -9,7 +9,7 @@ sudo apt autoremove -y 1>/dev/null
 
 echo "Installer2.sh complete" >> ./status.txt
 
-echo "Part 2 done!"
+echo "Part 2 Done!"
 # echo "Rebooting now!"
 # sudo reboot
 echo "Rebooting in 1 minute!"

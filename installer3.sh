@@ -78,7 +78,7 @@ sudo usermod -aG i2c gpsd
 
 echo "installer3.sh complete" >> ./status.txt
 
-echo "Part 3 done!"
+echo "Part 3 Done!"
 # echo "Rebooting now!"
 # sudo reboot
 echo "Rebooting in 1 minute!!"
