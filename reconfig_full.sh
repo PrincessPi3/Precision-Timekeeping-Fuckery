@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # die on any error
+# set -e  # die on any error
 
 # make sure dir works
 if [ -z $1 ] || [ ! -d "$1" ]; then
