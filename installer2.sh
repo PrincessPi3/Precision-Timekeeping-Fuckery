@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+# set -e
 
 echo "Fully upgrading, this may take a while..."
 sudo apt dist-upgrade -y 1>/dev/null 2>&1
