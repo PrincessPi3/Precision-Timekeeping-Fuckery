@@ -62,7 +62,6 @@
 #### Manual
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
-
   
 Run raspi-config
 1. Interface Options->Serial Port
