@@ -44,19 +44,19 @@ hold_for_enter
 ## tty devices
 clear 
 echo "tty devices"
-ls -lAh /dev/tty*
+ls -lh /dev/tty* | sort -k9
 hold_for_enter
 
 ## pps devices
 clear
 echo "pps devices"
-ls -lAh /dev/pps*
+ls -lh /dev/pps* | sort -k9
 hold_for_enter
 
 # i2c devices
 clear
 echo "i2c devices"
-ls -lAh /dev/i2c*
+ls -lh /dev/i2c* | sort -k9
 hold_for_enter
 
 # clean up
