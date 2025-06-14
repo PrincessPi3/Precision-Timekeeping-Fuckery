@@ -65,8 +65,10 @@ else
     echo $?
 fi
 
-echo "Setting up crontab"
+# crontab
+echo "Setting up root crontab"
 sudo crontab -e
+echo "Installing custom root crontab"
 sudo crontab $crontab_new
 
 # start da services
