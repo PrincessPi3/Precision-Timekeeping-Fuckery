@@ -46,14 +46,16 @@
 5. `cd ~/Precision-Timekeeping-Fuckery && bash installer2.sh` (will reboot)
 7. `cd ~/Precision-Timekeeping-Fuckery && bash installer3.sh` (will reboot)
 9. `cd ~/Precision-Timekeeping-Fuckery && bash installer4.sh` (will reboot)
-10. Grafana
+10. `curl -s https://gitlab.com/princesspi/general-scripts-and-system-ssssssetup/-/raw/master/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL`
+11. `exec $SHELL`
+12. Grafana
     1. open grafana web interface in a browser: `http://<ip>:3000`
     2. username `admin` password `admin`
     3. set new password
     4. Dashboards->Import
         1. Upload Garfana-Visualization.json
     5. edit each graph and just save
-11. After 24 Hours
+13. After 24 Hours
     1. `cd ~/Precision-Timekeeping-Fuckery`
     2. `bash services.sh stop`
     3. `bash nuke_logs.sh`
