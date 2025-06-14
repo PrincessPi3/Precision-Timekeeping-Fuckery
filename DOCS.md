@@ -15,7 +15,7 @@
     4. Dashboards->Import
         1. Upload Garfana-Visualization.json
     5. edit each graph and just save
-11. after 24 hours
+11. After 24 Hours
     1. `cd ~/Precision-Timekeeping-Fuckery`
     2. `bash reconfig_full.sh ./running-warn-level-conf` (will reboot)
 
@@ -37,6 +37,9 @@
 `services.sh` runs an operation on all of the relevant services
 * usage: `bash services.sh [start|status|stop|restart|reload|enable|disable]`
 `show_running_configs.sh` shows the current config files, one by one
+`cable-delay-calc.xlsx` spreadsheet to estimate cable delay in ns
 
 ## Files
 `status.txt` this shows the progress of an ongoing install, it is automatically created at the start and deleted at the end
+`CHANGEOG.txt` this is all the latest changes
+`version.txt` version of Precision-Timekeeping-Fuckery
