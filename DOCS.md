@@ -55,7 +55,10 @@
     5. edit each graph and just save
 11. After 24 Hours
     1. `cd ~/Precision-Timekeeping-Fuckery`
-    2. `bash reconfig_full.sh ./running-warn-level-conf` (will reboot)
+    2. `bash services.sh stop`
+    3. `bash nuke_logs.sh`
+    4. `bash reconfig_full.sh ./running-warn-level-conf`
+    5. `sudo reboot`
 
 ## Scripts
 `uninstall.sh` uninstalls everything
