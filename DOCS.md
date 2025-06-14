@@ -1,9 +1,13 @@
 ## Install
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
-3. `bash ~/Precision-Timekeeping-Fuckery/installer1.sh` (will reboot)
-5. `bash ~/Precision-Timekeeping-Fuckery/installer2.sh` (will reboot)
-6. `bash ~/Precision-Timekeeping-Fuckery/installer3.sh` (will reboot)
-7. `bash ~/Precision-Timekeeping-Fuckery/installer4.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery`
+3. `bash installer1.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery`
+5. `bash installer2.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery`
+6. `bash installer3.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery`
+7. `bash installer4.sh` (will reboot)
 8. grafana
     1. pull up grafana web interface in a browser: `http://<ip>:3000`
     2. username `admin` password `admin`
