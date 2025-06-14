@@ -42,14 +42,10 @@
     5. Burn
 #### Login to Raspberry Pi
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
-2. `cd ~/Precision-Timekeeping-Fuckery`
-3. `bash installer1.sh` (will reboot)
-4. `cd ~/Precision-Timekeeping-Fuckery`
-5. `bash installer2.sh` (will reboot)
-6. `cd ~/Precision-Timekeeping-Fuckery`
-7. `bash installer3.sh` (will reboot)
-8. `cd ~/Precision-Timekeeping-Fuckery`
-9. `bash installer4.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery && bash installer1.sh` (will reboot)
+5. `cd ~/Precision-Timekeeping-Fuckery && bash installer2.sh` (will reboot)
+7. `cd ~/Precision-Timekeeping-Fuckery && bash installer3.sh` (will reboot)
+9. `cd ~/Precision-Timekeeping-Fuckery && bash installer4.sh` (will reboot)
 10. Grafana
     1. open grafana web interface in a browser: `http://<ip>:3000`
     2. username `admin` password `admin`
