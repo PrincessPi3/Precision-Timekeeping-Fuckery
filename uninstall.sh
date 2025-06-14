@@ -7,3 +7,4 @@ sudo apt purge -y telegraf grafana influxdb gpsd gpsd-clients chrony syslog-ng
 sudo apt install -y raspi-config
 cd ~
 rm -rf ~/Precision-Timekeeping-Fuckery
+sudo reboot
