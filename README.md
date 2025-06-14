@@ -54,8 +54,13 @@
 	5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Install
+#### Auto
+ `curl https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh | sudo "$SHELL"`  
+  
+#### Manual
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
+
   
 Run raspi-config
 1. Interface Options->Serial Port
