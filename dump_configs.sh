@@ -29,8 +29,10 @@ echo -e "\tBacking up /boot/firmware/config.txt"
 sudo cp /boot/firmware/config.txt $dname/boot-firmware-config.txt
 echo -e "\tBacking up gheclock-set config"
 sudo cp /lib/udev/hwclock-set $dname/hwclock-set
+echo -e "\tBacking up root crontab"
+sudo crontab -l $dname/root-crontab
 echo -e "\tBacking up /etc/modules"
-sudo cp /etc/modules $dname/etc-modules
+sudo cp /etc/modules $dname/root-crontab
 
 if [ -f /etc/udev/rules.d/50-tty.rules ]; then
     echo "/etc/udev/rules.d/50-tty.rules found, copying as well..."
