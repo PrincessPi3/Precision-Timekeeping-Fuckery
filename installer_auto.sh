@@ -10,10 +10,10 @@ else
 fi
 
 echo "Updating Software Lists"
-sudo apt update 1>/dev/null 2>/dev/null
+sudo apt update 1>/dev/null 2>&1
 
 echo "Installing git"
-sudo apt install git -y 1>/dev/null
+sudo apt install git -y 1>/dev/null 2>&1
 
 echo "Cloning Repo"
 cd /home/$username

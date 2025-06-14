@@ -28,7 +28,7 @@ fi
 
 # updoot
 echo "Getting new software lists..."
-sudo apt update 1>/dev/null
+sudo apt update 1>/dev/null 2>&1
 
 # clean up
 echo "Disabling unneeded junk..."
@@ -56,7 +56,7 @@ else
 fi
 
 echo "Cleaning up..."
-sudo apt autoremove -y 1>/dev/null # cleanup
+sudo apt autoremove -y 1>/dev/null 2>&1
 
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
