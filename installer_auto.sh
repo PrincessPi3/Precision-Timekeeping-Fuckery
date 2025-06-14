@@ -9,10 +9,19 @@ else
     username=$USER
 fi
 
+echo "Updating Software Lists"
 sudo apt update
+
+echo "Installing git"
 sudo apt install git -y
+
+echo "Cloning Repo"
 cd /home/$username
 git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git
 cd /home/$username/Precision-Timekeeping-Fuckery
-echo "installer_auto.sh complete" > ./status.txt
+
+echo "Fixing Permissions on Repo"
 sudo chown $username:$username -R /home/$username/Precision-Timekeeping-Fuckery
+
+echo "Done!"
+echo "installer_auto.sh complete" > ./status.txt
