@@ -1,7 +1,7 @@
 #!/bin/bash
 # usage
 ##  curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL
-set -e
+# set -e
 
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
