@@ -1,3 +1,4 @@
 SUBSYSTEM=="pps[0-9]*", GROUP="dialout", MODE="0660"
 SUBSYSTEM=="tty[0-9]*", GROUP="dialout", MODE="0660"
 SUBSYSTEM=="tty[A-Z]*[0-9]*", GROUP="dialout", MODE="0660"
+SUBSYSTEM=="i2c[A-Z]-*[0-9]*", GROUP="dialout", MODE="0660"
