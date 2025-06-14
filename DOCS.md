@@ -90,15 +90,11 @@
 * `sudo tail -f /var/log/chrony/tracking.log`
 * `sudo tail -f /var/log/chrony/statistics.log`
 * `sudo tail -f /var/log/chrony/measurements.log`
-
 ### Telegraf Logs
 * `sudo tail -f /var/log/telegraf/telegraf.log`
-
 ### Grafana Logs 
 * `sudo tail -f /var/log/grafana/grafana.log`
-
 ### Influxdb Logs
 * `sudo tail -f /var/log/syslog`
-
 ### Root Crontab Logs
 * `sudo tail -f /var/log/root-crontab.log`
