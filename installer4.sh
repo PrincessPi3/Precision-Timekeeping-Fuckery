@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-# echo "Updating this repo..."
-# git pull 1>/dev/null 2>/dev/null
-
 # reconfigure to normal mode
 echo "Starting configure script..."
 # info level
