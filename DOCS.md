@@ -44,10 +44,10 @@
     5. Burn
 #### Login to Raspberry Pi
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL`
-2. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash installer1.sh` (will )
-3. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash installer2.sh` (will reboot)
-4. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash installer3.sh` (will reboot)
-5. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash installer4.sh` (will reboot)
+2. `cd ~/Precision-Timekeeping-Fuckery && git pull; bash installer1.sh` (will reboot)
+3. `cd ~/Precision-Timekeeping-Fuckery && git pull; bash installer2.sh` (will reboot)
+4. `cd ~/Precision-Timekeeping-Fuckery && git pull; bash installer3.sh` (will reboot)
+5. `cd ~/Precision-Timekeeping-Fuckery && git pull; bash installer4.sh` (will reboot)
 6. `curl -s https://gitlab.com/princesspi/general-scripts-and-system-ssssssetup/-/raw/master/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL`
 7. `exec $SHELL`
 8. `configure_webhook.sh`
