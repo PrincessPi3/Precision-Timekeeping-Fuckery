@@ -2,8 +2,8 @@
 set -e
 
 # updoot
-echo "Updating software lists..."
-sudo apt update 1>/dev/null 2>/dev/null
+# echo "Updating software lists..."
+# sudo apt update 1>/dev/null 2>/dev/null
 
 echo "Fully upgrading, this may take a while..."
 sudo apt dist-upgrade -y
