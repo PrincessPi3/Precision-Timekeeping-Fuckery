@@ -34,6 +34,9 @@
 **Influxdb Logs**  
 * `sudo tail -f /var/log/syslog`
 
+**Root Crontab Logs**
+* `sudo tail -f /var/log/root-crontab.log`
+
 ## Setup
 ### Requirements
 1. Raspberry Pi with

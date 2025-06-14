@@ -8,6 +8,7 @@ chrony_measurements=/var/log/chrony/measurements.log
 telegraf=/var/log/telegraf/telegraf.log
 grafana=/var/log/grafana/grafana.log
 syslog=/var/log/syslog
+rootcrontab=/var/log/root-crontab.log
 
 function backup_logs() {
     # make log backup dir with unix timestamp
@@ -41,6 +42,7 @@ function clear_logs() {
     sudo bash -c "echo '' > $chrony_measurements"
     sudo bash -c "echo '' > $telegraf"
     sudo bash -c "echo '' > $grafana"
+    sudo bash -c " echo '' > $rootcrontab"
     # sudo bash -c "echo '' > $syslog" # leaving syslog alone for now
 }
 
