@@ -73,7 +73,7 @@ sudo usermod -a -G i2c $username
 echo "Giving service users the right permissions..."
 sudo usermod -aG dialout gpsd
 sudo usermod -aG dialout _chrony
-sudo usermod -a -G i2c _chrony
+sudo usermod -aG i2c _chrony
 
 echo "installer3.sh complete" >> ./status.txt
 
