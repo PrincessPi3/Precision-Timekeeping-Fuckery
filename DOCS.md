@@ -16,6 +16,8 @@
 1. Install (u-center)[https://www.u-blox.com/en/product/u-center] NOT u-center 2
 2. Wire UART of GPS Module to your UART
     1. Change baudrate to 115200
+    2. enable timing mode?
+    3. change cable delay to calculated value
 
 ### Wiring Everything Up
 #### GPS Module
