@@ -15,7 +15,7 @@
     1. `bash reconfig_full.sh ./running-warn-level-conf` (will reboot)
 
 ## Scripts
-`stop_clear.sh` stops services, clears logs, cleans up, and pulls from git
+`uninstall.sh` uninstalls everything
 `chrony_statistics.sh` uses the python script chrony_statistics.py and feeds it copies of tracking statistics to calculate offset
 `cleanup.sh` remove old files 
 `dump_configs.sh` make a backup of all configs
