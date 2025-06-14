@@ -76,7 +76,6 @@ echo "Giving service users the right permissions..."
 sudo usermod -aG dialout gpsd
 sudo usermod -aG dialout _chrony
 
-
 echo "installer3.sh complete" >> ./status.txt
 
 echo "Part 3 done!"

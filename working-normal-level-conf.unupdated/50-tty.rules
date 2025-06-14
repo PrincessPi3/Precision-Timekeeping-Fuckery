@@ -1,1 +1,0 @@
-SUBSYSTEM=="pps*", GROUP="dialout", MODE="0660"
