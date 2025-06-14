@@ -41,20 +41,20 @@
     4. Configure settings as you like them
     5. Burn
 #### Login to Raspberry Pi
-1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL`
+1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL && cd ~/Precision-Timekeeping-Fuckery && bash installer1.sh`
 2. `cd ~/Precision-Timekeeping-Fuckery && bash installer2.sh` (will reboot)
 3. `cd ~/Precision-Timekeeping-Fuckery && bash installer3.sh` (will reboot)
-5. `cd ~/Precision-Timekeeping-Fuckery && bash installer4.sh` (will reboot)
-6. `curl -s https://gitlab.com/princesspi/general-scripts-and-system-ssssssetup/-/raw/master/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL`
-7. `exec $SHELL`
-8. Grafana
+4. `cd ~/Precision-Timekeeping-Fuckery && bash installer4.sh` (will reboot)
+5. `curl -s https://gitlab.com/princesspi/general-scripts-and-system-ssssssetup/-/raw/master/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL`
+6. `exec $SHELL`
+7. Grafana
     1. open grafana web interface in a browser: `http://<ip>:3000`
     2. username `admin` password `admin`
     3. set new password
     4. Dashboards->Import
         1. Upload Garfana-Visualization.json
     5. edit each graph and just save
-9. After 24 Hours
+8. After 24 Hours
     1. `cd ~/Precision-Timekeeping-Fuckery`
     2. `bash services.sh stop`
     3. `bash nuke_logs.sh`

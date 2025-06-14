@@ -10,10 +10,10 @@ else
 fi
 
 echo "Updating Software Lists"
-sudo apt update > /dev/null
+sudo apt update 1>/dev/null 2>/dev/null
 
 echo "Installing git"
-sudo apt install git -y > /dev/null
+sudo apt install git -y 1>/dev/null 2>/dev/null
 
 echo "Cloning Repo"
 cd /home/$username
@@ -22,6 +22,3 @@ cd /home/$username/Precision-Timekeeping-Fuckery
 
 echo "Stage 1 Complete"
 echo "installer_auto.sh complete" > ./status.txt
-
-echo "Running installer1.sh"
-bash installer1.sh
