@@ -81,5 +81,5 @@ echo "installer3.sh complete" >> ./status.txt
 echo "Part 3 done!"
 # echo "Rebooting now!"
 # sudo reboot
-echo "Rebooting in 2 minutes!!"
-sudo shutdown -r +2
+echo "Rebooting in 5 minutes!!"
+sudo shutdown -r +5
