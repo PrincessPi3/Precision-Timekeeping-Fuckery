@@ -7,5 +7,5 @@ if [ -z $1 ]; then
 fi
 
 echo "Running $1 on Services"
-sudo systemctl $1 gpsd chrony influxdb telegraf grafana-server syslog-ng
+sudo systemctl $1 gpsd chrony influxdb telegraf grafana-server syslog-ng 1>/dev/null
 echo "services complete" >> ./status.txt
