@@ -10,8 +10,8 @@ sudo apt update 1>/dev/null 2>/dev/null
 # git pull 1>/dev/null 2>/dev/null
 
 # rpi-update
-echo "Updating Raspberry Pi firmware..."
-sudo rpi-update
+# echo "Updating Raspberry Pi firmware..."
+# sudo rpi-update
 
 # run da raspberry pi config script
 clear
