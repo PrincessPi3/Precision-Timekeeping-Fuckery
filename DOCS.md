@@ -1,5 +1,5 @@
 ## Install
-### Hardware
+### Hardware Needed
 1. Raspberry Pi of any type
 2. Timing Specific GPS Module [U-BLOX ublox LEA-M8T-0-10 HUAWEI GPS Module](https://www.ebay.com/itm/134243322249)
 3. High Precision RTC Module like [Adafruit DS3231 Precision RTC Breakout](https://www.adafruit.com/product/3013)
@@ -9,6 +9,26 @@
 7. (GPS Antenna)[https://www.aliexpress.us/item/3256808971033962.html]
 8. (Cable for GPS Antenna)[https://www.amazon.com/Superbat-coaxial-Bulkhead-Adapter-Equipment/dp/B07FC8PVZS?th=1]
 9. (GPS Antenna Adaptor)[https://www.amazon.com/dp/B00CVR4NN0]
+10. UART
+11. Solder Supplies (maybe)
+
+### Configuring Hardware
+1. Install (u-center)[https://www.u-blox.com/en/product/u-center] NOT u-center 2
+2. Wire UART of GPS Module to your UART
+    1. Change baudrate to 115200
+
+### Wiring Everything Up
+#### GPS Module
+1. GPS GND to RPi Physical Pin 6 (GND)
+2. GPS RX to RPi Physical Pin 8 (GPIO 14 / TX (UART))
+3. GPS TX to RPi Physical Pin 10 (GPIO 15 / RX (UART))
+4. GPS PPS to RPi Physical Pin 12 (GPIO 18)
+5. GPS VIN to RPi Physical Pin 27 (3.3 volts)
+#### RTC Module
+1. RTC GND to Rpi Physical Pin 9 (GND)
+3. RTC SDA to RPi Physical Pin 3 (GPIO 2 / SDA1 (I2C))
+4. RTC RCL to RPi Physical Pin 5 (GPIO 4 / SCL1 (I2C))
+5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Setup Pi
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
