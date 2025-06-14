@@ -15,7 +15,7 @@ sudo raspi-config
 echo "Installer1.sh complete" >> ./status.txt
 
 echo "Part 1 done!"
-echo "Rebooting now!"
-sudo reboot
-# echo "Rebooting in 5 minutes!!"
-# sudo shutdown -r +5
+# echo "Rebooting now!"
+# sudo reboot
+echo "Rebooting in 1 minute!"
+sudo shutdown -r +1
