@@ -37,11 +37,11 @@ sudo update-rc.d -f fake-hwclock remove 1>/dev/null 2>/dev/null
 sudo systemctl disable fake-hwclock 1>/dev/null 2>/dev/null
 
 echo "Purging unneeded junk..."
-sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" build-essential "bluez*" "alsa*" fake-hwclock 1>/dev/null
+sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" build-essential "bluez*" "alsa*" fake-hwclock 1>/dev/null 2>&1
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional python3-smbus i2c-tools picocom 1>/dev/null
+sudo apt install -y telegraf grafana influxdb pps-tools gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf iotop neovim netcat-traditional python3-smbus i2c-tools picocom 1>/dev/null 2>&1
 
 # check if pps-gpio is in /etc/modules already
 grep -e "pps-gpio" /etc/modules
