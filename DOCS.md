@@ -31,3 +31,4 @@
 * usage: `bash reconfig_full <config_directory>`
 `services.sh` runs an operation on all of the relevant services
 * usage: `bash services.sh [start|status|stop|restart|reload|enable|disable]`
+`show_running_configs.sh` shows the current config files, one by one
