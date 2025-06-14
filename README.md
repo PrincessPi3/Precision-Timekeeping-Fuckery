@@ -38,7 +38,7 @@
 ## Setup
 ### Requirements
 1. Raspberry Pi with
-	1. Raspberry Pi OS Installed
+	1. Raspberry Pi OS Light Version Installed
 	2. SSH Access
 	3. sudo permissions
 2. A timing specific GPS module, wired to the Raspberry Pi GPIOs:

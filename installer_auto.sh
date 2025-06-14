@@ -1,7 +1,7 @@
 #!/bin/bash
 # usage
 ##  curl https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh | sudo $SHELL
-set -e
+# set -e
 
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
