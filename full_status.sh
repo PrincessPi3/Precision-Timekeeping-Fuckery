@@ -59,5 +59,17 @@ echo "i2c devices"
 ls -lh /dev/i2c* | sort -k9
 hold_for_enter
 
+# rtc devices
+clear
+echo "rtc devices"
+ls -lh /dev/rtc* | sort -k9
+hold_for_enter
+
+# hwclock status
+clear
+echo "hwclock status"
+sudo hwclock --verbose
+hold_for_enter
+
 # clean up
 clear
