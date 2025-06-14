@@ -31,6 +31,16 @@
 5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Setup Pi
+#### Microsd Card
+1. Install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your PC
+2. Insert Microsd card to your PC
+3. Run Raspberry Pi Imager
+    1. Choose Device (your Raspberry Pi Type)
+    2. Choose OS->Raspberry Pi OS (other)->Raspberry Pi OS Lite (64-bit)
+    3. Choose Storage (your Microsd card)
+    4. Configure settings as you like them
+    5. Burn
+#### Login to Raspberry Pi
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo $SHELL`
 2. `cd ~/Precision-Timekeeping-Fuckery`
 3. `bash installer1.sh` (will reboot)
