@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Nuking all those stupid files"
 rm -f influxdata-archive.key 2>/dev/null
+rm -f status.txt 2>/dev/null
 rm -f *.tar.gz 2>/dev/null
 rm -f *.log 2>/dev/null
 rm -f *.bak* 2>/dev/null
