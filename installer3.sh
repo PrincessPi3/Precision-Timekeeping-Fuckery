@@ -66,7 +66,7 @@ fi
 
 # handle users serial shit
 ## self
-echo "Giving  $username the right permissions..."
+echo "Giving $username the right permissions..."
 sudo usermod -aG dialout $username
 sudo usermod -a -G i2c $username
 ## service users
