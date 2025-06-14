@@ -10,7 +10,7 @@ else
 fi
 
 echo "Updating Software Lists"
-sudo apt update
+sudo apt update > /dev/null
 
 echo "Installing git"
 sudo apt install git -y
