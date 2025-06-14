@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# updoot
-# echo "Updating software lists..."
-# sudo apt update 1>/dev/null 2>/dev/null
-
 # rpi-update
 # echo "Updating Raspberry Pi firmware..."
 # sudo rpi-update
