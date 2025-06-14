@@ -6,12 +6,12 @@ set -e
 
 # reconfigure to normal mode
 echo "Starting configure script..."
-# quiet level
-# bash ./reconfig_full.sh ./reconfig_full.sh ./working-normal-level-conf
+# info level
+# bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
 # running (warn level) 
-# bash ./reconfig_full.sh ./working-warn-level-conf
+# bash ./reconfig_full.sh ./running-warn-level-conf
 # debug/dev mode
-bash ./reconfig_full.sh ./debug-level-conf-dev
+bash ./reconfig_full.sh ./debug-level-conf
 
 # enable services
 echo "Enabling Services..."
