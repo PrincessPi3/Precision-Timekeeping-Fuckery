@@ -139,7 +139,7 @@ reconfigure_full () {
     # hwclockset_new="$1/hwclock-set"
 
     # stop da services
-    bash $git_dir/services.sh stop
+    services_cmd stop
 
     dump_configs
 
@@ -192,7 +192,7 @@ reconfigure_full () {
     echo "reconfigure_full complete" >> $status_log
 
     # start da services
-    bash $git_dir/services.sh start
+    services_cmd start
 }
 
 phase_one () {
