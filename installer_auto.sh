@@ -45,7 +45,7 @@ long_sleep () {
 
 # reboot host
 run_reboot () {
-    echo -e "\nREBOOTING IN $long_delay MINUTES\n\n"
+    echo -e "\n\nREBOOTING IN $long_delay MINUTES\n\n"
     sudo shutdown -r +$long_delay
 }
 
@@ -91,15 +91,15 @@ dump_configs () {
     # sudo cp /lib/udev/hwclock-set $dname/hwclock-set
     echo -e "\tBacking up root crontab"
     sudo crontab -l > $dname/root-crontab
-    echo -e "\tBacking up /etc/modules"
+    echo -e "\tBacking up /etc/modules\n"
     sudo cp /etc/modules $dname/root-crontab
 
     if [ -f /etc/udev/rules.d/50-tty.rules ]; then
-        echo "/etc/udev/rules.d/50-tty.rules found, copying as well..."
+        echo -e "\n/etc/udev/rules.d/50-tty.rules found, copying as well...\n"
         sudo cp /etc/udev/rules.d/50-tty.rules $dname/50-tty.rules
     fi
 
-    echo "Fixing permissions in $dname..."
+    echo -e "\nFixing permissions in $dname...\n"
     sudo chown -R $username:$username $dname
     sudo chmod 775 $dname
     sudo chmod 664 $dname/*
@@ -108,7 +108,7 @@ dump_configs () {
     tar czf $dname.tar.gz $dname
     rm -rf $dname
 
-    echo "dump_configs complete" >> ./status.txt
+    echo "dump_configs complete" >> $status_log
 }
 
 # reconfigure from dir
@@ -149,7 +149,7 @@ reconfigure_full () {
     dump_configs
 
     # replace dem by truncation
-    echo "Placing the new config files by truncation..."
+    echo -e "\nPlacing the new config files by truncation..."
     echo -e "\tConfiguring gpsd"
     sudo bash -c "cat $gpsd_new > $gpsd"
     echo -e "\tConfiguring chrony"
@@ -160,7 +160,7 @@ reconfigure_full () {
     sudo bash -c "cat $influxdb_new > $influxdb"
     echo -e "\tConfiguring telegraf"
     sudo bash -c "cat $telegraf_new > $telegraf"
-    echo -e "\tConfiguring udev"
+    echo -e "\tConfiguring udev\n"
     sudo bash -c "cat $udev_new > $udev_rule"
 
     # setup and install root crontabs
@@ -201,7 +201,7 @@ reconfigure_full () {
 }
 
 phase_one () {
-    echo -e "\nStarting 1/5\n"
+    echo -e "\n\nStarting 1/5\n\n"
 
     long_sleep
 
@@ -224,13 +224,13 @@ phase_one () {
     echo 1 > $installer_status
 
     # done
-    echo -e "\nStage 1/5 Complet\n"
+    echo -e "\n\nStage 1/5 Complet\n\n"
 
     run_reboot
 }
 
 phase_two () {
-    echo -e "\nStarting 2/5\n"
+    echo -e "\n\nStarting 2/5\n\n"
 
     long_sleep
 
@@ -247,20 +247,20 @@ phase_two () {
     read -p "Press ENTER to Continue"
     sudo raspi-config
 
-    # notify finish
-    echo -e "\nPart 2/5 Done!\n"
-
     # update the running file
     echo 2 > $installer_status
 
     # update the log
     echo "phase two complete 2/5" >> $status_log
 
+    # notify finish
+    echo -e "\n\nPart 2/5 Done!\n\n"
+
     run_reboot
 }
 
 phase_three () {
-    echo -e "\nStarting 3/5\n"
+    echo -e "\n\nStarting 3/5\n\n"
 
     long_sleep
 
@@ -278,10 +278,10 @@ phase_three () {
     echo 3 > $installer_status
 
     # notify finish
-    echo -e "\nPart 3/5 Done!\n"
+    echo -e "\n\nPart 3/5 Done!\n\n"
 
     # update the log
-    echo "Installer2.sh complete 3/5" >> $status_log
+    echo "phase three complete 3/5" >> $status_log
 
     run_reboot
 }
@@ -390,16 +390,16 @@ phase_four () {
     echo 4 > $installer_status
 
     # update the log
-    echo "installer3.sh complete 4/5" >> $status_log
+    echo "phase 4 complete 4/5" >> $status_log
 
     # finish
-    echo -e "\nPart 4/5 Done\n!"
+    echo -e "\n\nPart 4/5 Done\n\n"
 
     run_reboot
 }
 
 phase_five () {
-    echo -e "\nStarting 1/5\n"
+    echo -e "\n\nStarting part 5/5\n\n"
 
     long_sleep
 
