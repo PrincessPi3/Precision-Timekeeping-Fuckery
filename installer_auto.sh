@@ -47,7 +47,7 @@ run_reboot () {
     sudo shutdown -r +$long_delay
 }
 
-dump_configs {
+dump_configs () {
     dname=./conf-$(date +%s)
 
     long_sleep
