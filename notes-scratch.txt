@@ -8,6 +8,6 @@ manual
             #  exit 0
             # fi
         Also comment out the two lines
-            # /sbin/hwclock --rtc=$dev --systz --badyear
+            #  /sbin/hwclock --rtc=$dev --systz --badyear
             and
             # /sbin/hwclock --rtc=$dev --systz

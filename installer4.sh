@@ -42,6 +42,19 @@ sudo systemctl enable syslog-ng
 echo -e "\tEnabling logrotate on boot"
 sudo systemctl enable logrotate
 
+# edit dis
+## comment out and add note
+##     # commented out manually to use rtc
+##     # if [ -e /run/systemd/system ] ; then
+##     #  exit 0
+##     # fi
+## Also comment out the two lines
+##     #  /sbin/hwclock --rtc=$dev --systz --badyear
+##     and
+##     # /sbin/hwclock --rtc=$dev --systz
+echo "Editing hwclock-set file"
+sudo nano /lib/udev/hwclock-set
+
 # update the log
 echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
