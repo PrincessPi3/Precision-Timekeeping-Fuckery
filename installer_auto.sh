@@ -289,7 +289,7 @@ phase_three () {
 }
 
 phase_four () {
-    echo -e "\nStarting 5/5\n"
+    echo -e "\nStarting 4/5\n"
 
     long_sleep
 
