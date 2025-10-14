@@ -14,3 +14,11 @@ Installer
     updated with new settings
     set /boot/firmware/config.txt to be appended to by a config file for ease
     added package picocom
+
+edited shit
+    baud
+    pins for pps
+    configure
+        unattended-upgrades
+        restic
+    all five installers
