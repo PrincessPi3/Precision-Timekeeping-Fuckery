@@ -78,11 +78,11 @@
 #### Software (Auto)
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL`  
-2. `git -C ~/Precision-Timekeeping-Fuckery pull; bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
-3. `git -C ~/Precision-Timekeeping-Fuckery pull; bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
-4. `git -C ~/Precision-Timekeeping-Fuckery pull; bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
-5. `git -C ~/Precision-Timekeeping-Fuckery pull; bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
-6. `git -C ~/Precision-Timekeeping-Fuckery pull; bash ~/Precision-Timekeeping-Fuckery/test.sh`
+2. `bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
+3. `bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
+4. `bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
+5. `bash ~/Precision-Timekeeping-Fuckery/installer_auto.sh`
+6. `bash ~/Precision-Timekeeping-Fuckery/test.sh`
 #### Software (Manual)
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
