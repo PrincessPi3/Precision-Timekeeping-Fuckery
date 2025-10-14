@@ -46,17 +46,17 @@ bash ./dump_configs.sh
 # replace dem by truncation
 echo "Placing the new config files by truncation..."
 echo -e "\tConfiguring gpsd"
-sudo bash -c $gpsd_new > $gpsd
+sudo bash -c "cat $gpsd_new > $gpsd"
 echo -e "\tConfiguring chrony"
-sudo bash cat $chrony_new > $chrony
+sudo bash -c "cat $chrony_new > $chrony"
 echo -e "\tConfiguring grafana"
-sudo bash cat $grafana_new > $grafana
+sudo bash -c "cat $grafana_new > $grafana"
 echo -e "\tConfiguring influxdb"
-sudo cat $influxdb_new > $influxdb
+sudo bash -c "cat $influxdb_new > $influxdb"
 echo -e "\tConfiguring telegraf"
-sudo cat $telegraf_new > $telegraf
+sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
-sudo cat $udev_new > $udev_rule
+sudo bash -c "cat $udev_new > $udev_rule"
 
 # setup and install root crontabs
 # echo -e "Installing crontabs! just save file and exit with no edits"
@@ -69,7 +69,7 @@ echo -e "\nInstalling root cronjobs\n"
 ## backup first
 sudo cp /etc/sudoers /etc/sudoers.bak
 ## replace sudoers with mine
-sudo cat $sudoers_new > $sudoers
+sudo bash -c "cat $sudoers_new > $sudoers"
 ## test it
 sudo visudo -c
 ## Check for users approval to continue
@@ -80,7 +80,7 @@ read -p "Press ENTER to Continue"
 # sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
-grep -q -e "GPS PPS signals" /boot/firmware/config.txt
+sudo grep -q -e "GPS PPS signals" /boot/firmware/config.txt
 grepconfig=$?
 
 # configure the overlay
