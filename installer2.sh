@@ -18,5 +18,5 @@ echo "Installer2.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/s
 echo "Part 2 Done!"
 # echo "Rebooting now!"
 # sudo reboot
-echo "Rebooting in 1 minute!"
-sudo shutdown -r +1
+echo -e "\nREBOOTING IN 3 MINUTES\n"
+sudo shutdown -r +3

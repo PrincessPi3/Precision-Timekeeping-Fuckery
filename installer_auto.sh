@@ -9,7 +9,7 @@ else
     username=$USER
 fi
 
-echo -e "Edit sudoers file\n\t%sudo ALL = (ALL) NOPASSWD: ALL
+echo -e "Edit sudoers file\n\t%sudo ALL = (ALL) NOPASSWD: ALL"
 sudo visudo
 
 echo "Updating Software Lists"
@@ -25,3 +25,6 @@ cd /home/$username/Precision-Timekeeping-Fuckery
 
 echo "Stage 1 Complete"
 echo "installer_auto.sh complete" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
+
+echo -e "\nREBOOTING IN 3 MINUTES\n"
+sudo shutdown -r +3

@@ -39,5 +39,5 @@ echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
 echo "Part 4 Done!"
 # echo "Rebooting now!"
 # sudo reboot
-echo "Rebooting in 1 minutes!"
-sudo shutdown -r +1
+echo -e "\nREBOOTING IN 3 MINUTES\n"
+sudo shutdown -r +3
