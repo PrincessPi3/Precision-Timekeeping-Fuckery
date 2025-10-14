@@ -243,61 +243,80 @@ phase_four () {
 }
 
 phase_five () {
-# initial delay to make sure its good
-echo -e "\nSleeping $long_delay minutes\n"
-sleep $long_delay_seconds
+    # initial delay to make sure its good
+    echo -e "\nSleeping $long_delay minutes\n"
+    sleep $long_delay_seconds
 
-# reconfigure to normal mode
-echo -e "\nStarting configure script...\n"
-# info level
-# bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
-# running (warn level) 
-# bash ./reconfig_full.sh ./running-warn-level-conf
-# debug/dev mode
-bash $git_dir/reconfig_full.sh "$git_dir/info-level-conf-huawaii"
+    # reconfigure to normal mode
+    echo -e "\nStarting configure script...\n"
+    # info level
+    # bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
+    # running (warn level) 
+    # bash ./reconfig_full.sh ./running-warn-level-conf
+    # debug/dev mode
+    bash $git_dir/reconfig_full.sh "$git_dir/info-level-conf-huawaii"
 
-# safety delay
-echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-sleep $short_delay_seconds
+    # safety delay
+    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
+    sleep $short_delay_seconds
 
-# enable services
-echo -e "\nEnabling Services..."
-echo -e "\tEnabling gpsd on boot"
-sudo systemctl enable gpsd
-echo -e "\tEnabling chrony on boot"
-sudo systemctl enable chrony
-echo -e "\tEnabling influxdb on boot"
-sudo systemctl enable influxdb
-echo -e "\tEnabling telegraf on boot"
-sudo systemctl enable telegraf
-echo -e "\tEnabling grafana on boot"
-sudo systemctl enable grafana-server
-echo -e "\tEnabling syslog-ng on boot"
-sudo systemctl enable syslog-ng
-echo -e "\tEnabling logrotate on boot"
-sudo systemctl enable logrotate
+    # enable services
+    echo -e "\nEnabling Services..."
+    echo -e "\tEnabling gpsd on boot"
+    sudo systemctl enable gpsd
+    echo -e "\tEnabling chrony on boot"
+    sudo systemctl enable chrony
+    echo -e "\tEnabling influxdb on boot"
+    sudo systemctl enable influxdb
+    echo -e "\tEnabling telegraf on boot"
+    sudo systemctl enable telegraf
+    echo -e "\tEnabling grafana on boot"
+    sudo systemctl enable grafana-server
+    echo -e "\tEnabling syslog-ng on boot"
+    sudo systemctl enable syslog-ng
+    echo -e "\tEnabling logrotate on boot"
+    sudo systemctl enable logrotate
 
-# unclear if this is needed
-# edit dis
-## comment out and add note
-##     # commented out manually to use rtc
-##     # if [ -e /run/systemd/system ] ; then
-##     #  exit 0
-##     # fi
-## Also comment out the two lines
-##     #  /sbin/hwclock --rtc=$dev --systz --badyear
-##     and
-##     # /sbin/hwclock --rtc=$dev --systz
-# echo "Editing hwclock-set file"
-# sudo nano /lib/udev/hwclock-set
+    # unclear if this is needed
+    # edit dis
+    ## comment out and add note
+    ##     # commented out manually to use rtc
+    ##     # if [ -e /run/systemd/system ] ; then
+    ##     #  exit 0
+    ##     # fi
+    ## Also comment out the two lines
+    ##     #  /sbin/hwclock --rtc=$dev --systz --badyear
+    ##     and
+    ##     # /sbin/hwclock --rtc=$dev --systz
+    # echo "Editing hwclock-set file"
+    # sudo nano /lib/udev/hwclock-set
 
-# update the log
-echo "installer4.sh done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
+    # update the running file
+    echo 5 > $installer_status
 
-# finish
-echo -e "\nPart 5/5 Done! Yaay! Done!\n"
+    # update the log
+    echo "installer4.sh done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
 
-# reboot after 3 minutes for safety
-echo -e "\nREBOOTING IN $long_delay MINUTES\n"
-sudo shutdown -r +$long_delay
+    # delete tmp file
+    rm -f $status_log
+
+    # finish
+    echo -e "\nPart 5/5 Done! Yaay! Done!\n"
+
+    # reboot after 3 minutes for safety
+    echo -e "\nREBOOTING IN $long_delay MINUTES\n"
+    sudo shutdown -r +$long_delay
 }
+
+if [ -f $status_log ]; then
+    if [[ $(cat $installer_status) =~ "*1*"  ]]; then
+        phase_two
+    elif [[ $(cat $installer_status) =~ "*2*"  ]]; then
+        phase_three
+    elif [[ $(cat $installer_status) =~ "*3*"  ]]; then
+        phase_four
+    elif [[ $(cat $installer_status) =~ "*4*"  ]]; then
+        phase_five
+else
+    phase_one
+fi
