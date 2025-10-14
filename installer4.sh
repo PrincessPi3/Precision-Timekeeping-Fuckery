@@ -14,7 +14,7 @@ echo "Starting configure script..."
 # running (warn level) 
 # bash ./reconfig_full.sh ./running-warn-level-conf
 # debug/dev mode
-bash /home/$username/Precision-Timekeeping-Fuckery/ /home/$username/Precision-Timekeeping-Fuckery/info-level-conf-huawaii
+bash /home/$username/Precision-Timekeeping-Fuckery/reconfig_full.sh /home/$username/Precision-Timekeeping-Fuckery/info-level-conf-huawaii
 
 # enable services
 echo "Enabling Services..."
