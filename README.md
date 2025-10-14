@@ -63,7 +63,7 @@
 4. battery for rtc
 5. wires
 ### Wiring
-1. pins.md
+[Pins and Wiring Guide](./Pins.md)
 #### OS
 1. Raspberry Pi OS 64 bit lite
    1. Raspberry Pi imager
