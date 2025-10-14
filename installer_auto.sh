@@ -312,14 +312,16 @@ phase_five () {
 
 # do the suto thinggg
 if [ -f $status_log ]; then
-    if [[ $(cat $installer_status) =~ "*1*"  ]]; then
+    if [[ "$(cat $installer_status)" =~ "*1*"  ]]; then
         phase_two
-    elif [[ $(cat $installer_status) =~ "*2*"  ]]; then
+    elif [[ "$(cat $installer_status)" =~ "*2*"  ]]; then
         phase_three
-    elif [[ $(cat $installer_status) =~ "*3*"  ]]; then
+    elif [[ "$(cat $installer_status)" =~ "*3*"  ]]; then
         phase_four
-    elif [[ $(cat $installer_status) =~ "*4*"  ]]; then
+    elif [[ "$(cat $installer_status)" =~ "*4*"  ]]; then
         phase_five
+    else
+        exit 1
     fi
 else
     phase_one
