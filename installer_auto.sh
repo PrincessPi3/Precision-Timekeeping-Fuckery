@@ -336,7 +336,7 @@ phase_five () {
     # running (warn level) 
     # bash ./reconfig_full.sh ./running-warn-level-conf
     # debug/dev mode
-    reconfig_full "$git_dir/info-level-conf-huawaii"
+    reconfigure_full "$git_dir/info-level-conf-huawaii"
 
     # safety delay
     echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
