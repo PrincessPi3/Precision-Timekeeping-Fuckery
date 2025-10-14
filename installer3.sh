@@ -40,7 +40,7 @@ sudo apt update
 echo "Disabling unneeded junk..."
 sudo systemctl disable bluetooth
 sudo update-rc.d -f fake-hwclock remove
-sudo systemctl disable fake-hwclock
+# sudo systemctl disable fake-hwclock
 
 # install da packages
 echo "Installing packages, this may take a while..."
@@ -79,6 +79,8 @@ sudo usermod -aG dialout gpsd
 sudo usermod -aG dialout _chrony
 sudo usermod -aG i2c _chrony
 sudo usermod -aG i2c gpsd
+sudo usermod -aG tty _chrony
+sudo usermod -aG tty gpsd
 
 # installing ble.sh
 echo "Installing BLE.sh"
