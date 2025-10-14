@@ -35,7 +35,7 @@ echo -e "\tEnabling influxdb on boot"
 sudo systemctl enable influxdb
 echo -e "\tEnabling telegraf on boot"
 sudo systemctl enable telegraf
-echo -e "\tEnabling chrony on boot"
+echo -e "\tEnabling grafana on boot"
 sudo systemctl enable grafana-server
 echo -e "\tEnabling syslog-ng on boot"
 sudo systemctl enable syslog-ng

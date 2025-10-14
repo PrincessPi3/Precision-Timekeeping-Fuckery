@@ -46,20 +46,20 @@ bash ./dump_configs.sh
 # replace dem by truncation
 echo "Placing the new config files by truncation..."
 echo -e "\tConfiguring gpsd"
-sudo bash -c "cat $gpsd_new > $gpsd"
+sudo bash -c $gpsd_new > $gpsd
 echo -e "\tConfiguring chrony"
-sudo bash -c "cat $chrony_new > $chrony"
+sudo bash cat $chrony_new > $chrony
 echo -e "\tConfiguring grafana"
-sudo bash -c "cat $grafana_new > $grafana"
+sudo bash cat $grafana_new > $grafana
 echo -e "\tConfiguring influxdb"
-sudo bash -c "cat $influxdb_new > $influxdb"
+sudo cat $influxdb_new > $influxdb
 echo -e "\tConfiguring telegraf"
-sudo bash -c "cat $telegraf_new > $telegraf"
+sudo cat $telegraf_new > $telegraf
 echo -e "\tConfiguring udev"
-sudo bash -c "cat $udev_new > $udev_rule"
+sudo cat $udev_new > $udev_rule
 
 # setup and install root crontabs
-echo -e "\tInstalling crontabs! just save file and exit with no edits"
+echo -e "Installing crontabs! just save file and exit with no edits"
 read -p "Press ENTER to Continue"
 sudo crontab -e
 (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
@@ -88,17 +88,17 @@ if [ $grepconfig -eq 0 ]; then # if config exists, skip
 else
     # APPEND to /boot/firmware/config.txt
     echo "Appending configs to /boot/firmware/config.txt"
-    sudo bash -c "cat $bootfirmwareconfig_new >> $bootfirmwareconfig"
+    sudo cat $bootfirmwareconfig_new >> $bootfirmwareconfig
     echo $?
 fi
 
 # crontab
-echo "Setting up root crontab"
-sudo crontab -e
-echo "Installing custom root crontab"
-sudo crontab $crontab_new
+# echo "Setting up root crontab"
+# sudo crontab -e
+# echo "Installing custom root crontab"
+# sudo crontab $crontab_new
 
 # start da services
 bash /home/$username/services.sh start
 
-echo "reconfig_full.sh complete" >> ./status.txt
+echo "reconfig_full.sh complete" >> /home/$username/status.txt
