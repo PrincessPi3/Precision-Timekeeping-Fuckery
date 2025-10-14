@@ -62,13 +62,26 @@
 3. rtc
 4. battery for rtc
 5. wires
-#### Auto
+### Wiring
+1. pins.md
+#### OS
+1. Raspberry Pi OS 64 bit lite
+   1. Raspberry Pi imager
+   2. Configure in imager
+      1. hostname: grandmasterclock
+      2. enable ssh
+      3. ssh key
+      4. username
+      5. password
+      6. locale
+      7. keyboard
+#### Software
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo "$SHELL"`  
-2. `bash ~/Precision-Timekeeping-Fuckery/installer1.sh`
-3. `bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
-4. `bash ~/Precision-Timekeeping-Fuckery/installer3.sh`
-5. `bash ~/Precision-Timekeeping-Fuckery/installer4.sh`
+2. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer1.sh`
+3. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
+4. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer3.sh`
+5. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer4.sh`
 
 #### Manual
 Clone the repo  
