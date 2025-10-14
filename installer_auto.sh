@@ -457,6 +457,8 @@ phase_five () {
     run_reboot
 }
 
+echo -e "\nPrecision Timekeeping Fuckery :3\n"
+
 # updoot repo
 git -C ~/Precision-Timekeeping-Fuckery pull
 
