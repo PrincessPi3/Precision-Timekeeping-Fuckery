@@ -9,8 +9,8 @@ else
     username=$USER
 fi
 
-echo "Edit sudoers file"
-sudo visudo -e
+echo -e "Edit sudoers file\n\t%sudo ALL = (ALL) NOPASSWD: ALL
+sudo visudo
 
 echo "Updating Software Lists"
 sudo apt update 
