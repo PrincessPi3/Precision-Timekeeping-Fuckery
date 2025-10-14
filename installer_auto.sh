@@ -64,7 +64,6 @@ reconfigure_full () {
     udev_rule="/etc/udev/rules.d/50-tty.rules"
     bootfirmwareconfig="/boot/firmware/config.txt"
     sudoers="/etc/sudoers"
-    devnull="/dev/null"
     # hwclockset="/lib/udev/hwclock-set"
 
     # new conf file paths
@@ -102,7 +101,7 @@ reconfigure_full () {
 
     # setup and install root crontabs
     echo -e "\nInstalling root cronjobs\n"
-    (sudo crontab -l 2>$devnull && sudo cat $crontab_new) | sudo crontab -
+    (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
     # set up passwordless sudo
     ## backup first
@@ -224,7 +223,7 @@ phase_four () {
     echo -e "\nAdd Grafana repo...\n"
     sudo mkdir -p /etc/apt/keyrings/
     wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list >$devnull # otherwisse get some stupid binary output to terminal
+    echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list >/dev/null # otherwisse get some stupid binary output to terminal
 
     # telegraf repo and install
     echo -e "\nAdd Telegraf repo...\n"
@@ -235,7 +234,7 @@ phase_four () {
     | gpg --dearmor \
     | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive.gpg \
     && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
-    | sudo tee /etc/apt/sources.list.d/influxdata.list >$devnull # otherwisse get some stupid binary output to terminal
+    | sudo tee /etc/apt/sources.list.d/influxdata.list >/dev/null # otherwisse get some stupid binary output to terminal
 
     # remove dat key file thing
     if [ -f /home/$username/influxdata-archive.key ]; then
