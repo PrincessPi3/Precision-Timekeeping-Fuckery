@@ -14,7 +14,7 @@ todo: buy links
 | White  | 6 - TP1        | Time Pulse 1/PPS     | 12 - GPIO 18               | 3.3 V            | NOT 5 V TOLERANT                                          |
 | Purple | 7 - TP2        | Time Pulse 2/PPS     | NC? (16 - GPIO 23)               | 3.3 V            | NOT 5 V TOLERANT                                          |
 | Green  | 5 - RXD        | UART Receive         | 8 - UART Transmit          | 3.3 V            | NOT 5 V TOLERANT                                          |
-| Grey   | 3 - TXD        | UART Transmit      | 10 - UART Receive          | 3.3  V           | NOT 5 V TOLERANT                                          |
+| Grey   | 3 - T59XD        | UART Transmit      | 10 - UART Receive          | 3.3  V           | NOT 5 V TOLERANT                                          |
 | Orange | 1 - VCC_ANT    | Antenna Power Supply | NC? Regulated Power Supply | 5.0 V Max 100 mA   | MUST USE REGULATED POWER SUPPLY AND UNKNOWN 3 V TOLERANCE |
 
 ## Adafruit DS3231 Precision RTC Breakout
