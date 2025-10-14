@@ -379,7 +379,7 @@ phase_four () {
 
     # general-scripts-and-system-ssssssetup
     echo -e "\nInstalling general-scripts-and-system-ssssssetup\n"
-    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL"
+    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL
 
     # update the running file
     echo 4 > $installer_status
@@ -459,12 +459,12 @@ phase_five () {
 
 echo -e "\nPrecision Timekeeping Fuckery :3\n"
 
-# updoot repo
-git -C ~/Precision-Timekeeping-Fuckery pull
-
 # do the suto thinggg
 # if da file is there
 if [ -f $status_log ]; then
+    # updoot repo
+    git -C $git_dir pull
+
     if [[ "$(cat $installer_status)" == 1 ]]; then
         phase_two
     elif [[ "$(cat $installer_status)" == 2 ]]; then
