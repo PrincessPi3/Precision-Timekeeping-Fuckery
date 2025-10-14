@@ -13,7 +13,7 @@ short_delay=1
 first_install="git"
 
 # packages
-packages="util-linux util-linux-extra gawk telegraf grafana influxdb restic build-essential net-tools htop btop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip ripgrep pps-tools gh gpsd gpsd-clients chrony syslog-ng iptraf-ng i2c-tools picocom"
+packages="python3-smbus util-linux util-linux-extra gawk telegraf grafana influxdb restic build-essential net-tools htop btop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip ripgrep pps-tools gh gpsd gpsd-clients chrony syslog-ng iptraf-ng i2c-tools picocom"
 
 # purge packages
 purge_packages='"apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"'
