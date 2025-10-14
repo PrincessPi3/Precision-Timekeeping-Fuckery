@@ -18,6 +18,17 @@ packages="util-linux gawk telegraf grafana influxdb restic build-essential net-t
 # purge packages
 purge_packages='"apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"'
 
+# configs place in system
+gpsd="/etc/default/gpsd"
+chrony="/etc/chrony/conf.d/precision_timekeeping.conf"
+grafana="/etc/grafana/grafana.ini"
+influxdb="/etc/influxdb/influxdb.conf"
+telegraf="/etc/telegraf/telegraf.conf"
+udev_rule="/etc/udev/rules.d/50-tty.rules"
+bootfirmwareconfig="/boot/firmware/config.txt"
+sudoers="/etc/sudoers"
+# hwclockset="/lib/udev/hwclock-set"
+
 # get real username (not root) if run with sudo
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
@@ -76,23 +87,23 @@ dump_configs () {
 
     echo "Copying the config files"
     echo -e "\tBacking up gpsd config"
-    sudo cp /etc/default/gpsd $dname/gpsd
+    sudo cp $gpsd $dname/gpsd
     echo -e "\tBacking up chrony config"
-    sudo cp /etc/chrony/chrony.conf $dname/chrony.conf 
+    sudo cp $chrony $dname/chrony.conf 
     echo -e "\tBacking up grafana config"
-    sudo cp /etc/grafana/grafana.ini $dname/grafana.ini 
+    sudo cp $grafana $dname/grafana.ini 
     echo -e "\tBacking up influxdb config"
-    sudo cp /etc/influxdb/influxdb.conf $dname/influxdb.conf
+    sudo cp $influxdb $dname/influxdb.conf
     echo -e "\tBacking up telegraf config"
-    sudo cp /etc/telegraf/telegraf.conf $dname/telegraf.conf
+    sudo cp $telegraf $dname/telegraf.conf
     echo -e "\tBacking up /boot/firmware/config.txt"
-    sudo cp /boot/firmware/config.txt $dname/boot-firmware-config.txt
+    sudo cp $telegraf $dname/boot-firmware-config.txt
     echo -e "\tBacking up gheclock-set config"
-    # sudo cp /lib/udev/hwclock-set $dname/hwclock-set
     echo -e "\tBacking up root crontab"
     sudo crontab -l > $dname/root-crontab
     echo -e "\tBacking up /etc/modules\n"
-    sudo cp /etc/modules $dname/root-crontab
+    sudo cp $modules $dname/root-crontab
+    echo -e "\tBacking up root crontab"
 
     if [ -f /etc/udev/rules.d/50-tty.rules ]; then
         echo -e "\n/etc/udev/rules.d/50-tty.rules found, copying as well...\n"
@@ -118,18 +129,6 @@ reconfigure_full () {
         echo "usage reconfigure_full /path/to/config/dir"
         exit 1
     fi
-
-    # paths
-    ## place in system
-    gpsd="/etc/default/gpsd"
-    chrony="/etc/chrony/conf.d/precision_timekeeping.conf"
-    grafana="/etc/grafana/grafana.ini"
-    influxdb="/etc/influxdb/influxdb.conf"
-    telegraf="/etc/telegraf/telegraf.conf"
-    udev_rule="/etc/udev/rules.d/50-tty.rules"
-    bootfirmwareconfig="/boot/firmware/config.txt"
-    sudoers="/etc/sudoers"
-    # hwclockset="/lib/udev/hwclock-set"
 
     # new conf file paths
     gpsd_new=""$1/gpsd""
