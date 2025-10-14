@@ -32,11 +32,26 @@ installer_status="$git_dir/installer.tmp"
 long_delay_seconds=$(($long_delay * 60))
 short_delay_seconds=$(($short_delay * 60))
 
+short_sleep () {
+    echo -e "\nSleeping $short_delay minutes to make sure everything is as stable as possible\n"
+    sleep $short_delay_seconds
+}
+
+long_sleep () {
+    echo -e "\nSleeping $long_delay minutes to make sure everything is as stable as possible\n"
+    sleep $long_delay_seconds
+}
+
+run_reboot () {
+    echo -e "\nREBOOTING IN $long_delay MINUTES\n"
+    sudo shutdown -r +$long_delay
+}
+
 reconfigure_full () {
     # make sure dir works
     if [ -z $1 ] || [ ! -d "$1" ]; then
-        echo "usage bash reconfig_full.sh /path/to/config/dir"
-        exit
+        echo "usage reconfigure_full /path/to/config/dir"
+        exit 1
     fi
 
     # paths
@@ -123,9 +138,7 @@ reconfigure_full () {
 }
 
 phase_one () {
-    # initial delay to make sure its good
-    echo -e "\nSleeping $long_delay minutes to make sure everything is as stable as possible\n"
-    sleep $long_delay_seconds
+    long_sleep
 
     # updoot
     echo -e "\nUpdating Software Lists\n"
@@ -148,23 +161,17 @@ phase_one () {
     # done
     echo -e "\nStage 1/5 Complet\n"
 
-    # reboot after 3 minutes for safety
-    echo -e "\nREBOOTING IN 3 MINUTES\n"
-    sudo shutdown -r +$long_delay
+    run_reboot
 }
 
 phase_two () {
-    # initial delay to make sure its good
-    echo -e "\nSleeping 3 minutes to make sure everything is as stable as possible\n"
-    sleep $long_delay_seconds
+    long_sleep
 
     # rpi-update
     echo -e "\nUpdating Raspberry Pi firmware... DO NOT REBOOT\n"
     sudo rpi-update
 
-    # safety delay
-    echo -e "\nSleeping $short_delay_seconds seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # run da raspberry pi config script
     clear
@@ -182,15 +189,11 @@ phase_two () {
     # update the log
     echo "installer1.sh complete 2/5" >> $status_log
 
-    # reboot after 3 minutes for safety
-    echo -e "\nREBOOTING IN 3 MINUTES\n"
-    sudo shutdown -r +$long_delay
+    run_reboot
 }
 
 phase_three () {
-    # initial delay to make sure its good
-    echo -e "\nSleeping $long_delay minutes to make sure everything is as stable as possible\n"
-    sleep $long_delay_seconds
+    long_sleep
 
     # full distribution upgrade
     echo -e "\nFully upgrading, this may take a while...\n"
@@ -213,15 +216,11 @@ phase_three () {
     # update the log
     echo "Installer2.sh complete 3/5" >> $status_log
 
-    # reboot after 3 minutes for safety
-    echo -e "\nREBOOTING IN 3 MINUTES\n"
-    sudo shutdown -r +$long_delay
+    run_reboot
 }
 
 phase_four () {
-    # initial delay to make sure its good
-    echo -e "\nSleeping 3 minutes to make sure everything is as stable as possible\n"
-    sleep $long_delay_seconds
+    long_sleep
 
     # grafana repo and install
     echo -e "\nAdd Grafana repo...\n"
@@ -252,9 +251,7 @@ phase_four () {
     echo -e "\nGetting new software lists...\n"
     sudo apt update 
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possibl\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # clean up
     echo -e "\nDisabling unneeded junk..\n"
@@ -266,9 +263,7 @@ phase_four () {
     echo -e "\nInstalling packages, this may take a while...\n"
     sudo bash -c "apt install -y $packages"
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # purging da junk
     # dont actually think this is at worth the space savings
@@ -306,9 +301,7 @@ phase_four () {
     sudo usermod -aG tty _chrony
     sudo usermod -aG tty gpsd
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # installing ble.sh
     echo -e "\nInstalling BLE.sh\n"
@@ -318,9 +311,7 @@ phase_four () {
     echo -e "\n# ble.sh" >> $bashrc
     echo "source -- /home/$username/.local/share/blesh/ble.sh" >> $bashrc
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # general-scripts-and-system-ssssssetup
     echo -e "\nInstalling general-scripts-and-system-ssssssetup\n"
@@ -335,15 +326,11 @@ phase_four () {
     # finish
     echo -e "\nPart 4/5 Done\n!"
 
-    # reboot after 3 minutes for safety
-    echo -e "\nREBOOTING IN 3 MINUTES\n"
-    sudo shutdown -r +$long_delay
+    run_reboot
 }
 
 phase_five () {
-    # initial delay to make sure its good
-    echo -e "\nSleeping $long_delay minutes\n"
-    sleep $long_delay_seconds
+    long_sleep
 
     # reconfigure to normal mode
     echo -e "\nStarting configure script...\n"
@@ -395,15 +382,13 @@ phase_five () {
     # update the log
     echo "installer4.sh done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
 
-    # delete tmp file
-    rm -f $status_log
+    # finish the tmp file
+    echo "installed" > $installer_status
 
     # finish
     echo -e "\nPart 5/5 Done! Yaay! Done!\n"
 
-    # reboot after 3 minutes for safety
-    echo -e "\nREBOOTING IN $long_delay MINUTES\n"
-    sudo shutdown -r +$long_delay
+    run_reboot
 }
 
 # do the suto thinggg

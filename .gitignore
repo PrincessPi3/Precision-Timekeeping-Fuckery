@@ -1,5 +1,5 @@
-old
 *.bak*
+*.tmp
 scratch.*
 chrony_statistics.log
 conf-*
