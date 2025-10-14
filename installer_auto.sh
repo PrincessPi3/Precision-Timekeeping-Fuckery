@@ -32,6 +32,7 @@ installer_status="$git_dir/installer.tmp"
 long_delay_seconds=$(($long_delay * 60))
 short_delay_seconds=$(($short_delay * 60))
 
+# stability sleeps
 short_sleep () {
     echo -e "\nSleeping $short_delay minutes to make sure everything is as stable as possible\n"
     sleep $short_delay_seconds
@@ -42,11 +43,13 @@ long_sleep () {
     sleep $long_delay_seconds
 }
 
+# reboot host
 run_reboot () {
     echo -e "\nREBOOTING IN $long_delay MINUTES\n"
     sudo shutdown -r +$long_delay
 }
 
+# handle the services
 services_cmd () {
     short_sleep
 
@@ -60,6 +63,7 @@ services_cmd () {
     echo "services complete" >> $status_log
 }
 
+# dump/backup configs
 dump_configs () {
     dname=./conf-$(date +%s)
 
@@ -107,6 +111,7 @@ dump_configs () {
     echo "dump_configs complete" >> ./status.txt
 }
 
+# reconfigure from dir
 reconfigure_full () {
     # make sure dir works
     if [ -z $1 ] || [ ! -d "$1" ]; then
