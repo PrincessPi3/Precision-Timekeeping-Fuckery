@@ -311,6 +311,7 @@ phase_five () {
 }
 
 # do the suto thinggg
+# if da file is there
 if [ -f $status_log ]; then
     if [[ "$(cat $installer_status)" == 1 ]]; then
         phase_two
@@ -323,6 +324,7 @@ if [ -f $status_log ]; then
     else
         exit 1
     fi
+# if da file is not there
 else
     phase_one
 fi
