@@ -9,6 +9,9 @@ figure out configing the ffuckin thing in uthing
     increase the baud rate
         boot-firmware-config.txt /boot/firmware/config.txt
         gpsd /etc/default/gpsd
+/boot/firmware/config.txt
+    baudrate 9600
+    pps pin 23
 stop each service
     bash ~/Precision-Timekeeping-Fuckery/services.sh stop
 start one by one to see any errors

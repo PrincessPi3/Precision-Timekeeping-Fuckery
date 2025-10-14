@@ -1,7 +1,7 @@
 
 # Precision Timekeeping Fuckery Additions
 ## GPS PPS GPIO Signal
-dtoverlay=pps-gpio,gpiopin=18
+dtoverlay=pps-gpio,gpiopin=23
 
 ## GPS GPIO UART
 enable_uart=1
