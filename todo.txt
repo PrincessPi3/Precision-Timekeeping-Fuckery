@@ -42,3 +42,9 @@ let run unimpeeded
 automate
     visudo
     root crontab
+root crontab
+    # set the system time from the RTC every reboot
+    @reboot hwclock -s 
+
+    # set the RTC from the system time every four hours
+    0 */4 * * * hwclock -w
