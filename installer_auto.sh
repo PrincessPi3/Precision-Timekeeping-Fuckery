@@ -45,7 +45,7 @@ long_sleep () {
 
 # reboot host
 run_reboot () {
-    echo -e "\nREBOOTING IN $long_delay MINUTES\n"
+    echo -e "\nREBOOTING IN $long_delay MINUTES\n\n"
     sudo shutdown -r +$long_delay
 }
 
