@@ -25,6 +25,7 @@ udev_rule="/etc/udev/rules.d/50-tty.rules"
 bootfirmwareconfig="/boot/firmware/config.txt"
 sudoers="/etc/sudoers"
 # hwclockset="/lib/udev/hwclock-set"
+
 # new conf file paths
 gpsd_new=""$1/gpsd""
 chrony_new="$1/chrony.conf"
@@ -33,15 +34,15 @@ influxdb_new="$1/influxdb.conf"
 telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 bootfirmwareconfig_new="$1/boot-firmware-config.txt"
-# hwclockset_new="$1/hwclock-set"
 crontab_new="$1/root-crontab"
 sudoers_new="$1/sudoers"
+# hwclockset_new="$1/hwclock-set"
 
 # stop da services
-bash ./services.sh stop
+bash /home/$username/services.sh stop
 
 # backup conf
-bash ./dump_configs.sh
+bash /home/$username/dump_configs.sh
 
 # replace dem by truncation
 echo "Placing the new config files by truncation..."
