@@ -411,10 +411,6 @@ phase_five () {
     # debug/dev mode
     reconfigure_full "$git_dir/info-level-conf-huawaii"
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
-
     # enable services
     echo -e "\nEnabling Services..."
     echo -e "\tEnabling gpsd on boot"
