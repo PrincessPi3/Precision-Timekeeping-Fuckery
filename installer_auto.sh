@@ -462,7 +462,7 @@ echo -e "\nPrecision Timekeeping Fuckery :3\n"
 # do the suto thinggg
 # if da file is there
 if [ -f $status_log ]; then
-    # updoot repo
+    # updoot repo any time the repo is downloaded
     git -C $git_dir pull
 
     if [[ "$(cat $installer_status)" == 1 ]]; then
