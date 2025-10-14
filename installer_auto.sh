@@ -196,6 +196,8 @@ reconfigure_full () {
 }
 
 phase_one () {
+    echo -e "\nStarting 1/5\n"
+
     long_sleep
 
     # updoot
@@ -223,6 +225,8 @@ phase_one () {
 }
 
 phase_two () {
+    echo -e "\nStarting 2/5\n"
+
     long_sleep
 
     # rpi-update
@@ -251,6 +255,8 @@ phase_two () {
 }
 
 phase_three () {
+    echo -e "\nStarting 3/5\n"
+
     long_sleep
 
     # full distribution upgrade
@@ -276,6 +282,8 @@ phase_three () {
 }
 
 phase_four () {
+    echo -e "\nStarting 5/5\n"
+
     long_sleep
 
     # grafana repo and install
@@ -386,10 +394,12 @@ phase_four () {
 }
 
 phase_five () {
+    echo -e "\nStarting 1/5\n"
+
     long_sleep
 
     # reconfigure to normal mode
-    echo -e "\nStarting configure script...\n"
+    echo -e "\nStarting configurAation\n"
     # info level
     # bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
     # running (warn level) 
