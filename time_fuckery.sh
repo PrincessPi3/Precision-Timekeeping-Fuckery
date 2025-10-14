@@ -229,7 +229,7 @@ phase_one () {
     git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git $git_dir
 
     # update the log
-    echo -e "START AT $(date +%s)installer_auto.sh\ncomplete 1/5" >> $status_log
+    echo -e "START AT $(date +%s) time_fuckery.sh\ncomplete 1/5" >> $status_log
 
     # update the running file
     echo 1 > $installer_status
