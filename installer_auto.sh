@@ -14,10 +14,6 @@ fi
 echo "Sleeping 3 minutes"
 sleep 180
 
-# passwordless sudo
-echo -e "Edit sudoers file\n\t%sudo ALL = (ALL) NOPASSWD: ALL"
-sudo visudo
-
 # updoot
 echo "Updating Software Lists"
 sudo apt update 
