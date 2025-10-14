@@ -97,6 +97,6 @@ echo "Installing custom root crontab"
 sudo crontab $crontab_new
 
 # start da services
-bash /home/$username/services.sh start # 1>/dev/null
+bash /home/$username/services.sh start
 
 echo "reconfig_full.sh complete" >> ./status.txt
