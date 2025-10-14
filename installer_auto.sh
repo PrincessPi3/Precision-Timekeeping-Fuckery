@@ -56,7 +56,7 @@ long_sleep () {
 
 # reboot host
 run_reboot () {
-    echo -e "\n\nREBOOTING IN $long_delay MINUTES\n\n"
+    echo -e "\n\nREBOOTING IN $long_delay MINUTES!\n\n"
     sudo shutdown -r +$long_delay
 }
 
@@ -450,7 +450,7 @@ phase_five () {
     echo 5 > $installer_status
 
     # update the log
-    echo "installer4.sh done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
+    echo "phase 5 done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
 
     # finish the tmp file
     echo "installed" > $installer_status
