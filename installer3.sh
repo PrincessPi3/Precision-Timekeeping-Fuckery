@@ -88,6 +88,10 @@ echo '# ble.sh' >> /home/$username/.bashrc
 echo -e "\n# ble.sh" >> /home/$username/.bashrc
 echo "source -- /home/$username/.local/share/blesh/ble.sh" >> /home/$username/.bashrc
 
+# general-scripts-and-system-ssssssetup
+echo "Installing general-scripts-and-system-ssssssetup"
+curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL"
+
 # update the log
 cd /home/$username/Precision-Timekeeping-Fuckery
 echo "installer3.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
