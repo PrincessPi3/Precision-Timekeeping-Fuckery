@@ -59,9 +59,10 @@ echo -e "\tConfiguring udev"
 sudo cat $udev_new > $udev_rule
 
 # setup and install root crontabs
-echo -e "Installing crontabs! just save file and exit with no edits"
-read -p "Press ENTER to Continue"
-sudo crontab -e
+# echo -e "Installing crontabs! just save file and exit with no edits"
+# read -p "Press ENTER to Continue"
+# sudo crontab -e
+echo -e "\nInstalling root cronjobs\n"
 (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
 # set up passwordless sudo
