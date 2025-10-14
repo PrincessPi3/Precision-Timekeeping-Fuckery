@@ -77,7 +77,7 @@
       7. keyboard
 #### Software (Auto)
 **WILL REBOOT IN BETWEEN EACH COMMAND**
-1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo "$SHELL"`  
+1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | "$SHELL"`  
 2. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer1.sh`
 3. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
 4. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer3.sh`
