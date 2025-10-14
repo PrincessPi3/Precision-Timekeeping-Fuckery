@@ -9,29 +9,29 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes to make sure everything is as stable as possible"
+echo -e "\nSleeping 3 minutes to make sure everything is as stable as possible\n"
 sleep 180
 
 # rpi-update
-echo "Updating Raspberry Pi firmware... DO NOT REBOOT"
+echo -e "\nUpdating Raspberry Pi firmware... DO NOT REBOOT\n"
 sudo rpi-update
 
 # safety delay
-echo "Sleeping 60 seconds to make sure its as stable as possible"
+echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
 sleep 60
 
 # run da raspberry pi config script
 clear
-echo "Configure Raspberry Pi... DO NOT REBOOT"
+echo -e "\nConfigure Raspberry Pi... DO NOT REBOOT\n"
 echo -e "Enable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Would you like the ARM I2C interface to be enabled? <Yes>\n\tkernel module loaded by default <Yes>\n\nInterface Options->Serial Port\n\tWould you like a login shell to be accessible over serial? <No>\n\tWould you like the serial port hardware to be enabled? <Yes>\n"
 read -p "Press ENTER to Continue"
 sudo raspi-config
 
-# update the log
-echo "Installer1.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
-
 # notify finish
-echo "Part 1 Done!"
+echo -e "\nPart 2/5 Done!\n"
+
+# update the log
+echo "Installer1.sh complete 2/5" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
 # reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"

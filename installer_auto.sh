@@ -11,31 +11,27 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes to make sure everything is as stable as possible"
+echo -e "\nSleeping 3 minutes to make sure everything is as stable as possible\n"
 sleep 180
 
 # updoot
-echo "Updating Software Lists"
+echo -e "\nUpdating Software Lists\n"
 sudo apt update 
 
 # install get for next step
-echo "Installing git"
+echo -e "\nInstalling git\n"
 sudo apt install -y git
 
 # download da thing
 echo "Cloning Repo"
-cd /home/$username
-git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git
-
-# done
-echo "Stage 1 Complete"
+git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git /home/$username/Precision-Timekeeping-Fuckery
 
 # update the log
-echo "installer_auto.sh complete" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
+echo -e "START AT $(date +%s)installer_auto.sh\ncomplete 1/5" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
+
+# done
+echo -e "\nStage 1/5 Complet\n"
 
 # reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"
 sudo shutdown -r +3
-
-# passwordless sudo for sudo group
-# %sudo ALL = (ALL) NOPASSWD: ALL

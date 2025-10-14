@@ -9,11 +9,11 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes"
+echo -e "\nSleeping 3 minutes\n"
 sleep 180
 
 # reconfigure to normal mode
-echo "Starting configure script..."
+echo -e "\nStarting configure script...\n"
 # info level
 # bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
 # running (warn level) 
@@ -22,11 +22,11 @@ echo "Starting configure script..."
 bash /home/$username/Precision-Timekeeping-Fuckery/reconfig_full.sh /home/$username/Precision-Timekeeping-Fuckery/info-level-conf-huawaii
 
 # safety delay
-echo "Sleeping 60 seconds to make sure its as stable as possible"
+echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
 sleep 60
 
 # enable services
-echo "Enabling Services..."
+echo -e "\nEnabling Services..."
 echo -e "\tEnabling gpsd on boot"
 sudo systemctl enable gpsd
 echo -e "\tEnabling chrony on boot"
@@ -57,10 +57,10 @@ sudo systemctl enable logrotate
 # sudo nano /lib/udev/hwclock-set
 
 # update the log
-echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
+echo "installer4.sh done 5/5\nCOMPLETE AT $(date +%s)" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
 # finish
-echo "Part 4 Done!"
+echo -e "\nPart 5/5 Done! Yaay! Done!\n"
 
 # reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"
