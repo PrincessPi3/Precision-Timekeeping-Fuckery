@@ -61,16 +61,18 @@ sudo bash -c "cat $udev_new > $udev_rule"
 # setup and install root crontabs
 echo -e "\tInstalling crontabs! just save file and exit with no edits"
 read -p "Press ENTER to Continue"
+sudo crontab -e
 (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
+## test it
+# sudo visudo -c
 
 # set up passwordless sudo
 ## backup first
 sudo cp /etc/sudoers /etc/sudoers.bak
 ## replace sudoers with mine
 sudo cat $sudoers_new > $sudoers
-## test it
-# sudo visudo -c
-## config hwclockset
+
+# config hwclockset
 # echo -e "\tConfiguring hwclockset"
 # sudo bash -c "cat $hwclockset_new > $hwclockset"
 
