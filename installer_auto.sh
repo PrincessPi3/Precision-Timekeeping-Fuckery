@@ -47,7 +47,7 @@ run_reboot () {
     sudo shutdown -r +$long_delay
 }
 
-services_cmd ()
+services_cmd () {
     short_sleep
 
     if [ -z $1 ]; then
