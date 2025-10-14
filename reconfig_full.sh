@@ -16,8 +16,8 @@ influxdb="/etc/influxdb/influxdb.conf"
 telegraf="/etc/telegraf/telegraf.conf"
 udev_rule="/etc/udev/rules.d/50-tty.rules"
 bootfirmwareconfig="/boot/firmware/config.txt"
-hwclockset="/lib/udev/hwclock-set"
-## new conf file paths
+# hwclockset="/lib/udev/hwclock-set"
+# new conf file paths
 gpsd_new=""$1/gpsd""
 chrony_new="$1/chrony.conf"
 grafana_new="$1/grafana.ini"
@@ -25,7 +25,7 @@ influxdb_new="$1/influxdb.conf"
 telegraf_new="$1/telegraf.conf"
 udev_new="$1/50-tty.rules"
 bootfirmwareconfig_new="$1/boot-firmware-config.txt"
-hwclockset_new="$1/hwclock-set"
+# hwclockset_new="$1/hwclock-set"
 crontab_new="$1/root-crontab"
 
 # stop da services
@@ -49,7 +49,7 @@ sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
 echo -e "\tConfiguring hwclockset"
-sudo bash -c "cat $hwclockset_new > $hwclockset"
+# sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
 grep -q -e "GPS PPS signals" /boot/firmware/config.txt

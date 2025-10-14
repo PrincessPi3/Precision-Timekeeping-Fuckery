@@ -31,3 +31,11 @@ positioning
     traffic
     power
     temperature
+automate multi stage installer
+backups
+    restic backups
+    backup image 
+
+check wiring
+check antenna tight both ends
+let run unimpeeded

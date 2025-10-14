@@ -8,7 +8,7 @@ echo "Starting configure script..."
 # running (warn level) 
 # bash ./reconfig_full.sh ./running-warn-level-conf
 # debug/dev mode
-bash ./reconfig_full.sh ./debug-level-conf
+bash ./reconfig_full.sh ./info-level-conf-huawaii
 
 # enable services
 echo "Enabling Services..."
