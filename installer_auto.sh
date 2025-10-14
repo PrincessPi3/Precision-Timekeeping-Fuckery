@@ -413,20 +413,7 @@ phase_five () {
 
     # enable services
     echo -e "\nEnabling Services..."
-    echo -e "\tEnabling gpsd on boot"
-    sudo systemctl enable gpsd
-    echo -e "\tEnabling chrony on boot"
-    sudo systemctl enable chrony
-    echo -e "\tEnabling influxdb on boot"
-    sudo systemctl enable influxdb
-    echo -e "\tEnabling telegraf on boot"
-    sudo systemctl enable telegraf
-    echo -e "\tEnabling grafana on boot"
-    sudo systemctl enable grafana-server
-    echo -e "\tEnabling syslog-ng on boot"
-    sudo systemctl enable syslog-ng
-    echo -e "\tEnabling logrotate on boot"
-    sudo systemctl enable logrotate
+    services_cmd enable
 
     # unclear if this is needed
     # edit dis
@@ -441,9 +428,6 @@ phase_five () {
     ##     # /sbin/hwclock --rtc=$dev --systz
     # echo "Editing hwclock-set file"
     # sudo nano /lib/udev/hwclock-set
-
-    # update the running file
-    echo 5 > $installer_status
 
     # update the log
     echo "phase 5 done 5/5\nCOMPLETE AT $(date +%s)" >> $status_log
