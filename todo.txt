@@ -48,3 +48,5 @@ root crontab
 
     # set the RTC from the system time every four hours
     0 */4 * * * hwclock -w
+automate installer sequence
+make image backup
