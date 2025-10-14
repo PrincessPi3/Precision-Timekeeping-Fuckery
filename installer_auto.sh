@@ -26,6 +26,95 @@ installer_status="$git_dir/installer.tmp"
 long_delay_seconds=$(($long_delay * 60))
 short_delay_seconds=$(($short_delay * 60))
 
+reconfigure_full () {
+# make sure dir works
+if [ -z $1 ] || [ ! -d "$1" ]; then
+    echo "usage bash reconfig_full.sh /path/to/config/dir"
+    exit
+fi
+
+# paths
+## place in system
+gpsd="/etc/default/gpsd"
+chrony="/etc/chrony/conf.d/precision_timekeeping.conf"
+grafana="/etc/grafana/grafana.ini"
+influxdb="/etc/influxdb/influxdb.conf"
+telegraf="/etc/telegraf/telegraf.conf"
+udev_rule="/etc/udev/rules.d/50-tty.rules"
+bootfirmwareconfig="/boot/firmware/config.txt"
+sudoers="/etc/sudoers"
+# hwclockset="/lib/udev/hwclock-set"
+
+# new conf file paths
+gpsd_new=""$1/gpsd""
+chrony_new="$1/chrony.conf"
+grafana_new="$1/grafana.ini"
+influxdb_new="$1/influxdb.conf"
+telegraf_new="$1/telegraf.conf"
+udev_new="$1/50-tty.rules"
+bootfirmwareconfig_new="$1/boot-firmware-config.txt"
+crontab_new="$1/root-crontab"
+sudoers_new="$1/sudoers"
+# hwclockset_new="$1/hwclock-set"
+
+# stop da services
+bash $git_dir/services.sh stop
+
+# backup conf
+bash $git_dir/dump_configs.sh
+
+# replace dem by truncation
+echo "Placing the new config files by truncation..."
+echo -e "\tConfiguring gpsd"
+sudo bash -c "cat $gpsd_new > $gpsd"
+echo -e "\tConfiguring chrony"
+sudo bash -c "cat $chrony_new > $chrony"
+echo -e "\tConfiguring grafana"
+sudo bash -c "cat $grafana_new > $grafana"
+echo -e "\tConfiguring influxdb"
+sudo bash -c "cat $influxdb_new > $influxdb"
+echo -e "\tConfiguring telegraf"
+sudo bash -c "cat $telegraf_new > $telegraf"
+echo -e "\tConfiguring udev"
+sudo bash -c "cat $udev_new > $udev_rule"
+
+# setup and install root crontabs
+echo -e "\nInstalling root cronjobs\n"
+(sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
+
+# set up passwordless sudo
+## backup first
+sudo cp $sudoers "$sudoers.bak"
+## replace sudoers with mine
+sudo bash -c "cat $sudoers_new > $sudoers"
+## test it
+sudo visudo -c
+
+# config hwclockset
+# echo -e "\tConfiguring hwclockset"
+# sudo bash -c "cat $hwclockset_new > $hwclockset"
+
+# check if /boot/firmware/config.txt is configured yet
+sudo grep -q -e "GPS PPS signals" $bootfirmwareconfig
+grepconfig=$?
+
+# configure the overlay
+if [ $grepconfig -eq 0 ]; then # if config exists, skip
+    echo "$bootfirmwareconfig already updated, skipping..."
+else
+    # APPEND to /boot/firmware/config.txt
+    echo "Appending configs to $bootfirmwareconfig"
+    sudo bash -c "cat $bootfirmwareconfig_new >> $bootfirmwareconfig"
+    echo $?
+fi
+
+# finish the log
+echo "reconfig_full.sh complete" >> $status_log
+
+# start da services
+bash $git_dir/services.sh start
+}
+
 phase_one () {
     # initial delay to make sure its good
     echo -e "\nSleeping $long_delay minutes to make sure everything is as stable as possible\n"
