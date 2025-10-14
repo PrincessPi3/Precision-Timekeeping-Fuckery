@@ -8,10 +8,10 @@ else
 fi
 
 echo "Fully upgrading, this may take a while..."
-sudo apt dist-upgrade -y 1>/dev/null 
+sudo apt dist-upgrade -y
 
 echo "Cleaning up..."
-sudo apt autoremove -y 1>/dev/null 
+sudo apt autoremove -y
 
 echo "Installer2.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
 

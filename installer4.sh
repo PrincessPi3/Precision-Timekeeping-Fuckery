@@ -19,19 +19,19 @@ bash ./reconfig_full.sh ./info-level-conf-huawaii
 # enable services
 echo "Enabling Services..."
 echo -e "\tEnabling gpsd on boot"
-sudo systemctl enable gpsd 1>/dev/null
+sudo systemctl enable gpsd
 echo -e "\tEnabling chrony on boot"
-sudo systemctl enable chrony 1>/dev/null
+sudo systemctl enable chrony
 echo -e "\tEnabling influxdb on boot"
-sudo systemctl enable influxdb 1>/dev/null
+sudo systemctl enable influxdb
 echo -e "\tEnabling telegraf on boot"
-sudo systemctl enable telegraf 1>/dev/null
+sudo systemctl enable telegraf
 echo -e "\tEnabling chrony on boot"
-sudo systemctl enable grafana-server 1>/dev/null
+sudo systemctl enable grafana-server
 echo -e "\tEnabling syslog-ng on boot"
-sudo systemctl enable syslog-ng 1>/dev/null
+sudo systemctl enable syslog-ng
 echo -e "\tEnabling logrotate on boot"
-sudo systemctl enable logrotate 1>/dev/null
+sudo systemctl enable logrotate
 
 echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
