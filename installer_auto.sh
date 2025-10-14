@@ -63,6 +63,11 @@ run_reboot () {
     sudo shutdown -r +$long_delay
 }
 
+function hold_for_enter() {
+    echo -e "\nPress ENTER to Continue..."
+    read -p ""
+}
+
 # handle the services
 services_cmd () {
     short_sleep
@@ -168,7 +173,7 @@ reconfigure_full () {
     # setup and install root crontabs
     echo -e "\nInstalling root cronjobs\n"
     echo -e "\nADD THE CONTENTS OF root-crontabm, OK?\n"
-    read -p "Enter to continue"
+   hold_for_enter
     sudo crontab -e
     # (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
@@ -249,7 +254,7 @@ phase_two () {
     clear
     echo -e "\nConfigure Raspberry Pi... DO NOT REBOOT\n"
     echo -e "\nUpdate\n\nEnable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Would you like the ARM I2C interface to be enabled? <Yes>\n\nInterface Options->Serial Port\n\tWould you like a login shell to be accessible over serial? <No>\n\tWould you like the serial port hardware to be enabled? <Yes>\n\nAdvanced Options\n\tExpand Filesystem\n\nWould you like to reboot now? <No>"
-    read -p "Press ENTER to Continue"
+    hold_for_enter
     sudo raspi-config
 
     # update the running file
@@ -460,6 +465,88 @@ updoot_repo () {
     fi
 }
 
+test () {
+    # status of services
+    services_cmd status
+
+    # test pps
+    ## pps0
+    echo "Testing PPS0"
+    sudo ppstest /dev/pps0
+    ## pps1
+    echo "Testing PPS1"
+    sudo ppstest /dev/pps1
+
+    # check gps
+    echo "Checking Normal GPS"
+    sudo cgps
+
+    # check gpsmon
+    echo "Checking Timekeeping GPS"
+    sudo gpsmon
+
+    # do same with watch
+    echo "Watching chronyc sources"
+    watch chronyc sources
+
+    # track
+    echo "Watching chronyc tracking"
+    watch chronyc tracking
+
+    # i2c
+    clear
+    echo -e "Detecting I2C Devices\n"
+    sudo i2cdetect -y 1
+    hold_for_enter
+
+    # devices
+    ## tty devices
+    clear 
+    echo "tty devices"
+    ls -lh /dev/tty* | sort -k9
+    hold_for_enter
+
+    ## pps devices
+    clear
+    echo "pps devices"
+    ls -lh /dev/pps* | sort -k9
+    hold_for_enter
+
+    # i2c devices
+    clear
+    echo "i2c devices"
+    ls -lh /dev/i2c* | sort -k9
+    hold_for_enter
+
+    # rtc devices
+    clear
+    echo "rtc devices"
+    ls -lh /dev/rtc* | sort -k9
+    hold_for_enter
+
+    # rtc
+    clear
+    echo -e "Reading from hardware RTC\n"
+    sudo hwclock -r
+    hold_for_enter
+
+    # hwclock status
+    clear
+    echo "hwclock status"
+    sudo hwclock --verbose
+    hold_for_enter
+
+    # root crontab
+    clear
+    echo "root crontab"
+    sudo crontab -l
+    hold_for_enter
+
+    # clean up
+    clear
+}
+
+# always run
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # do the suto thinggg

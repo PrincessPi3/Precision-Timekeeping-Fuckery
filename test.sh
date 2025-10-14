@@ -14,11 +14,11 @@ sudo ppstest /dev/pps0
 
 # check gps
 echo "Checking Normal GPS"
-cgps
+sudo cgps
 
 # check gpsmon
 echo "Checking Timekeeping GPS"
-gpsmon
+sudo gpsmon
 
 # do same with watch
 echo "Watching chronyc sources"
