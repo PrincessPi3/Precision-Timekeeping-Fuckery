@@ -63,6 +63,7 @@ run_reboot () {
     sudo shutdown -r +$long_delay
 }
 
+# to the pause thing like in dos
 function hold_for_enter() {
     echo -e "\nPress ENTER to Continue..."
     read -p ""
