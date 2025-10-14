@@ -12,6 +12,12 @@ short_delay=1
 # first install
 first_install="git"
 
+# packages
+packages="util-linux gawk telegraf grafana influxdb restic build-essential net-tools htop btop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip ripgrep pps-tools gh gpsd gpsd-clients chrony syslog-ng iptraf-ng i2c-tools picocom"
+
+# purge packages
+purge_packages='"apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"'
+
 # get real username (not root) if run with sudo
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
@@ -220,7 +226,7 @@ phase_four () {
     echo -e "\nAdd Grafana repo...\n"
     sudo mkdir -p /etc/apt/keyrings/
     wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+    echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list >/dev/null # otherwisse get some stupid binary output to terminal
 
     # telegraf repo and install
     echo -e "\nAdd Telegraf repo...\n"
@@ -257,7 +263,7 @@ phase_four () {
 
     # install da packages
     echo -e "\nInstalling packages, this may take a while...\n"
-    sudo apt install -y util-linux gawk telegraf grafana influxdb restic build-essential net-tools htop btop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip ripgrep pps-tools gh gpsd gpsd-clients chrony syslog-ng iptraf-ng i2c-tools picocom
+    sudo bash -c "apt install -y $packages"
 
     # safety delay
     echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
@@ -266,7 +272,7 @@ phase_four () {
     # purging da junk
     # dont actually think this is at worth the space savings
     # echo "Purging unneeded junk..."
-    # sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"
+    # sudo bash -c "apt purge -y $purge_packages"
 
     # check if pps-gpio is in /etc/modules already
     grep -e "pps-gpio" /etc/modules
