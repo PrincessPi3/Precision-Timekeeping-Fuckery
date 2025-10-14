@@ -1,0 +1,4 @@
+check max output mA on 5v to see if suitable to power antenna
+increase the baud rate
+    boot-firmware-config.txt /boot/firmware/config.txt
+    gpsd /etc/default/gpsd
