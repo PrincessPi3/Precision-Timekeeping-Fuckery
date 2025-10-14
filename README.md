@@ -75,15 +75,15 @@
       5. password
       6. locale
       7. keyboard
-#### Software
+#### Software (Auto)
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo "$SHELL"`  
 2. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer1.sh`
 3. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
 4. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer3.sh`
 5. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/installer4.sh`
-
-#### Manual
+6. `cd ~/Precision-Timekeeping-Fuckery && git pull && bash ~/Precision-Timekeeping-Fuckery/test.sh`
+#### Software (Manual)
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
   
@@ -103,8 +103,8 @@ install packages (will reboot when finished)
 finish install (will reboot when finished)  
 `bash ~/Precision-Timekeeping-Fuckery/installer.sh`  
   
-check status of everything  
-`bash ~/Precision-Timekeeping-Fuckery/full_status.sh`  
+check status of everything and test
+`bash ~/Precision-Timekeeping-Fuckery/test.sh`  
   
 navigate to `http://<ip's ip>:3000`  
 Upload ~/Garfana-Visualization.json to create dashboard
@@ -164,7 +164,7 @@ Upload ~/Garfana-Visualization.json to create dashboard
 * Document scripts
 	* chrony_statistics.sh
 	* services.sh
-	* full_status.sh
+	* test.sh
 	* cleanup.sh
 	* dump_configs.sh
 	* nuke_logs.sh
