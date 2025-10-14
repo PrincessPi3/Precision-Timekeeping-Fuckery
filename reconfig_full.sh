@@ -63,14 +63,16 @@ echo -e "\tInstalling crontabs! just save file and exit with no edits"
 read -p "Press ENTER to Continue"
 sudo crontab -e
 (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
-## test it
-# sudo visudo -c
 
 # set up passwordless sudo
 ## backup first
 sudo cp /etc/sudoers /etc/sudoers.bak
 ## replace sudoers with mine
 sudo cat $sudoers_new > $sudoers
+## test it
+sudo visudo -c
+## Check for users approval to continue
+read -p "Press ENTER to Continue"
 
 # config hwclockset
 # echo -e "\tConfiguring hwclockset"
