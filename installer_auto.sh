@@ -3,7 +3,7 @@
 ## curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | "$SHELL"
 
 # explicitly die on any error
-set -e
+# set -e
 
 # delays in minutes
 long_delay=0
@@ -176,7 +176,7 @@ reconfigure_full () {
     fi
 
     # finish the log
-    echo "reconfig_full.sh complete" >> $status_log
+    echo "reconfigure_full complete" >> $status_log
 
     # start da services
     bash $git_dir/services.sh start
