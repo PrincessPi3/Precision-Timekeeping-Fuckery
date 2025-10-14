@@ -1,15 +1,20 @@
 #!/bin/bash
 # set -e
 
+# get real user
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
 else
     username=$USER
 fi
 
+# initial delay to make sure its good
+echo "Sleeping 3 minutes"
+sleep 180
+
 # rpi-update
-# echo "Updating Raspberry Pi firmware..."
-# sudo rpi-update
+echo "Updating Raspberry Pi firmware..."
+sudo rpi-update
 
 # run da raspberry pi config script
 clear
@@ -18,10 +23,10 @@ echo -e "Enable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Woul
 read -p "Press ENTER to Continue"
 sudo raspi-config
 
+# notify finish
 echo "Installer1.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
-
 echo "Part 1 Done!"
-# echo "Rebooting now!"
-# sudo reboot
+
+# reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"
 sudo shutdown -r +3

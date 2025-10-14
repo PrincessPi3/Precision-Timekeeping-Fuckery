@@ -1,11 +1,16 @@
 #!/bin/bash
 # set -e
 
+# get real user
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
 else
     username=$USER
 fi
+
+# initial delay to make sure its good
+echo "Sleeping 3 minutes"
+sleep 180
 
 # reconfigure to normal mode
 echo "Starting configure script..."
@@ -33,11 +38,12 @@ sudo systemctl enable syslog-ng
 echo -e "\tEnabling logrotate on boot"
 sudo systemctl enable logrotate
 
+# update the log
 echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
-# reboot rq
+# finish
 echo "Part 4 Done!"
-# echo "Rebooting now!"
-# sudo reboot
+
+# reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"
 sudo shutdown -r +3

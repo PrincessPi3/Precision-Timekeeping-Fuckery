@@ -1,11 +1,16 @@
 #!/bin/bash
 # set -e
 
+# get real user
 if [ ! -z $SUDO_USER ]; then
     username=$SUDO_USER
 else
     username=$USER
 fi
+
+# initial delay to make sure its good
+echo "Sleeping 3 minutes"
+sleep 180
 
 # grafana repo and install
 echo "Add Grafana repo..."
@@ -50,9 +55,6 @@ sudo apt install -y gawk ripgrep telegraf grafana influxdb restic build-essentia
 echo "Purging unneeded junk..."
 sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*" fake-hwclock build-essential
 
-# echo "Setting hostname to grandfatherclock"
-# sudo hostnamectl set-hostname grandfatherclock
-
 # check if pps-gpio is in /etc/modules already
 grep -e "pps-gpio" /etc/modules
 gerppps=$?
@@ -65,6 +67,7 @@ else
     sudo bash -c "echo 'pps-gpio' >> /etc/modules"
 fi
 
+# cleanup
 echo "Cleaning up..."
 sudo apt autoremove -y 
 
@@ -73,6 +76,7 @@ sudo apt autoremove -y
 echo "Giving $username the right permissions..."
 sudo usermod -aG dialout $username
 sudo usermod -a -G i2c $username
+sudo usermod -a -G tty $username
 ## service users
 echo "Giving service users the right permissions..."
 sudo usermod -aG dialout gpsd
@@ -96,11 +100,11 @@ echo "Installing general-scripts-and-system-ssssssetup"
 curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL"
 
 # update the log
-cd /home/$username/Precision-Timekeeping-Fuckery
 echo "installer3.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
+# finish
 echo "Part 3 Done!"
-# echo "Rebooting now!"
-# sudo reboot
+
+# reboot after 3 minutes for safety
 echo -e "\nREBOOTING IN 3 MINUTES\n"
 sudo shutdown -r +3
