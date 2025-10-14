@@ -105,9 +105,9 @@ dump_configs () {
     sudo cp $modules $dname/root-crontab
     echo -e "\tBacking up root crontab"
 
-    if [ -f /etc/udev/rules.d/50-tty.rules ]; then
-        echo -e "\n/etc/udev/rules.d/50-tty.rules found, copying as well...\n"
-        sudo cp /etc/udev/rules.d/50-tty.rules $dname/50-tty.rules
+    if [ -f $udev_rule ]; then
+        echo -e "\n$udev_rule found, copying as well...\n"
+        sudo $udev_rule $dname/50-tty.rules
     fi
 
     echo -e "\nFixing permissions in $dname...\n"
