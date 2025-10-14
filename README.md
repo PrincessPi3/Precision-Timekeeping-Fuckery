@@ -56,6 +56,12 @@
 	5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Install
+### Hardware
+1. pi4/5 and stuff for it
+2. gps timing module
+3. rtc
+4. battery for rtc
+5. wires
 #### Auto
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | sudo "$SHELL"`  
