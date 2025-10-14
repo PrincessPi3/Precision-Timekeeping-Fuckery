@@ -6,8 +6,8 @@
 # set -e
 
 # delays in minutes
-long_delay=0
-short_delay=0
+long_delay=3
+short_delay=1
 
 # first install
 first_install="git"
@@ -321,7 +321,7 @@ phase_four () {
     echo -e "\nDisabling unneeded junk..\n"
     sudo systemctl disable bluetooth
     sudo update-rc.d -f fake-hwclock remove
-    # sudo systemctl disable fake-hwclock
+    sudo systemctl disable fake-hwclock
 
     # install da packages
     echo -e "\nInstalling packages, this may take a while...\n"
