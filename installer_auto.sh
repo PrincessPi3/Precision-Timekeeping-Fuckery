@@ -47,6 +47,19 @@ run_reboot () {
     sudo shutdown -r +$long_delay
 }
 
+services_cmd ()
+    short_sleep
+
+    if [ -z $1 ]; then
+        echo "Usage: bash services.sh stop|start|restart|status|enable"
+        exit
+    fi
+
+    echo -e "\nRunning $1 on Services\n"
+    sudo systemctl $1 gpsd chrony influxdb telegraf grafana-server syslog-ng
+    echo "services complete" >> $status_log
+}
+
 dump_configs () {
     dname=./conf-$(date +%s)
 
