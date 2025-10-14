@@ -53,7 +53,7 @@ sudo update-rc.d -f fake-hwclock remove
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y gawk ripgrep telegraf grafana influxdb restic build-essential net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
+sudo apt install -y util-linux-extra gawk ripgrep telegraf grafana influxdb restic build-essential net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
 
 # safety delay
 echo "Sleeping 60 seconds to make sure its as stable as possible"
