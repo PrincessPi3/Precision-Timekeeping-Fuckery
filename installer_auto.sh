@@ -6,7 +6,7 @@
 # set -e
 
 # delays in minutes
-long_delay=1
+long_delay=3
 short_delay=1
 
 # first install

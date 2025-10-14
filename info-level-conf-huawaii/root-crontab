@@ -1,5 +1,8 @@
+# continue running da installer in da backlegrnd :3
+# @reboot /bin/bash /usr/share/customscripts/ifnet /home/princesspi/Precision-Timekeeping-Fuckery/installer_auto.sh
+
 # notify webhook of reboot
-@reboot /bin/bash -c "/usr/share/customscripts/ifnet \"/usr/share/customscripts/webhook bootup\" 2>> /var/log/root-crontab.log"
+@reboot /bin/bash /usr/share/customscripts/ifnet /usr/share/customscripts/webhook bootup
 
 # set the system time from the RTC every reboot
 # @reboot /usr/sbin/hwclock -s 2>> /var/log/root-crontab.log
