@@ -9,6 +9,9 @@ else
     username=$USER
 fi
 
+echo "Edit sudoers file"
+sudo visudo -e
+
 echo "Updating Software Lists"
 sudo apt update 
 
