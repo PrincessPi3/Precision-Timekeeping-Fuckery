@@ -1,0 +1,5 @@
+manual
+    visudo
+    root crontab
+    sudo nano /lib/udev/hwclock-set
+    unattended-upgrades?
