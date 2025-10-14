@@ -238,7 +238,7 @@ phase_two () {
     # run da raspberry pi config script
     clear
     echo -e "\nConfigure Raspberry Pi... DO NOT REBOOT\n"
-    echo -e "Enable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Would you like the ARM I2C interface to be enabled? <Yes>\n\tkernel module loaded by default <Yes>\n\nInterface Options->Serial Port\n\tWould you like a login shell to be accessible over serial? <No>\n\tWould you like the serial port hardware to be enabled? <Yes>\nAdvanced Options\n\tExpand Filesystem\n"
+    echo -e "\nEnable I2C Support in raspi-config\n\tInterface Options->I2C->\n\t Would you like the ARM I2C interface to be enabled? <Yes>\n\nInterface Options->Serial Port\n\tWould you like a login shell to be accessible over serial? <No>\n\tWould you like the serial port hardware to be enabled? <Yes>\n\nAdvanced Options\n\tExpand Filesystem\n\nWould you like to reboot now? <No>"
     read -p "Press ENTER to Continue"
     sudo raspi-config
 
