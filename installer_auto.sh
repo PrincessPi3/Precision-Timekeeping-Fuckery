@@ -1,7 +1,9 @@
 #!/bin/bash
 # usage
 ## curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | "$SHELL"
-# set -e
+
+# explicitly die on any error
+set -e
 
 # delays in minutes
 long_delay=3
