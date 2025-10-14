@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 0,
   "links": [],
   "panels": [
     {
@@ -56,6 +56,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -71,7 +72,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -103,7 +105,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0",
       "targets": [
         {
           "datasource": {
@@ -185,6 +187,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -200,7 +203,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -215,8 +219,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 8
+        "x": 12,
+        "y": 0
       },
       "id": 3,
       "options": {
@@ -232,7 +236,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0",
       "targets": [
         {
           "groupBy": [
@@ -309,6 +313,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -324,7 +329,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -340,7 +346,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 8
       },
       "id": 4,
       "options": {
@@ -356,7 +362,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0",
       "targets": [
         {
           "groupBy": [
@@ -433,6 +439,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -448,7 +455,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -463,8 +471,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 24
+        "x": 12,
+        "y": 8
       },
       "id": 2,
       "options": {
@@ -480,7 +488,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.1+security-01",
+      "pluginVersion": "12.2.0",
       "targets": [
         {
           "groupBy": [
@@ -525,7 +533,7 @@
   ],
   "preload": false,
   "refresh": "auto",
-  "schemaVersion": 41,
+  "schemaVersion": 42,
   "tags": [],
   "templating": {
     "list": []
@@ -538,5 +546,5 @@
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 8
+  "version": 2
 }
