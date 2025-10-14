@@ -14,7 +14,7 @@
 * `bash ~/Precision-Timekeeping-Fuckery/full_status.sh`
   
 **Status (Services)**
-* `bash ~/Precision-Timekeeping-Fuckert/status_services.sh`
+* `bash ~/Precision-Timekeeping-Fuckery/status_services.sh`
 
 **Test PPS**
 * `sudo ppstest /dev/pps0`

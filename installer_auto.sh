@@ -10,10 +10,10 @@ else
 fi
 
 echo "Updating Software Lists"
-sudo apt update 1>/dev/null 2>&1
+sudo apt update 
 
-echo "Installing git and raspi-config"
-sudo apt install git raspi-config -y 1>/dev/null 2>&1
+echo "Installing git"
+sudo apt install -y git
 
 echo "Cloning Repo"
 cd /home/$username

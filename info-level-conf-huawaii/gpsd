@@ -1,0 +1,14 @@
+# USB might be /dev/ttyACM0
+# serial might be /dev/ttyS0
+# pps might be /dev/pps0
+DEVICES="/dev/ttyS0 /dev/pps0"
+
+# -n means start without a client connection (i.e. at boot)
+# -s 9600 is to set baud to 9600
+GPSD_OPTIONS="-n -s 9600"
+
+# also start in general
+START_DAEMON="true"
+
+# Automatically hot add/remove USB GPS devices via gpsdctl
+# USBAUTO="true"
