@@ -199,9 +199,7 @@ phase_three () {
     echo -e "\nFully upgrading, this may take a while...\n"
     sudo apt dist-upgrade -y
 
-    # safety delay
-    echo -e "\nSleeping 60 seconds to make sure its as stable as possible\n"
-    sleep $short_delay_seconds
+    short_sleep
 
     # cleanup
     echo -e "\nCleaning up...\n"
