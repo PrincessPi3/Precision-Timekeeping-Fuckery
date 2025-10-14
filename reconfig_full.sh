@@ -94,12 +94,6 @@ else
     echo $?
 fi
 
-# crontab
-# echo "Setting up root crontab"
-# sudo crontab -e
-# echo "Installing custom root crontab"
-# sudo crontab $crontab_new
-
 # start da services
 bash /home/$username/services.sh start
 
