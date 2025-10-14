@@ -1,5 +1,11 @@
 #!/bin/bash
-set -e
+# set -e
+
+if [ ! -z $SUDO_USER ]; then
+    username=$SUDO_USER
+else
+    username=$USER
+fi
 
 # reconfigure to normal mode
 echo "Starting configure script..."
@@ -27,7 +33,7 @@ sudo systemctl enable syslog-ng 1>/dev/null
 echo -e "\tEnabling logrotate on boot"
 sudo systemctl enable logrotate 1>/dev/null
 
-rm -f ./status.txt
+echo "done!" > /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
 # reboot rq
 echo "Part 4 Done!"

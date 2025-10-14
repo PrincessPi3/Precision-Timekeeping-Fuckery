@@ -1,6 +1,12 @@
 #!/bin/bash
 # set -e
 
+if [ ! -z $SUDO_USER ]; then
+    username=$SUDO_USER
+else
+    username=$USER
+fi
+
 # grafana repo and install
 echo "Add Grafana repo..."
 sudo mkdir -p /etc/apt/keyrings/
@@ -41,10 +47,10 @@ sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa
 
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y util-linux-extra gawk ripgrep telegraf grafana influxdb  unattended-upgrades net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
+sudo apt install -y gawk ripgrep telegraf grafana influxdb unattended-upgrades net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
 
-echo "Setting hostname to grandfatherclock"
-sudo hostnamectl set-hostname grandfatherclock
+# echo "Setting hostname to grandfatherclock"
+# sudo hostnamectl set-hostname grandfatherclock
 
 # check if pps-gpio is in /etc/modules already
 grep -e "pps-gpio" /etc/modules
@@ -61,12 +67,6 @@ fi
 echo "Cleaning up..."
 sudo apt autoremove -y 
 
-if [ ! -z $SUDO_USER ]; then
-    username=$SUDO_USER
-else
-    username=$USER
-fi
-
 # handle users serial shit
 ## self
 echo "Giving $username the right permissions..."
@@ -79,7 +79,7 @@ sudo usermod -aG dialout _chrony
 sudo usermod -aG i2c _chrony
 sudo usermod -aG i2c gpsd
 
-echo "installer3.sh complete" >> ./status.txt
+echo "installer3.sh complete" >> /home/$username/Precision-Timekeeping-Fuckery/status.txt
 
 echo "Part 3 Done!"
 # echo "Rebooting now!"
