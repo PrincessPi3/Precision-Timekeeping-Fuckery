@@ -167,7 +167,9 @@ reconfigure_full () {
 
     # setup and install root crontabs
     echo -e "\nInstalling root cronjobs\n"
-    (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
+    echo -e "\nADD THE CONTENTS OF root-crontabm, OK?\n"
+    read -p "Enter to continue"
+    # (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
     # set up passwordless sudo
     ## backup first
