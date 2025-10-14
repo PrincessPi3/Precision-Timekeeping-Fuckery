@@ -2,11 +2,9 @@
 # Precision Timekeeping Fuckery Additions
 ## GPS PPS GPIO Signal
 dtoverlay=pps-gpio,gpiopin=18
-
 ## GPS GPIO UART
 enable_uart=1
 init_uart_baud=9600
-
 ## I2C Hardware RTC Overlay
 dtoverlay=i2c-rtc,ds3231
 # End Precision Timekeeping Fuckery Additions
