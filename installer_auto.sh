@@ -459,7 +459,8 @@ if [ -f $status_log ]; then
     elif [[ "$(cat $installer_status)" == 4 ]]; then
         phase_five
     else
-        exit 1
+        echo -e "\nAlready installed!\n"
+        exit
     fi
 # if da file is not there
 else
