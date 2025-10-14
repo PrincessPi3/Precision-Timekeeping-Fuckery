@@ -39,3 +39,6 @@ backups
 check wiring
 check antenna tight both ends
 let run unimpeeded
+automate
+    visudo
+    root crontab
