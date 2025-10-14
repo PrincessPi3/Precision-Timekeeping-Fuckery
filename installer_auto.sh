@@ -457,6 +457,9 @@ phase_five () {
     run_reboot
 }
 
+# updoot repo
+git -C ~/Precision-Timekeeping-Fuckery pull
+
 # do the suto thinggg
 # if da file is there
 if [ -f $status_log ]; then
