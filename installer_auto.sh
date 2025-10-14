@@ -308,6 +308,7 @@ phase_five () {
     sudo shutdown -r +$long_delay
 }
 
+# do the suto thinggg
 if [ -f $status_log ]; then
     if [[ $(cat $installer_status) =~ "*1*"  ]]; then
         phase_two
