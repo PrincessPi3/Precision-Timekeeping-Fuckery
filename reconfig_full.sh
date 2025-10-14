@@ -39,10 +39,10 @@ sudoers_new="$1/sudoers"
 # hwclockset_new="$1/hwclock-set"
 
 # stop da services
-bash /home/$username/services.sh stop
+bash /home/$username/Precision-Timekeeping-Fuckery/services.sh stop
 
 # backup conf
-bash /home/$username/dump_configs.sh
+bash /home/$username/Precision-Timekeeping-Fuckery/dump_configs.sh
 
 # replace dem by truncation
 echo "Placing the new config files by truncation..."
@@ -60,9 +60,6 @@ echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
 
 # setup and install root crontabs
-# echo -e "Installing crontabs! just save file and exit with no edits"
-# read -p "Press ENTER to Continue"
-# sudo crontab -e
 echo -e "\nInstalling root cronjobs\n"
 (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
@@ -73,8 +70,6 @@ sudo cp /etc/sudoers /etc/sudoers.bak
 sudo bash -c "cat $sudoers_new > $sudoers"
 ## test it
 sudo visudo -c
-## Check for users approval to continue
-read -p "Press ENTER to Continue"
 
 # config hwclockset
 # echo -e "\tConfiguring hwclockset"
@@ -97,4 +92,5 @@ fi
 # start da services
 bash /home/$username/services.sh start
 
+# finish the log
 echo "reconfig_full.sh complete" >> /home/$username/status.txt
