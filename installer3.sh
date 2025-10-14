@@ -43,6 +43,9 @@ sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa
 echo "Installing packages, this may take a while..."
 sudo apt install -y util-linux-extra gawk ripgrep telegraf grafana influxdb  unattended-upgrades net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
 
+echo "Setting hostname to grandfatherclock"
+sudo hostnamectl set-hostname grandfatherclock
+
 # check if pps-gpio is in /etc/modules already
 grep -e "pps-gpio" /etc/modules
 gerppps=$?
