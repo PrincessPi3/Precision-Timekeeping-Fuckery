@@ -474,7 +474,7 @@ updoot_repo () {
     fi
 }
 
-echo -e "\nPrecision Timekeeping Fuckery :3\n"
+echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # do the suto thinggg
 # if da file is there
