@@ -2,4 +2,8 @@ manual
     visudo
     root crontab
     sudo nano /lib/udev/hwclock-set
+        comment out
+            # if [ -e /run/systemd/system ] ; then
+            #  exit 0
+            # fi
     unattended-upgrades?

@@ -79,7 +79,7 @@
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. x `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | "$SHELL"`  
 2. x `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/installer1.sh`
-3. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
+3. x `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/installer2.sh`
 4. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/installer3.sh`
 5. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/installer4.sh`
 6. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/test.sh`
