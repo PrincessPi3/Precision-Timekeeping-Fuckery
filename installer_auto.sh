@@ -461,14 +461,25 @@ phase_five () {
     run_reboot
 }
 
+# updoot repo any time the repo is downloaded
+updoot_repo () {
+    echo -e "\nUpdating\n"
+
+    git -C $git_dir pull
+    ret=$?
+
+    if [ $ret -ne 0 ]; then
+        echo -e "\n\nSCRIPT UPDATED! RE-RUN\n\n"
+        exit 1 # explicit fail
+    fi
+}
+
 echo -e "\nPrecision Timekeeping Fuckery :3\n"
 
 # do the suto thinggg
 # if da file is there
 if [ -f $status_log ]; then
-    # updoot repo any time the repo is downloaded
-    echo -e "\nUpdating\n"
-    git -C $git_dir pull
+    updoot_repo
 
     if [[ "$(cat $installer_status)" == 1 ]]; then
         phase_two
