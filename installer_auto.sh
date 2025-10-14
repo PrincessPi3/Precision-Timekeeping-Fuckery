@@ -18,6 +18,9 @@ packages="util-linux util-linux-extra gawk telegraf grafana influxdb restic buil
 # purge packages
 purge_packages='"apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"'
 
+# services
+services="gpsd gpsd.socket chrony influxdb telegraf grafana-server syslog-ng"
+
 # configs place in system
 gpsd="/etc/default/gpsd"
 chrony="/etc/chrony/conf.d/precision_timekeeping.conf"
@@ -70,7 +73,7 @@ services_cmd () {
     fi
 
     echo -e "\nRunning $1 on Services\n"
-    sudo systemctl $1 gpsd chrony influxdb telegraf grafana-server syslog-ng
+    sudo bash -c "systemctl $1 $services"
     echo "services complete" >> $status_log
 }
 
