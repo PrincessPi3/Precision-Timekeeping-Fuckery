@@ -9,7 +9,7 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes"
+echo "Sleeping 3 minutes to make sure everything is as stable as possible"
 sleep 180
 
 # grafana repo and install
@@ -41,6 +41,10 @@ fi
 echo "Getting new software lists..."
 sudo apt update 
 
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
+
 # clean up
 echo "Disabling unneeded junk..."
 sudo systemctl disable bluetooth
@@ -51,9 +55,13 @@ sudo update-rc.d -f fake-hwclock remove
 echo "Installing packages, this may take a while..."
 sudo apt install -y gawk ripgrep telegraf grafana influxdb restic build-essential net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
 
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
+
 # purging da junk
 echo "Purging unneeded junk..."
-sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*" fake-hwclock build-essential
+sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*"
 
 # check if pps-gpio is in /etc/modules already
 grep -e "pps-gpio" /etc/modules
@@ -86,12 +94,20 @@ sudo usermod -aG i2c gpsd
 sudo usermod -aG tty _chrony
 sudo usermod -aG tty gpsd
 
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
+
 # installing ble.sh
 echo "Installing BLE.sh"
 git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 make -C /tmp/ble.sh install PREFIX=/home/$username/.local
 echo -e "\n# ble.sh" >> /home/$username/.bashrc
 echo "source -- /home/$username/.local/share/blesh/ble.sh" >> /home/$username/.bashrc
+
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
 
 # general-scripts-and-system-ssssssetup
 echo "Installing general-scripts-and-system-ssssssetup"

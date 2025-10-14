@@ -21,6 +21,10 @@ echo "Starting configure script..."
 # debug/dev mode
 bash /home/$username/Precision-Timekeeping-Fuckery/reconfig_full.sh /home/$username/Precision-Timekeeping-Fuckery/info-level-conf-huawaii
 
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
+
 # enable services
 echo "Enabling Services..."
 echo -e "\tEnabling gpsd on boot"

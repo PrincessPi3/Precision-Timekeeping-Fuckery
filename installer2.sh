@@ -9,12 +9,16 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes"
+echo "Sleeping 3 minutes to make sure everything is as stable as possible"
 sleep 180
 
 # full distribution upgrade
 echo "Fully upgrading, this may take a while..."
 sudo apt dist-upgrade -y
+
+# safety delay
+echo "Sleeping 60 seconds to make sure its as stable as possible"
+sleep 60
 
 # cleanup
 echo "Cleaning up..."

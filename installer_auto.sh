@@ -11,7 +11,7 @@ else
 fi
 
 # initial delay to make sure its good
-echo "Sleeping 3 minutes"
+echo "Sleeping 3 minutes to make sure everything is as stable as possible"
 sleep 180
 
 # updoot
