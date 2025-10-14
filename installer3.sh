@@ -42,12 +42,13 @@ sudo systemctl disable bluetooth
 sudo update-rc.d -f fake-hwclock remove
 sudo systemctl disable fake-hwclock
 
-echo "Purging unneeded junk..."
-sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*" fake-hwclock 
-
 # install da packages
 echo "Installing packages, this may take a while..."
-sudo apt install -y gawk ripgrep telegraf grafana influxdb unattended-upgrades build-essential net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
+sudo apt install -y gawk ripgrep telegraf grafana influxdb restic build-essential net-tools htop btop iptraf iotop screen byobu python3 python3-pip python3-virtualenv python3-setuptools thefuck wget lynx nmap zip unzip 7zip net-tools restic ripgrep pps-tools git gh gpsd gpsd-clients chrony syslog-ng gh lynx btop htop iptraf-ng iotop neovim netcat-traditional python3-smbus i2c-tools picocom
+
+# purging da junk
+echo "Purging unneeded junk..."
+sudo apt purge -y "bluetooth*" "usb*" "wireless*" "pci*" "fonts*" "bluez*" "alsa*" fake-hwclock build-essential
 
 # echo "Setting hostname to grandfatherclock"
 # sudo hostnamectl set-hostname grandfatherclock
