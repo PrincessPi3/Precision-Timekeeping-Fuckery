@@ -16,6 +16,7 @@ influxdb="/etc/influxdb/influxdb.conf"
 telegraf="/etc/telegraf/telegraf.conf"
 udev_rule="/etc/udev/rules.d/50-tty.rules"
 bootfirmwareconfig="/boot/firmware/config.txt"
+sudoers="/etc/sudoers"
 # hwclockset="/lib/udev/hwclock-set"
 # new conf file paths
 gpsd_new=""$1/gpsd""
@@ -27,6 +28,7 @@ udev_new="$1/50-tty.rules"
 bootfirmwareconfig_new="$1/boot-firmware-config.txt"
 # hwclockset_new="$1/hwclock-set"
 crontab_new="$1/root-crontab"
+sudoers_new="$1/sudoers"
 
 # stop da services
 bash ./services.sh stop
@@ -48,7 +50,21 @@ echo -e "\tConfiguring telegraf"
 sudo bash -c "cat $telegraf_new > $telegraf"
 echo -e "\tConfiguring udev"
 sudo bash -c "cat $udev_new > $udev_rule"
-echo -e "\tConfiguring hwclockset"
+
+# setup and install root crontabs
+echo -e "\tInstalling crontabs! just save file and exit with no edits"
+read -p "Press ENTER to Continue"
+(sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
+
+# set up passwordless sudo
+## backup first
+sudo cp /etc/sudoers /etc/sudoers.bak
+## replace sudoers with mine
+(sudo cat /etc/sudoers; cat $sudoers) | sudo tee -a /etc/sudoers
+## test it
+# sudo visudo -c
+## config hwclockset
+# echo -e "\tConfiguring hwclockset"
 # sudo bash -c "cat $hwclockset_new > $hwclockset"
 
 # check if /boot/firmware/config.txt is configured yet
