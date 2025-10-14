@@ -37,5 +37,5 @@ echo "installer_auto.sh complete" > /home/$username/Precision-Timekeeping-Fucker
 echo -e "\nREBOOTING IN 3 MINUTES\n"
 sudo shutdown -r +3
 
-# visudo
+# passwordless sudo for sudo group
 # %sudo ALL = (ALL) NOPASSWD: ALL
