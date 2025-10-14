@@ -2,8 +2,12 @@ manual
     visudo
     root crontab
     sudo nano /lib/udev/hwclock-set
-        comment out
+        comment out and add note
+            # commented out manually to use rtc
             # if [ -e /run/systemd/system ] ; then
             #  exit 0
             # fi
-    unattended-upgrades?
+        Also comment out the two lines
+            # /sbin/hwclock --rtc=$dev --systz --badyear
+            and
+            # /sbin/hwclock --rtc=$dev --systz
