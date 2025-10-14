@@ -29,7 +29,7 @@
 #### RTC Module
 1. RTC GND to Rpi Physical Pin 9 (GND)
 3. RTC SDA to RPi Physical Pin 3 (GPIO 2 / SDA1 (I2C))
-4. RTC RCL to RPi Physical Pin 5 (GPIO 4 / SCL1 (I2C))
+4. RTC SCL to RPi Physical Pin 5 (GPIO 4 / SCL1 (I2C))
 5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
 
 ### Setup Pi
