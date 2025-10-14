@@ -1,6 +1,13 @@
 #!/bin/bash
 # set -e  # die on any error
 
+# get real user
+if [ ! -z $SUDO_USER ]; then
+    username=$SUDO_USER
+else
+    username=$USER
+fi
+
 # make sure dir works
 if [ -z $1 ] || [ ! -d "$1" ]; then
     echo "usage bash reconfig_full.sh /path/to/config/dir"
@@ -60,7 +67,7 @@ read -p "Press ENTER to Continue"
 ## backup first
 sudo cp /etc/sudoers /etc/sudoers.bak
 ## replace sudoers with mine
-(sudo cat /etc/sudoers; cat $sudoers) | sudo tee -a /etc/sudoers
+sudo cat $sudoers_new > $sudoers
 ## test it
 # sudo visudo -c
 ## config hwclockset
@@ -88,6 +95,6 @@ echo "Installing custom root crontab"
 sudo crontab $crontab_new
 
 # start da services
-bash ./services.sh start # 1>/dev/null
+bash /home/$username/services.sh start # 1>/dev/null
 
 echo "reconfig_full.sh complete" >> ./status.txt
