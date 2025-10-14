@@ -27,7 +27,7 @@ https://repos.influxdata.com/influxdata-archive.key \
 | gpg --dearmor \
 | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive.gpg \
 && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main' \
-| sudo tee /etc/apt/sources.list.d/influxdata.list
+| sudo tee /etc/apt/sources.list.d/influxdata.list >/dev/null # otherwisse get some stupid binary output to terminal
 
 # remove dat key file thing
 if [ -f /home/$username/influxdata-archive.key ]; then
