@@ -2,3 +2,7 @@ check max output mA on 5v to see if suitable to power antenna
 increase the baud rate
     boot-firmware-config.txt /boot/firmware/config.txt
     gpsd /etc/default/gpsd
+figure out multiple network time servers that support iburst NTS
+    fiugre out what this means
+        server nts.anastrophe.com iburst nts maxsamples 1
+    https://gist.github.com/jauderho/2ad0d441760fc5ed69d8d4e2d6b35f8d
