@@ -30,11 +30,11 @@ https://repos.influxdata.com/influxdata-archive.key \
 | sudo tee /etc/apt/sources.list.d/influxdata.list
 
 # remove dat key file thing
-if [ -f ./influxdata-archive.key ]; then
-    echo "Removing ./influxdata-archive.key..."
-    rm -f ./influxdata-archive.key
+if [ -f /home/$username/influxdata-archive.key ]; then
+    echo "Removing /home/$username/influxdata-archive.key..."
+    rm -f /home/$username/influxdata-archive.key
 else
-    echo "./influxdata-archive.key not found, skipping delete..."
+    echo "/home/$username/influxdata-archive.key not found, skipping delete..."
 fi
 
 # updoot
@@ -88,10 +88,8 @@ sudo usermod -aG tty gpsd
 
 # installing ble.sh
 echo "Installing BLE.sh"
-cd /tmp
 git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-make -C ble.sh install PREFIX=/home/$username/.local
-echo '# ble.sh' >> /home/$username/.bashrc
+make -C /tmp/ble.sh install PREFIX=/home/$username/.local
 echo -e "\n# ble.sh" >> /home/$username/.bashrc
 echo "source -- /home/$username/.local/share/blesh/ble.sh" >> /home/$username/.bashrc
 
