@@ -317,6 +317,7 @@ if [ -f $status_log ]; then
         phase_four
     elif [[ $(cat $installer_status) =~ "*4*"  ]]; then
         phase_five
+    fi
 else
     phase_one
 fi
