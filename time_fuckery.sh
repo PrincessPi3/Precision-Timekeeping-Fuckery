@@ -7,7 +7,7 @@
 
 # delays in minutes
 long_delay=3
-short_delay=1
+short_delay=0
 
 # first install
 first_install="git"
