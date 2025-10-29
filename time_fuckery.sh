@@ -551,7 +551,11 @@ test () {
 # always run
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
+# test mode
 if [[ "$1" =~ "test" ]]
+    test
+    exit 0
+fi
 
 # do the suto thinggg
 # if da file is there
