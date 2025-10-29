@@ -552,7 +552,7 @@ test () {
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # test mode
-if [[ "$1" =~ "test" ]]
+if [[ "$1" =~ "test" ]]; then
     test
     exit 0
 fi
