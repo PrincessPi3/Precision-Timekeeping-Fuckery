@@ -173,11 +173,10 @@ reconfigure_full () {
 
     # setup and install root crontabs
     echo -e "\nInstalling root cronjobs\n"
-    echo -e "\nADD THE CONTENTS OF root-crontabm, OK?\n"
-    echo -e "\n\t@reboot bash /usr/share/customscripts/ifnet \"/usr/share/customscripts/webhook bootup\""
+    echo -e "\nJUST SAVE AND EXIT NO EDITS\n"
     hold_for_enter
     sudo crontab -e
-    # (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
+    (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
     # set up passwordless sudo
     ## backup first
