@@ -79,6 +79,16 @@
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/time_fuckery.sh?nocache=$RANDOM | $SHELL`  
 2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
+3. [https://grandfatherclock:3000](https://grandfatherclock:3000/login)
+   1. default login: `admin` and `admin`
+   2. data sources->add new->influx db
+      1. name "influxdb1"
+      2. query languagew: influxql
+      3. http
+         1. url: http://127.0.0.1:8086
+         2. timeout seconds: 3
+      4. database: Chrony_Stats
+      5. user, pass: blank
 #### Software (Manual)
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
