@@ -174,7 +174,8 @@ reconfigure_full () {
     # setup and install root crontabs
     echo -e "\nInstalling root cronjobs\n"
     echo -e "\nADD THE CONTENTS OF root-crontabm, OK?\n"
-   hold_for_enter
+    echo -e "\n\t@reboot bash /usr/share/customscripts/ifnet \"/usr/share/customscripts/webhook bootup\""
+    hold_for_enter
     sudo crontab -e
     # (sudo crontab -l 2>/dev/null && sudo cat $crontab_new) | sudo crontab -
 
@@ -395,7 +396,7 @@ phase_four () {
 
     # general-scripts-and-system-ssssssetup
     echo -e "\nInstalling general-scripts-and-system-ssssssetup\n"
-    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo $SHELL
+    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL" && bash /usr/share/customscripts/configure_webhook.sh && exec "$SHELL"
 
     # update the running file
     echo 4 > $installer_status
@@ -549,6 +550,8 @@ test () {
 
 # always run
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
+
+if [[ "$1" =~ "test" ]]
 
 # do the suto thinggg
 # if da file is there
