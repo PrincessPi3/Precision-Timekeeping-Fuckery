@@ -556,7 +556,7 @@ echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 if [[ "$1" =~ "test" ]]; then
     test
     exit 0
-elif [[ "$1" =~ "^[rR]{1}" ]]; then
+elif [[ "$1" =~ ^[rR]* ]]; then
     if [ -z "$2" ]; then
         default_conf=$git_dir/conf-level-info
     else
