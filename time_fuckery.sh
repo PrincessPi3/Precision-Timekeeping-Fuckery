@@ -74,8 +74,8 @@ long_sleep () {
 
 # reboot host
 run_reboot () {
-    echo -e "\n\nREBOOTING IN $long_delay MINUTES!\n\n"
-    sudo shutdown -r +$long_delay
+    echo -e "\n\nREBOOTING IN $short_delay MINUTES!\n\n"
+    sudo shutdown -r +$short_delay
 }
 
 # to the pause thing like in dos
@@ -86,8 +86,6 @@ function hold_for_enter() {
 
 # handle the services
 services_cmd () {
-    # short_sleep
-
     if [ -z $1 ]; then
         echo "Usage: bash services.sh stop|start|restart|status|enable"
         exit
@@ -373,7 +371,7 @@ phase_four () {
         echo -e "\npps-gpio already in /etc/modules, skipping..n"
     else
         echo -e "\nAdding pps-gpio to /etc/modules...\n"
-        sudo bash -c "echo 'pps-gpio' >> /etc/modules"
+        sudo bash -c "echo pps-gpio >> /etc/modules"
     fi
 
     # cleanup
