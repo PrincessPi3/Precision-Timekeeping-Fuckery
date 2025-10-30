@@ -200,7 +200,7 @@ reconfigure_full () {
     # sudo bash -c "cat $hwclockset_new > $hwclockset"
 
     # check if /boot/firmware/config.txt is configured yet
-    sudo grep -q -e "GPS PPS signals" $bootfirmwareconfig
+    sudo rg -q -e "GPS PPS signals" $bootfirmwareconfig
     grepconfig=$?
 
     # configure the overlay
@@ -363,7 +363,7 @@ phase_four () {
     sudo bash -c "apt purge -y $purge_packages"
 
     # check if pps-gpio is in /etc/modules already
-    grep -e "pps-gpio" /etc/modules
+    rg -e "pps-gpio" /etc/modules
     gerppps=$?
 
     # add pps-gpio to modules
