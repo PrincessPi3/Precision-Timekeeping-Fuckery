@@ -227,6 +227,9 @@ phase_one () {
 
     long_sleep
 
+    # makin scripts executable
+    chmod +x "$git_dir/*.sh"
+
     # updoot
     echo -e "\nUpdating Software Lists\n"
     sudo apt update 
