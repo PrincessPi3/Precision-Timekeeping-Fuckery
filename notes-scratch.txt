@@ -1,3 +1,5 @@
 grandfather:grandfather123abc
 
 ssh grandfather@grandfatherclock
+
+sudo apt update && sudo apt autoremove -y && sudo shutdown +1
