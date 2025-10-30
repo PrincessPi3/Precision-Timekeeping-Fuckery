@@ -10,13 +10,6 @@ NEO GPS Module
         Changed Baudrate UART1 to 115200
         Time Pulse Mode
             Antenna Cable Delay set to the calculated 14ns
-Installer
-    updated with new settings
-    set /boot/firmware/config.txt to be appended to by a config file for ease
-    added package picocom
-    ascii art headers
-    prettify
-
 edited shit
     baud
     pins for pps
@@ -25,3 +18,6 @@ edited shit
         restic
     all five installers
     fuckin hwclock-config or whatever
+
+1.4-rc-0
+    IT WORKAN WITH NEW MODULE
