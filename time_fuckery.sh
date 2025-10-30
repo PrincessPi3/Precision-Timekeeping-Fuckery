@@ -2,10 +2,11 @@
 # usage
 ## curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL
 ## test: bash time_fuckery.sh [t|T]
-## reconfigure: bash time_fuckery.sh [r|R] [conf-level-info|conf-level-debug|conf-level-warm]
+## reconfigure: bash time_fuckery.sh [r|R] [conf-level-info|conf-level-debug|conf-level-warm|=conf-level-info]
 ## nuke logs: bash time_fuckery.sh [n|N]
 ## uninstall: bash time_fuckery.sh [u|U]
-## services: bash time_fuckery.sh [s|S] [stop|start|restart|status|enable|disable]
+## services: bash time_fuckery.sh [s|S] [stop|start|restart|status|enable|disable|=status]
+## measure offset (chrony_statistics) bash time_fuckery.sh [mM] [int number of logs to process=500]
 
 # explicitly die on any error
 # set -e
@@ -636,6 +637,20 @@ cleanup() {
     echo "Cleanup done!"
 }
 
+# usage chrony_statistics [int number of logs to process]
+# measure_offset
+chrony_statistics () {
+    numlogs=$1
+    
+    tmp_log=$git_dir/chrony_statistics.log
+
+    sudo tail -n $numlogs /var/log/chrony/statistics.log > $tmp_log
+    sudo chown $USER:$USER $tmp_log
+    echo "$(wc -l $tmp_log) logs entered"
+    python $git_dir/chrony_statistics.py
+    rm -f $tmp_log
+}
+
 # always run
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
@@ -660,6 +675,15 @@ elif [[ "$1" =~ ^[nN]{1} ]]; then
 # uninstall modde
 elif [[ "$1" =~ ^[uU]{1} ]]; then
     uninstall
+# measure offset (chrony_statustics.sh)
+elif [[ "$1" =~ ^[mM]{1} ]]; then
+    if [ -z "$2" ]; then
+        default_numlogs=500
+    else
+        default_numlogs=$2
+    fi
+
+    chrony_statistics $default_numlogs
 # services modde
 elif [[ "$1" =~ ^[sS]{1} ]]; then
     if [ -z "$2" ]; then
