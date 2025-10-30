@@ -23,52 +23,32 @@
   "panels": [
     {
       "datasource": {
+        "type": "influxdb",
         "uid": "ff2k44t741udcc"
       },
-      "description": "System Time (Human Readable)",
+      "description": "Current System Time",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "footer": {
-              "reducers": []
-            },
-            "inspect": true,
-            "tooltip": {
-              "field": "system_time",
-              "placement": "auto"
-            }
-          },
-          "fieldMinMax": true,
           "mappings": [],
-          "max": 10,
-          "min": 10,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
-          "unit": "s"
+          "unit": "dateTimeAsLocal"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "A"
-            },
-            "properties": []
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -76,28 +56,34 @@
         "x": 0,
         "y": 0
       },
-      "id": 6,
+      "id": 8,
       "options": {
-        "cellHeight": "sm",
-        "enablePagination": false,
-        "showHeader": false,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Time"
-          }
-        ]
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "12.2.1",
       "targets": [
         {
           "groupBy": [],
-          "limit": "10",
+          "limit": "1",
           "measurement": "chrony",
           "orderByTime": "DESC",
-          "policy": "autogen",
+          "policy": "default",
           "refId": "A",
-          "resultFormat": "table",
+          "resultFormat": "time_series",
           "select": [
             [
               {
@@ -105,14 +91,20 @@
                   "system_time"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [
+                  " / 1000000"
+                ],
+                "type": "math"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "System Time (Time - Offset)",
-      "type": "table"
+      "title": "System Time",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -242,50 +234,33 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "influxdb",
+        "uid": "ff2k44t741udcc"
       },
-      "description": "Long term average of time offset",
+      "description": "System Time (Seconds) | Offset Time (Seconds)",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic-by-name"
+            "mode": "thresholds"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
             },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "filterable": true,
+            "footer": {
+              "reducers": [
+                "mean"
+              ]
             },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "inspect": true,
+            "tooltip": {
+              "field": "system_time"
             },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "wrapHeaderText": false,
+            "wrapText": false
           },
-          "displayName": "RMS Offset (Seconds)",
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -293,10 +268,6 @@
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -310,66 +281,42 @@
         "x": 0,
         "y": 8
       },
-      "id": 5,
+      "id": 7,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
+        "cellHeight": "sm",
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time"
+          }
+        ]
       },
       "pluginVersion": "12.2.1",
       "targets": [
         {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "cenh879ru0gzkc"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "1m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
+          "groupBy": [],
+          "limit": "10",
           "measurement": "chrony",
-          "orderByTime": "ASC",
-          "policy": "autogen",
+          "orderByTime": "DESC",
+          "policy": "default",
           "refId": "A",
-          "resultFormat": "time_series",
+          "resultFormat": "table",
           "select": [
             [
               {
                 "params": [
-                  "rms_offset"
+                  "system_time"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "RMS Offset",
-      "type": "timeseries"
+      "title": "System Time | Offset",
+      "type": "table"
     },
     {
       "datasource": {
@@ -502,6 +449,137 @@
         "type": "datasource",
         "uid": "grafana"
       },
+      "description": "Long term average of time offset",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "displayName": "RMS Offset (Seconds)",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cenh879ru0gzkc"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "chrony",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rms_offset"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "RMS Offset",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
       "description": "Chrony frequency offset over last minute in PPM",
       "fieldConfig": {
         "defaults": {
@@ -565,7 +643,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 4,
       "options": {
@@ -639,5 +717,5 @@
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 15
+  "version": 39
 }
