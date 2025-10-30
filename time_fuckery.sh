@@ -421,7 +421,7 @@ phase_five () {
     # running (warn level) 
     # bash ./reconfig_full.sh ./running-warn-level-conf
     # debug/dev mode
-    reconfigure_full "$git_dir/info-level-conf-info"
+    reconfigure_full "$git_dir/conf-level-info"
 
     # enable services
     echo -e "\nEnabling Services..."
@@ -543,7 +543,7 @@ test () {
     sudo crontab -l
     hold_for_enter
 
-    bash ./show_running_configs.sh
+    bash $git_dir/show_running_configs.sh
 
     # clean up
     clear
