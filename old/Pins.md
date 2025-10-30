@@ -4,7 +4,7 @@
 | Cable          | Module Pin | Module Pin Meaning | Pi Pin (Physical) | Pi Pin (Name) | Voltage     | Notes                          |
 |:---------------|:-----------|:-------------------|:------------------|:------------------|:--------|:-------------------------------|
 | Yellow         | 2          | Module Voltage In  | 17                | 3.3 Volts         | 3.3 V   | NOT 5 V TOLERANT               |
-| Yellow  (Mark) | 2          | Antenna Voltage In | 2                 | 5 Volts           | 5 V     | 5 V ONLY                       |
+| Yellow  (Mark) | 1          | Antenna Voltage In | 2                 | 5 Volts           | 5 V     | 5 V ONLY                       |
 | Black          | 8          | Ground             | 6                 | GND               | 3.3 V?  | UNKNOWN 3 V AND 5 V TOLERANCES |
 | White          | 6          | Time Pulse 1/PPS   | 12                | GPIO 18           | 3.3 V   | NOT 5 V TOLERANT               |
 | Blue           | 5          | UART RX            | 8                 | UART TX / GPIO 14 | 3.3 V   | NOT 5 V TOLERANT               |
