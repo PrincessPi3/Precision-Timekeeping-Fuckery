@@ -1,30 +1,33 @@
 # Commands
 copy image
 ```bash
-byobu
-
 imgname=`date +"%Y-%m-%d-%H%M-%S"`-grandfatherclock-pi4.img
 xzname=$imgname.xz
-dadisk=/dev/sdb
+sizes=sizes-$imgname-$xzame.txt
+checksums=sha256sum-$imgname-$xzname.sha256
+
+lsblk
+echo "Enter disk name (including /dev/) ex /dev/sdb"
+read dadisk
 
 webhook "starting copy $dadisk to $imgname to $xzname"
 sudo dd if=$dadisk of=$imgname bs=4M status=progress
-
-webhook "Copied the disk to $imgname, compressing to $xzname"
+imgsize=$(du -h $imgname)
+webhook "Copied the disk to $imgname ($imgsize), compressing to $xzname"
 sudo pishrink.sh -v -Z -a $imgname
+xzsize=$(du -h $xzname)
 
-webhook "$imgname shrunk to $xzname, calculating sha256 checksums..." true
-sha256sum $imgname | tee sha256sum-$imgname.txt
-sha256sum $imgname | tee -a sha256sum-$xzname.txt
+webhook "$imgname ($imgsize) shrunk to $xzname ($xzsize), calculating sha256 checksums..." true
+sha256sum $imgname | tee $checksums
+sha256sum $xzname | tee -a $checksums
 
 webhook "getting sizes"
-du -h $imgname | tee sizes-$imgname-$xzame.txt
-du -h $xzname | tee -a sizes-$imgname-$xzame.txt
+echo -e "imgsize: $imgsize\nxzsize: $xzsize" | tee $sizes
 
-# sudo rm -f $imgname
-webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname\n\txzname: $xzname\n\tsizes: $(cat sizes-$imgname-$xzame.txt)" true
+webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname\n\txzname: $xzname\n\tsizes: $(cat $sizes)" true
 # sudo shutdown -r +1
 ```
+
 
 watch file
 ```bash
