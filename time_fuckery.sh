@@ -19,13 +19,13 @@ short_delay=1
 first_install="git"
 
 # packages
-packages="7zip btop build-essential byobu chrony e2fsprogs gawk gh grafana gpsd gpsd-clients gzip htop i2c-tools influxdb iptraf-ng pigz util-linux util-linux-extra lynx net-tools nmap parted picocom pps-tools python3 python3-pip python3-virtualenv python3-setuptools python3-pandas python3-smbus restic ripgrep screen syslog-ng telegraf thefuck unzip udev wget xz-utils zip"
+packages="7zip btop build-essential byobu chrony e2fsprogs gawk gh grafana gpsd gpsd-clients gzip htop i2c-tools influxdb iptraf-ng pigz util-linux util-linux-extra lynx net-tools nginx nmap parted picocom pps-tools python3 python3-pip python3-virtualenv python3-setuptools python3-pandas python3-smbus restic ripgrep screen syslog-ng telegraf thefuck unzip udev wget xz-utils zip"
 
 # purge packages
 purge_packages='"apt purge -y "bluetooth*" "wireless*" "fonts*" "bluez*" "alsa*"'
 
 # services
-services="gpsd gpsd.socket chrony influxdb telegraf grafana-server syslog-ng"
+services="gpsd gpsd.socket chrony influxdb telegraf grafana-server syslog-ng nginx"
 
 # configs place in system
 gpsd="/etc/default/gpsd"

@@ -13,6 +13,7 @@
         * gps module 2mm
         * normal 2.54mm
   * document [chrony_statistics.sh](Calculations/chrony_statistics.sh)
+* nginx front end
 * Wire harnes
   * Cable managenet
     * trim up yellow->oraNGE
