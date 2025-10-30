@@ -200,7 +200,7 @@ reconfigure_full () {
     # sudo bash -c "cat $hwclockset_new > $hwclockset"
 
     # check if /boot/firmware/config.txt is configured yet
-    sudo rg -q -e "GPS PPS signals" $bootfirmwareconfig
+    sudo rg -q "GPS PPS signals" $bootfirmwareconfig
     grepconfig=$?
 
     # configure the overlay
@@ -238,7 +238,7 @@ phase_one () {
     git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git $git_dir
 
     # makin scripts executable
-    chmod +x "$git_dir/*.sh"
+    chmod +x $git_dir/*.sh
 
     # update the log
     echo -e "START AT $(date +%s) time_fuckery.sh\ncomplete 1/5" >> $status_log
@@ -363,7 +363,7 @@ phase_four () {
     sudo bash -c "apt purge -y $purge_packages"
 
     # check if pps-gpio is in /etc/modules already
-    rg -e "pps-gpio" /etc/modules
+    rg -q "pps-gpio" /etc/modules
     gerppps=$?
 
     # add pps-gpio to modules
