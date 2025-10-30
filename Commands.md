@@ -22,7 +22,7 @@ du -h $imgname | tee sizes-$imgname-$xzame.txt
 du -h $xzname | tee -a sizes-$imgname-$xzame.txt
 
 # sudo rm -f $imgname
-webhook "done!" true
+webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname\n\txzname: $xzname\n\tsizes: $(cat sizes-$imgname-$xzame.txt)" true
 # sudo shutdown -r +1
 ```
 
