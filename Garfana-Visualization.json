@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ff2k44t741udcc"
+        "uid": "af2mjwnoibksgd"
       },
       "description": "Current System Time",
       "fieldConfig": {
@@ -103,7 +103,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ff2k44t741udcc"
+        "uid": "af2mjwnoibksgd"
       },
       "description": "System Time (ISO) and Offset (Seconds",
       "fieldConfig": {
@@ -710,5 +710,5 @@
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 44
+  "version": 3
 }
