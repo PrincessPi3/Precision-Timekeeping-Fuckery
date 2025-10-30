@@ -22,7 +22,7 @@ first_install="git"
 packages="btop build-essential byobu chrony gawk gh grafana gpsd gpsd-clients i2c-tools influxdb iptraf-ng util-linux util-linux-extra lynx net-tools nginx picocom pps-tools python3 python3-pip python3-virtualenv python3-setuptools python3-pandas python3-smbus restic ripgrep screen syslog-ng telegraf"
 
 # purge packages
-purge_packages='"apt purge -y build-essential "bluetooth*" "wireless*" "fonts*" "bluez*" "alsa*"'
+purge_packages="build-essential bluetooth* wireless* fonts* bluez* pci* alsa*"
 
 # services
 services="gpsd gpsd.socket chrony influxdb telegraf grafana-server syslog-ng nginx"
@@ -125,7 +125,7 @@ dump_configs () {
 
     if [ -f $udev_rule ]; then
         echo -e "\n$udev_rule found, copying as well...\n"
-        sudo $udev_rule $dname/50-tty.rules
+        sudo cp $udev_rule $dname/50-tty.rules
     fi
 
     echo -e "\nFixing permissions in $dname...\n"
@@ -357,11 +357,6 @@ phase_four () {
 
     short_sleep
 
-    # purging da junk
-    # dont actually think this is at worth the space savings
-    echo -e "\nPurging unneeded junk...\n"
-    sudo bash -c "apt purge -y $purge_packages"
-
     # check if pps-gpio is in /etc/modules already
     rg -q "pps-gpio" /etc/modules
     gerppps=$?
@@ -442,6 +437,13 @@ phase_five () {
     # enable services
     echo -e "\nEnabling Services..."
     services_cmd enable
+
+    # purging da junk
+    # dont actually think this is at worth the space savings
+    echo -e "\nPurging unneeded junk...\n"
+    sudo bash -c "apt purge -y $purge_packages"
+    short_sleep
+    sudo apt autoremove -y
 
     # unclear if this is needed
     # edit dis
