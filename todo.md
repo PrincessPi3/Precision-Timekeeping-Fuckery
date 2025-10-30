@@ -1,4 +1,5 @@
 # Todo
+* check against official guide
 * README.md
   * link to relevant buy pages
     * gps module
