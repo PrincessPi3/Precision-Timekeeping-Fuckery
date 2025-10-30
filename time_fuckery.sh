@@ -543,6 +543,8 @@ test () {
     sudo crontab -l
     hold_for_enter
 
+    bash ./show_running_configs.sh
+
     # clean up
     clear
 }
