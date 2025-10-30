@@ -370,11 +370,12 @@ phase_four () {
         sudo bash -c "echo pps-gpio >> /etc/modules"
     fi
 
-    short_sleep
+    # short_sleep
 
     # cleanup
-    echo -e "\nCleaning up...\n"
-    sudo apt autoremove -y 
+    # moved to phase 5
+    # echo -e "\nCleaning up...\n"
+    # sudo apt autoremove -y 
 
     short_sleep
 
