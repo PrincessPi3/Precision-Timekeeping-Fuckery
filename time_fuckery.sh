@@ -1,6 +1,10 @@
 #!/bin/bash
 # usage
 ## curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL
+# bash time_fuckery.sh [t|T||te|TE|test|TEST]
+## test: 
+# reconfigure: bash time_fuckery.sh [r|R|re|RE|reconfigure|reconfigure] [conf-level-info|conf-level-debug|conf-level-warm]
+## 
 
 # explicitly die on any error
 # set -e
@@ -553,10 +557,11 @@ test () {
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # test mode
-if [[ "$1" =~ "test" ]]; then
+if [[ "$1" =~ "^[tT]+" ]]; then
     test
     exit 0
-elif [[ "$1" =~ ^[rR]* ]]; then
+# reconfigure mode
+elif [[ "$1" =~ "^[rR]+" ]]; then
     if [ -z "$2" ]; then
         default_conf=$git_dir/conf-level-info
     else
