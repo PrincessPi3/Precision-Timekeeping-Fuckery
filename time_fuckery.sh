@@ -6,7 +6,7 @@
 ## nuke logs: bash time_fuckery.sh [n|N]
 ## uninstall: bash time_fuckery.sh [u|U]
 ## services: bash time_fuckery.sh [s|S] [stop|start|restart|status|enable|disable|=status]
-## measure offset (chrony_statistics) bash time_fuckery.sh [mM] [int number of logs to process=500]
+## measure offset (chrony_statistics): bash time_fuckery.sh [mM] [int number of logs to process=500]
 
 # explicitly die on any error
 # set -e
