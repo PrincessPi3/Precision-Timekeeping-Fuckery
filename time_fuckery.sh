@@ -348,7 +348,7 @@ phase_four () {
     # clean up
     echo -e "\nDisabling unneeded junk..\n"
     sudo systemctl disable bluetooth
-    sudo systemctl disable fake-hwclock
+    # sudo systemctl disable fake-hwclock
     sudo update-rc.d -f fake-hwclock remove
 
     # install da packages
@@ -374,9 +374,13 @@ phase_four () {
         sudo bash -c "echo pps-gpio >> /etc/modules"
     fi
 
+    short_sleep
+
     # cleanup
     echo -e "\nCleaning up...\n"
     sudo apt autoremove -y 
+
+    short_sleep
 
     # handle users serial shit
     ## self
