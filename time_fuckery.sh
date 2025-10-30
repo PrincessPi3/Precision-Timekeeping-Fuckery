@@ -348,8 +348,8 @@ phase_four () {
     # clean up
     echo -e "\nDisabling unneeded junk..\n"
     sudo systemctl disable bluetooth
-    sudo update-rc.d -f fake-hwclock remove
     sudo systemctl disable fake-hwclock
+    sudo update-rc.d -f fake-hwclock remove
 
     # install da packages
     echo -e "\nInstalling packages, this may take a while...\n"
