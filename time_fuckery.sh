@@ -428,9 +428,9 @@ phase_five () {
     # reconfigure to normal mode
     echo -e "\nStarting configurAation\n"
     # info level
-    # bash ./reconfig_full.sh ./reconfig_full.sh ./info-level-conf
+    # bash ./reconfig_full.sh ./reconfig_full.sh ./conf-level-warn
     # running (warn level) 
-    # bash ./reconfig_full.sh ./running-warn-level-conf
+    # bash ./reconfig_full.sh ./conf-level-debug
     # debug/dev mode
     reconfigure_full "$git_dir/conf-level-info"
 
