@@ -1,6 +1,7 @@
 # Commands
 copy image
 ```bash
+#/bin/bash
 imgname=`date +"%Y-%m-%d-%H%M-%S"`-grandfatherclock-pi4.img
 xzname=$imgname.xz
 sizes=sizes-$imgname-$xzame.txt
@@ -24,10 +25,9 @@ sha256sum $xzname | tee -a $checksums
 webhook "getting sizes"
 echo -e "imgsize: $imgsize\nxzsize: $xzsize" | tee $sizes
 
-webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname\n\txzname: $xzname\n\tsizes: $(cat $sizes)" true
-# sudo shutdown -r +1
+webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname ($imgsize)\n\txzname: $xzname ($xzsize)" true
+sudo shutdown -r +1
 ```
-
 
 watch file
 ```bash
