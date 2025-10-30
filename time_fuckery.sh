@@ -513,7 +513,7 @@ test () {
 
     # check gpsmon
     echo "Checking Timekeeping GPS"
-    sudo gpsmon
+    gpsmon --nmea
 
     # do same with watch
     echo "Watching chronyc sources"
