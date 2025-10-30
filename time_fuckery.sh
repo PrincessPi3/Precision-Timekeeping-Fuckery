@@ -225,9 +225,6 @@ phase_one () {
 
     long_sleep
 
-    # makin scripts executable
-    chmod +x "$git_dir/*.sh"
-
     # updoot
     echo -e "\nUpdating Software Lists\n"
     sudo apt update 
@@ -239,6 +236,9 @@ phase_one () {
     # download da thing
     echo -e "\nCloning Repo\n"
     git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git $git_dir
+
+    # makin scripts executable
+    chmod +x "$git_dir/*.sh"
 
     # update the log
     echo -e "START AT $(date +%s) time_fuckery.sh\ncomplete 1/5" >> $status_log
