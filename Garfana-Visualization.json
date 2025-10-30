@@ -94,7 +94,7 @@
           "groupBy": [],
           "limit": "10",
           "measurement": "chrony",
-          "orderByTime": "ASC",
+          "orderByTime": "DESC",
           "policy": "autogen",
           "refId": "A",
           "resultFormat": "table",
@@ -639,5 +639,5 @@
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 14
+  "version": 15
 }
