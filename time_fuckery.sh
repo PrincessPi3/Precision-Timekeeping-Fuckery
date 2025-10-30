@@ -85,7 +85,7 @@ function hold_for_enter() {
 
 # handle the services
 services_cmd () {
-    short_sleep
+    # short_sleep
 
     if [ -z $1 ]; then
         echo "Usage: bash services.sh stop|start|restart|status|enable"
