@@ -700,13 +700,13 @@ else
     if [ -f $status_log ]; then
         updoot_repo
 
-        if [[ "$(cat $installer_status)" == 1 ]]; then
+        if [[ "$(cat $installer_status)" =~ 1 ]]; then
             phase_two
-        elif [[ "$(cat $installer_status)" == 2 ]]; then
+        elif [[ "$(cat $installer_status)" =~ 2 ]]; then
             phase_three
-        elif [[ "$(cat $installer_status)" == 3 ]]; then
+        elif [[ "$(cat $installer_status)" =~ 3 ]]; then
             phase_four
-        elif [[ "$(cat $installer_status)" == 4 ]]; then
+        elif [[ "$(cat $installer_status)" =~ 4 ]]; then
             phase_five
         else
             echo -e "\nAlready installed!\n\tUsage: time_fuckery.sh test"
