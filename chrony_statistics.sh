@@ -1,5 +1,5 @@
 #!/bin/bash
-numlogs=500
+numlogs=2500
 tmp_log="./chrony_statistics.log"
 
 sudo tail -n $numlogs /var/log/chrony/statistics.log > $tmp_log
