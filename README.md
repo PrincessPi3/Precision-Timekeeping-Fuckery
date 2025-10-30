@@ -1,5 +1,14 @@
 # Precision Timekeeping Fuckery
 
+## Usage
+* install: `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
+* uninstall `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh u`
+* test: `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh t`
+* nuke logs and temp files: `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh n`
+* measure offset (chrony_stats.py) `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh m`
+* service status `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh s status`
+* service restart `bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh s restart`
+
 ## How it works
 ### Services
 * `gpsd`
@@ -38,7 +47,7 @@
 * `sudo tail -f /var/log/root-crontab.log`
 
 ## Setup
-### Requirements
+### Hardware
 1. Raspberry Pi 4+
 2. A timing specific GPS module
 3. I2C RTC Module
@@ -57,7 +66,7 @@
       5. password
       6. locale
       7. keyboard
-#### Software (Auto)
+#### Install (Auto)
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/time_fuckery.sh?nocache=$RANDOM | $SHELL`  
 2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
