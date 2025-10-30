@@ -588,7 +588,7 @@ uninstall () {
     run_reboot
 }
 
-function backup_logs() {
+function backup_logs () {
     # make log backup dir with unix timestamp
     dname="./log_backup_$(date +%s)"
     mkdir $dname
