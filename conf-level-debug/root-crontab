@@ -1,0 +1,8 @@
+# notify webhook of reboot
+@reboot bash /usr/share/customscripts/ifnet "/usr/share/customscripts/webhook bootup"
+
+# set the system time from the RTC every reboot
+@reboot /usr/sbin/hwclock -s 2>> /var/log/root-crontab.log
+
+# set the RTC from the system time every four hours
+0 */4 * * * /usr/sbin/hwclock -w 2>> /var/log/root-crontab.log

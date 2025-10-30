@@ -421,7 +421,7 @@ phase_five () {
     # running (warn level) 
     # bash ./reconfig_full.sh ./running-warn-level-conf
     # debug/dev mode
-    reconfigure_full "$git_dir/info-level-conf-huawaii"
+    reconfigure_full "$git_dir/info-level-conf-info"
 
     # enable services
     echo -e "\nEnabling Services..."
