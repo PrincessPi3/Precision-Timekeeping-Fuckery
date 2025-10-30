@@ -19,7 +19,7 @@ short_delay=1
 first_install="git"
 
 # packages
-packages="btop build-essential byobu chrony e2fsprogs gawk gh grafana gpsd gpsd-clients htop i2c-tools influxdb iptraf-ng pigz util-linux util-linux-extra lynx net-tools nginx picocom pps-tools python3 python3-pip python3-virtualenv python3-setuptools python3-pandas python3-smbus restic ripgrep screen syslog-ng telegraf thefuck udev wget"
+packages="btop build-essential byobu chrony gawk gh grafana gpsd gpsd-clients htop i2c-tools influxdb iptraf-ng util-linux util-linux-extra lynx net-tools nginx picocom pps-tools python3 python3-pip python3-virtualenv python3-setuptools python3-pandas python3-smbus restic ripgrep screen syslog-ng telegraf thefuck wget"
 
 # purge packages
 purge_packages='"apt purge -y "bluetooth*" "wireless*" "fonts*" "bluez*" "alsa*"'
