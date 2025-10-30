@@ -7,7 +7,6 @@ rm -f *.log 2>/dev/null
 rm -f *.bak* 2>/dev/null
 rm -f *.~ 2>/dev/null
 rm -rf old 2>/dev/null
-rm -rf conf-* 2>/dev/null
 
 echo "Git pulling"
 git pull 1>/dev/null 2>/dev/null

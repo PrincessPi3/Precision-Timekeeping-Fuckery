@@ -1,10 +1,11 @@
 #!/bin/bash
 # usage
 ## curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/installer_auto.sh?nocache=$RANDOM | $SHELL
-# bash time_fuckery.sh [t|T||te|TE|test|TEST]
-## test: 
-# reconfigure: bash time_fuckery.sh [r|R|re|RE|reconfigure|reconfigure] [conf-level-info|conf-level-debug|conf-level-warm]
-## 
+## test: bash time_fuckery.sh [t|T]
+## reconfigure: bash time_fuckery.sh [r|R] [conf-level-info|conf-level-debug|conf-level-warm]
+## nuke logs: bash time_fuckery.sh [n|N]
+## uninstall: bash time_fuckery.sh [u|U]
+## services: bash time_fuckery.sh [s|S] [stop|start|restart|status|enable|disable]
 
 # explicitly die on any error
 # set -e
@@ -35,6 +36,15 @@ udev_rule="/etc/udev/rules.d/50-tty.rules"
 bootfirmwareconfig="/boot/firmware/config.txt"
 sudoers="/etc/sudoers"
 # hwclockset="/lib/udev/hwclock-set"
+
+# log locations
+chrony_tracking_log=/var/log/chrony/tracking.log
+chrony_statistics_log=/var/log/chrony/statistics.log
+chrony_measurements_log=/var/log/chrony/measurements.log
+telegraf_log=/var/log/telegraf/telegraf.log
+grafana_log=/var/log/grafana/grafana.log
+syslog_log=/var/log/syslog
+rootcrontab_log=/var/log/root-crontab.log
 
 # get real username (not root) if run with sudo
 if [ ! -z $SUDO_USER ]; then
@@ -470,6 +480,17 @@ updoot_repo () {
     fi
 }
 
+show_running_configs () {
+    sudo less $gpsd
+    sudo less $chrony
+    sudo less $grafana
+    sudo less $influxdb
+    sudo less $telegraf
+    sudo less $udev_rule
+    sudo less $bootfirmwareconfig
+    sudo crontab -l
+}
+
 test () {
     # status of services
     services_cmd status
@@ -547,21 +568,83 @@ test () {
     sudo crontab -l
     hold_for_enter
 
-    bash $git_dir/show_running_configs.sh
+    show_running_configs
 
     # clean up
     clear
+}
+
+uninstall () {
+    services_cmd stop
+    services_cmd disable
+    nuke_logs
+    cleanup
+    sudo apt purge -y telegraf grafana influxdb gpsd gpsd-clients chrony syslog-ng
+    sudo apt install -y raspi-config
+    cd ~
+    rm -rf ~/Precision-Timekeeping-Fuckery
+    sudo reboot
+}
+
+function backup_logs() {
+    # make log backup dir with unix timestamp
+    dname="./log_backup_$(date +%s)"
+    mkdir $dname
+
+    # copy em
+    sudo cp $chrony_tracking_log $dname/chrony_tracking.log
+    sudo cp $chrony_statistics_log $dname/chrony_statistics.log
+    sudo cp $chrony_measurements_log $dname/chrony_measurements.log
+    sudo cp $telegraf_log $dname/telegraf.log
+    sudo cp $grafana_log $dnamme/grafana.log
+    sudo cp $syslog_log $dname/syslog
+    sudo cp $rootcrontab_log $dname/syslog
+
+    # fix permissions
+    sudo chown -R $USER:$USER $dname
+    chmod 775 $dname
+    chmod 664 $dname/*
+
+    # compress logs
+    tar fczvv $dname.tar.gz $dname
+
+    # cleanup
+    rm -rf $dname
+}
+
+function clear_logs() {
+    # truncate logs to empty files
+    sudo bash -c "echo '' > $chrony_tracking_log"
+    sudo bash -c "echo '' > $chrony_statistics_log"
+    sudo bash -c "echo '' > $chrony_measurements_log"
+    sudo bash -c "echo '' > $telegraf_log"
+    sudo bash -c "echo '' > $grafana_log"
+    sudo bash -c " echo '' > $rootcrontab_log"
+    sudo bash -c "echo '' > $syslog_log"
+}
+
+cleanup() {
+    echo "Nuking all those stupid files"
+
+    rm -f $git_dir/influxdata-archive.key 2>/dev/null
+    rm -f $git_dir/status.txt 2>/dev/null
+    rm -f $git_dir/*.tar.gz 2>/dev/null
+    rm -f $git_dir/*.log 2>/dev/null
+    rm -f $git_dir/*.bak* 2>/dev/null
+    rm -f $git_dir*.~ 2>/dev/null
+
+    echo "Cleanup done!"
 }
 
 # always run
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # test mode
-if [[ "$1" =~ ^[tT]+ ]]; then
+if [[ "$1" =~ ^[tT]{1} ]]; then
     test
     exit 0
 # reconfigure mode
-elif [[ "$1" =~ ^[rR]+ ]]; then
+elif [[ "$1" =~ ^[rR]{1} ]]; then
     if [ -z "$2" ]; then
         default_conf=$git_dir/conf-level-info
     else
@@ -569,26 +652,42 @@ elif [[ "$1" =~ ^[rR]+ ]]; then
     fi
 
     reconfigure_full $default_conf
-fi
-
-# do the suto thinggg
-# if da file is there
-if [ -f $status_log ]; then
-    updoot_repo
-
-    if [[ "$(cat $installer_status)" == 1 ]]; then
-        phase_two
-    elif [[ "$(cat $installer_status)" == 2 ]]; then
-        phase_three
-    elif [[ "$(cat $installer_status)" == 3 ]]; then
-        phase_four
-    elif [[ "$(cat $installer_status)" == 4 ]]; then
-        phase_five
+# nuke logs mode
+elif [[ "$1" =~ ^[nN]{1} ]]; then
+    cleanup
+    backup_logs
+    clear_logs
+# uninstall modde
+elif [[ "$1" =~ ^[uU]{1} ]]; then
+    uninstall
+# services modde
+elif [[ "$1" =~ ^[sS]{1} ]]; then
+    if [ -z "$2" ]; then
+        default_service_action=status
     else
-        echo -e "\nAlready installed!\n\tUsage: time_fuckery.sh test"
-        exit
+        default_service_action=$2
     fi
-# if da file is not there
+    services_cmd $2
 else
-    phase_one
+    # do da install
+    # if da file is there
+    if [ -f $status_log ]; then
+        updoot_repo
+
+        if [[ "$(cat $installer_status)" == 1 ]]; then
+            phase_two
+        elif [[ "$(cat $installer_status)" == 2 ]]; then
+            phase_three
+        elif [[ "$(cat $installer_status)" == 3 ]]; then
+            phase_four
+        elif [[ "$(cat $installer_status)" == 4 ]]; then
+            phase_five
+        else
+            echo -e "\nAlready installed!\n\tUsage: time_fuckery.sh test"
+            exit
+        fi
+    # if da file is not there
+    else
+        phase_one
+    fi
 fi
