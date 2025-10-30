@@ -1,4 +1,5 @@
 grandfather:grandfather123abc
+admin:grandfather123abc
 
 ssh grandfather@grandfatherclock
 
