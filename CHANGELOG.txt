@@ -33,3 +33,5 @@ edited shit
     added Commands.md
         pi image creation
     
+1.5-rc-4
+    mostly bug fixes
