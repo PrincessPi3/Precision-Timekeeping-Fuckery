@@ -122,12 +122,8 @@ dump_configs () {
     sudo cp $telegraf $dname/telegraf.conf
     echo -e "\tBacking up /boot/firmware/config.txt"
     sudo cp $telegraf $dname/boot-firmware-config.txt
-    echo -e "\tBacking up gheclock-set config"
     echo -e "\tBacking up root crontab"
     sudo crontab -l > $dname/root-crontab
-    echo -e "\tBacking up /etc/modules\n"
-    sudo cp $modules $dname/root-crontab
-    echo -e "\tBacking up root crontab"
 
     if [ -f $udev_rule ]; then
         echo -e "\n$udev_rule found, copying as well...\n"
@@ -155,7 +151,7 @@ reconfigure_full () {
     fi
 
     # new conf file paths
-    gpsd_new=""$1/gpsd""
+    gpsd_new="$1/gpsd"
     chrony_new="$1/chrony.conf"
     grafana_new="$1/grafana.ini"
     influxdb_new="$1/influxdb.conf"
@@ -362,8 +358,8 @@ phase_four () {
 
     # purging da junk
     # dont actually think this is at worth the space savings
-    # echo "Purging unneeded junk..."
-    # sudo bash -c "apt purge -y $purge_packages"
+    echo -e "\nPurging unneeded junk...\n"
+    sudo bash -c "apt purge -y $purge_packages"
 
     # check if pps-gpio is in /etc/modules already
     grep -e "pps-gpio" /etc/modules
@@ -584,7 +580,7 @@ uninstall () {
     sudo apt install -y raspi-config
     cd ~
     rm -rf ~/Precision-Timekeeping-Fuckery
-    sudo reboot
+    run_reboot
 }
 
 function backup_logs() {
@@ -597,7 +593,7 @@ function backup_logs() {
     sudo cp $chrony_statistics_log $dname/chrony_statistics.log
     sudo cp $chrony_measurements_log $dname/chrony_measurements.log
     sudo cp $telegraf_log $dname/telegraf.log
-    sudo cp $grafana_log $dnamme/grafana.log
+    sudo cp $grafana_log $dname/grafana.log
     sudo cp $syslog_log $dname/syslog
     sudo cp $rootcrontab_log $dname/syslog
 
@@ -691,7 +687,8 @@ elif [[ "$1" =~ ^[sS]{1} ]]; then
     else
         default_service_action=$2
     fi
-    services_cmd $2
+    
+    services_cmd $default_service_action
 else
     # do da install
     # if da file is there
