@@ -79,7 +79,7 @@
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/time_fuckery.sh?nocache=$RANDOM | $SHELL`  
 2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
-   1. each reboot run the above command a total of four times
+   1. each reboot run the above command a total of four (4) times
 3. [https://grandfatherclock:3000](https://grandfatherclock:3000/login)
    1. default login: `admin` and `admin`
       1. set new password
@@ -94,6 +94,7 @@
       6. save and test
    3. Dashboards->New-Import
       1. Upload [Garfana-Visualization.json](./Garfana-Visualization.json)
+      2. 
 #### Software (Manual)
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
@@ -102,23 +103,10 @@ Run raspi-config
 1. Interface Options->Serial Port
 	1. Would you like a login shell to be accessible over serial? **<No>**
 	2. Would you like the serial port hardware to be enabled? **<Yes>**
-2. Advanced Options
+2. Interface Options-I2C
+   1. Enable **Yes** 
+3. Advanced Options
 		1. A1 Expand Filesystem
-
-update os and packages (will reboot when finished)  
-`bash ~/Precision-Timekeeping-Fuckery/update.sh`  
-  
-install packages (will reboot when finished)  
-`bash ~/Precision-Timekeeping-Fuckery/packages.sh`  
-  
-finish install (will reboot when finished)  
-`bash ~/Precision-Timekeeping-Fuckery/installer.sh`  
-  
-check status of everything and test
-`bash ~/Precision-Timekeeping-Fuckery/test.sh`  
-  
-navigate to `http://<ip's ip>:3000`  
-Upload ~/Garfana-Visualization.json to create dashboard
 
 ### Clients
 **Windows**
@@ -131,69 +119,15 @@ Upload ~/Garfana-Visualization.json to create dashboard
 ## Links
 **Helpful Guide** https://austinsnerdythings.com/2025/02/14/revisiting-microsecond-accurate-ntp-for-raspberry-pi-with-gps-pps-in-2025/  
 
-**Current Module**
+**Old Module**
 * Chipset https://www.u-blox.com/en/product/neo-f10n-module
 * Breakout https://docs.sparkfun.com/SparkFun_u-blox_NEO-F10N/single_page/  
 
-**Next Module**
+**Current Module**
 * Chipset https://www.u-blox.com/en/product/neolea-m8t-series
 * Breakout https://www.ebay.com/itm/134243322249
 
 **U-Blox Software (U-Center)**  https://www.u-blox.com/en/product/u-center
-  
-  
-**todo**
-* case
-* gps sma antenna adaptor
-* change gps settings
-	* use 5v
-	* adjust time delay to be closer to
-	* higher baudrate
-		1. 460800
-* README
-	* installer1-4.sh
-		* sudo apt update && sudo apt install -y git
-		* git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeeping-Fuckery
-		* cd ~/Precision-Timekeeping-Fuckery
-	* grafana
-		* url
-		* default login
-		* import
-		* data source
-	    * fix
-		* current
-			* connections->data sources->add data source->influxdb
-				* url http://127.0.0.1:8086
-				* timeout 5
-				* database Chrony_Stats
-				* save and test
-				* new dashboard
-				* import a dashbboard->Garfana-Visualization.json
-				* edit and update each pannel
-				* save dashboard
-* Raspberry OS Lite
-* Document scripts
-	* chrony_statistics.sh
-	* services.sh
-	* test.sh
-	* cleanup.sh
-	* dump_configs.sh
-	* nuke_logs.sh
-	* reconfig_full.sh
-* link to docs of all the services and tools
-	* influxdb
-	* chrony
-	* gpsd
-	* telegraf
-	* garfana
-	* syslog-ng
-	* u-blox software
-	* modules
-		* chipsets
-			* datasheet
-		* specific boards
-			* datasheet
-* installer with reboot cron for sequence?
 
 
 notes:
