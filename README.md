@@ -69,7 +69,7 @@
 #### Install (Auto)
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/time_fuckery.sh?nocache=$RANDOM | $SHELL`  
-2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
+2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh && sudo reboot`
    1. each reboot run the above command a total of four (4) times
 3. [https://grandfatherclock:3000](https://grandfatherclock:3000/login)
    1. default login: `admin` and `admin`
