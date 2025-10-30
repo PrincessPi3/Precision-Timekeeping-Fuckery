@@ -4,3 +4,5 @@ admin:grandfather123abc
 ssh grandfather@grandfatherclock
 
 sudo apt update && sudo apt autoremove -y && sudo shutdown +1
+
+sudo passwd -e username aka sudo passwd --expire username
