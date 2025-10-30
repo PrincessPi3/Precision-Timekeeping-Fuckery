@@ -557,11 +557,11 @@ test () {
 echo -e "\n\nPrecision Timekeeping Fuckery :3\n\n"
 
 # test mode
-if [[ "$1" =~ "^[tT]+" ]]; then
+if [[ "$1" =~ ^[tT]+ ]]; then
     test
     exit 0
 # reconfigure mode
-elif [[ "$1" =~ "^[rR]+" ]]; then
+elif [[ "$1" =~ ^[rR]+ ]]; then
     if [ -z "$2" ]; then
         default_conf=$git_dir/conf-level-info
     else
