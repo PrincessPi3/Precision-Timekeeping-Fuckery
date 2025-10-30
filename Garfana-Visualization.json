@@ -46,7 +46,7 @@
               }
             ]
           },
-          "unit": "dateTimeAsLocal"
+          "unit": "dateTimeAsIso"
         },
         "overrides": []
       },
@@ -703,12 +703,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 3
+  "version": 4
 }
