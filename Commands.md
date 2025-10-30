@@ -18,7 +18,8 @@ lsblk
 echo "Enter disk name (including /dev/) ex /dev/sdb"
 read dadisk
 
-webhook "starting copy $dadisk to $imgname to $xzname"
+webhook "starting copy $dadisk to $imgname to $xzname at $(date)($(date +%s))" true
+
 sudo dd if=$dadisk of=$imgname bs=4M status=progress
 imgsize=$(du -h $imgname)
 webhook "Copied the disk to $imgname ($imgsize), compressing to $xzname"
@@ -29,10 +30,10 @@ webhook "$imgname ($imgsize) shrunk to $xzname ($xzsize), calculating sha256 che
 sha256sum $imgname | tee $checksums
 sha256sum $xzname | tee -a $checksums
 
-webhook "getting sizes"
+webhook "saving sizes"
 echo -e "imgsize: $imgsize\nxzsize: $xzsize" | tee $sizes
 
-echo "changing perms"
+webhook "changing perms"
 sudo chown $username:$username $xzname
 
 webhook "testing archive $xzname"
@@ -41,6 +42,8 @@ ret=$?
 webhook "test status: $ret"
 
 webhook "DONE\n\tdisk: $dadisk\n\timgname: $imgname ($imgsize)\n\txzname: $xzname ($xzsize)" true
+
+
 sudo shutdown -r +1
 ```
 
