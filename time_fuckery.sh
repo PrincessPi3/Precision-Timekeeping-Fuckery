@@ -710,7 +710,7 @@ else
             phase_five
         else
             echo -e "\nAlready installed!\n\tUsage: time_fuckery.sh test"
-            exit
+            exit 0
         fi
     # if da file is not there
     else
