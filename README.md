@@ -39,29 +39,11 @@
 
 ## Setup
 ### Requirements
-1. Raspberry Pi with
-	1. Raspberry Pi OS Light Version Installed
-	2. SSH Access
-	3. sudo permissions
-2. A timing specific GPS module, wired to the Raspberry Pi GPIOs:
-	1. GPS GND to RPi Physical Pin 6 (GND)
-	2. GPS RX to RPi Physical Pin 8 (GPIO 14 / TX (UART))
-	3. GPS TX to RPi Physical Pin 10 (GPIO 15 / RX (UART))
-	4. GPS PPS to RPi Physical Pin 12 (GPIO 18)
-	5. GPS VIN to RPi Physical Pin 27 (3.3 volts)
+1. Raspberry Pi 4+
+2. A timing specific GPS module
 3. I2C RTC Module
-	1. RTC GND to Rpi Physical Pin 9 (GND)
-	3. RTC SDA to RPi Physical Pin 3 (GPIO 2 / SDA1 (I2C))
-	4. RTC RCL to RPi Physical Pin 5 (GPIO 4 / SCL1 (I2C))
-	5. RTC VCC to RPi Physical Pin 1 (3.3 volts)
-
-### Install
-### Hardware
-1. pi4/5 and stuff for it
-2. gps timing module
-3. rtc
-4. battery for rtc
-5. wires
+   1. battery for RTC Module
+4. Jumper wire to wire it up
 ### Wiring
 [Pins and Wiring Guide](./Pins.md)
 #### OS
@@ -94,11 +76,7 @@
       6. save and test
    3. Dashboards->New-Import
       1. Upload [Garfana-Visualization.json](./Garfana-Visualization.json)
-      2. 
-#### Software (Manual)
-Clone the repo  
-`git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
-  
+**raspi-config**
 Run raspi-config
 1. Interface Options->Serial Port
 	1. Would you like a login shell to be accessible over serial? **<No>**
@@ -128,12 +106,3 @@ Run raspi-config
 * Breakout https://www.ebay.com/itm/134243322249
 
 **U-Blox Software (U-Center)**  https://www.u-blox.com/en/product/u-center
-
-
-notes:
-gps cable delay :  RG-85 : 0.051 ns/cm
-10ft in cm: 304.8
-gps cable delay: 304.8*0.051 = 15.5448ns, round up to 16ns
-
-
-**known bugs**

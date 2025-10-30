@@ -1,6 +1,5 @@
-**todo**
+# Todo
 * case
-* Raspberry OS Lite
 * Document scripts
   * time_fuckery.sh [test]
   * show_running_configs.sh
@@ -38,3 +37,5 @@
 * check wiring
 * check antenna tight both ends
 * make image backup
+  
+**Known Bugs**
