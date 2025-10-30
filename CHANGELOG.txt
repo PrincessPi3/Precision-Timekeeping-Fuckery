@@ -21,3 +21,8 @@ edited shit
 
 1.4-rc-0
     IT WORKAN WITH NEW MODULE
+
+1.5-rc-2
+    updooted grafana vis
+    streamlined info level
+    collapsed all da scripts into time_fuckery.sh
