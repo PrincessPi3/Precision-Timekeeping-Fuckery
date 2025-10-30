@@ -49,9 +49,9 @@
 ## Setup
 ### Hardware
 1. Raspberry Pi 4+
-2. A timing specific GPS module
-3. I2C RTC Module
-   1. battery for RTC Module
+2. A timekeeping-specific GPS Module [U-BLOX LEA-M8T-0-10](https://www.ebay.com/itm/136637732093)
+3. High precision RTC Module [Adafruit DS3231 Precision RTC Breakout](https://www.adafruit.com/product/3013)
+   1. [CR1220 Battery for RTC Module](https://www.adafruit.com/product/380)
 4. Jumper wire to wire it up
 ### Wiring
 [Pins and Wiring Guide](./Pins.md)
