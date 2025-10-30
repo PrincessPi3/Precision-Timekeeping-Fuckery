@@ -52,7 +52,10 @@
 2. A timekeeping-specific GPS Module [U-BLOX LEA-M8T-0-10](https://www.ebay.com/itm/136637732093)
 3. High precision RTC Module [Adafruit DS3231 Precision RTC Breakout](https://www.adafruit.com/product/3013)
    1. [CR1220 Battery for RTC Module](https://www.adafruit.com/product/380)
-4. Jumper wire to wire it up
+4. [GPS Antenna](https://www.aliexpress.us/item/3256809008161252.html)
+   1. GPS Antenna Cable
+   2. GPS Antenna Adaptor
+5. Jumper wire to wire it up
 ### Wiring
 [Pins and Wiring Guide](./Pins.md)
 #### OS
