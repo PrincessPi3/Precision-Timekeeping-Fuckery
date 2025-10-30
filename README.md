@@ -79,8 +79,10 @@
 **WILL REBOOT IN BETWEEN EACH COMMAND**
 1. `curl -s https://raw.githubusercontent.com/PrincessPi3/Precision-Timekeeping-Fuckery/refs/heads/main/time_fuckery.sh?nocache=$RANDOM | $SHELL`  
 2. `git -C ~/Precision-Timekeeping-Fuckery pull && bash ~/Precision-Timekeeping-Fuckery/time_fuckery.sh`
+   1. each reboot run the above command a total of four times
 3. [https://grandfatherclock:3000](https://grandfatherclock:3000/login)
    1. default login: `admin` and `admin`
+      1. set new password
    2. data sources->add new->influx db
       1. name "influxdb1"
       2. query languagew: influxql
@@ -89,6 +91,9 @@
          2. timeout seconds: 3
       4. database: Chrony_Stats
       5. user, pass: blank
+      6. save and test
+   3. Dashboards->New-Import
+      1. Upload [Garfana-Visualization.json](./Garfana-Visualization.json)
 #### Software (Manual)
 Clone the repo  
 `git clone https://github.com/PrincessPi3/Precision-Timekeeping-Fuckery.git ~/Precision-Timekeping-Fuckery`  
