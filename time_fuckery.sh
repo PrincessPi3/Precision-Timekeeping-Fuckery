@@ -364,7 +364,7 @@ phase_four () {
 
     # add pps-gpio to modules
     if [ $gerppps -eq 0 ]; then
-        echo -e "\npps-gpio already in /etc/modules, skipping..n"
+        echo -e "\npps-gpio already in /etc/modules, skipping..\n"
     else
         echo -e "\nAdding pps-gpio to /etc/modules...\n"
         sudo bash -c "echo pps-gpio >> /etc/modules"
