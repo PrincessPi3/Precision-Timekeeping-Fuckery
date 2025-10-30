@@ -294,8 +294,9 @@ phase_three () {
     short_sleep
 
     # cleanup
-    echo -e "\nCleaning up...\n"
-    sudo apt autoremove -y
+    # moved to phase five
+    # echo -e "\nCleaning up...\n"
+    # sudo apt autoremove -y
 
     # update the running file
     echo 3 > $installer_status
