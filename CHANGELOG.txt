@@ -26,3 +26,10 @@ edited shit
     updooted grafana vis
     streamlined info level
     collapsed all da scripts into time_fuckery.sh
+
+1.5-rc-3
+    merged all da functions into time_fuckery.sh
+        measure offset (chrony_statistics.sh)
+    added Commands.md
+        pi image creation
+    
