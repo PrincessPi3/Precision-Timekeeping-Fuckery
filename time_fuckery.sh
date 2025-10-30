@@ -406,12 +406,12 @@ phase_four () {
 
     short_sleep
 
-    # general-scripts-and-system-ssssssetup
-    echo -e "\nInstalling general-scripts-and-system-ssssssetup\n"
-    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL" && bash /usr/share/customscripts/configure_webhook.sh && exec "$SHELL"
-
     # update the running file
     echo 4 > $installer_status
+
+    # general-scripts-and-system-ssssssetup
+    echo -e "\nInstalling general-scripts-and-system-ssssssetup\n"
+    curl -s https://raw.githubusercontent.com/PrincessPi3/general-scripts-and-system-ssssssetup/refs/heads/main/customscripts/install_script.sh?nocache=$RANDOM | sudo "$SHELL" && bash /usr/share/customscripts/configure_webhook.sh
 
     # update the log
     echo "phase 4 complete 4/5" >> $status_log
