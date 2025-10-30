@@ -79,7 +79,7 @@
       1. set new password
    2. data sources->add new->influx db
       1. name "influxdb1"
-      2. query languagew: influxql
+      2. query language: influxdb
       3. http
          1. url: http://127.0.0.1:8086
          2. timeout seconds: 3
