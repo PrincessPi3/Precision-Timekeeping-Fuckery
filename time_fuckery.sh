@@ -377,8 +377,6 @@ phase_four () {
     # echo -e "\nCleaning up...\n"
     # sudo apt autoremove -y 
 
-    short_sleep
-
     # handle users serial shit
     ## self
     echo -e "\nGiving $username the right permissions...\n"
