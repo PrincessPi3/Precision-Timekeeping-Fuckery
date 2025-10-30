@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "af2mjwnoibksgd"
+        "uid": "cf2nhyuv697ggb"
       },
       "description": "Current System Time",
       "fieldConfig": {
@@ -103,7 +103,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "af2mjwnoibksgd"
+        "uid": "cf2nhyuv697ggb"
       },
       "description": "System Time (ISO) and Offset (Seconds",
       "fieldConfig": {
@@ -420,6 +420,7 @@
           "measurement": "chrony",
           "orderByTime": "ASC",
           "policy": "autogen",
+          "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -444,8 +445,8 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "influxdb",
+        "uid": "cf2nhyuv697ggb"
       },
       "description": "Chrony frequency offset over last minute in PPM",
       "fieldConfig": {
@@ -529,23 +530,21 @@
       "pluginVersion": "12.2.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cf2nhyuv697ggb"
+          },
           "groupBy": [
             {
               "params": [
-                "1m"
+                "$__interval"
               ],
               "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
             }
           ],
           "measurement": "chrony",
           "orderByTime": "ASC",
-          "policy": "autogen",
+          "policy": "default",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -570,8 +569,8 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "influxdb",
+        "uid": "cf2nhyuv697ggb"
       },
       "description": "Average chrony skew over past minute",
       "fieldConfig": {
@@ -655,10 +654,14 @@
       "pluginVersion": "12.2.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cf2nhyuv697ggb"
+          },
           "groupBy": [
             {
               "params": [
-                "1m"
+                "$__interval"
               ],
               "type": "time"
             },
@@ -671,7 +674,7 @@
           ],
           "measurement": "chrony",
           "orderByTime": "ASC",
-          "policy": "autogen",
+          "policy": "default",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -708,7 +711,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Chrony",
+  "title": "Timekeeping",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 4
+  "version": 6
 }
