@@ -25,7 +25,7 @@ imgsize=$(du -h $imgname)
 
 # shrink and compress the image
 webhook "Copied the disk to $imgname ($imgsize), compressing to $xzname"
-sudo pishrink.sh -v -Z -a $imgname
+sudo pishrink.sh -Z -a $imgname
 xzsize=$(du -h $xzname)
 
 # sha256 checksums
