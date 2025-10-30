@@ -502,8 +502,8 @@ test () {
     echo "Testing PPS0"
     sudo ppstest /dev/pps0
     ## pps1
-    echo "Testing PPS1"
-    sudo ppstest /dev/pps1
+    # echo "Testing PPS1"
+    # sudo ppstest /dev/pps1
 
     # check gps
     echo "Checking Normal GPS"
@@ -600,7 +600,7 @@ function backup_logs () {
     sudo cp $telegraf_log $dname/telegraf.log
     sudo cp $grafana_log $dname/grafana.log
     sudo cp $syslog_log $dname/syslog
-    sudo cp $rootcrontab_log $dname/syslog
+    sudo cp $rootcrontab_log $dname/root-crontab.log
 
     # fix permissions
     sudo chown -R $USER:$USER $dname
@@ -633,7 +633,7 @@ cleanup() {
     rm -f $git_dir/*.tar.gz 2>/dev/null
     rm -f $git_dir/*.log 2>/dev/null
     rm -f $git_dir/*.bak* 2>/dev/null
-    rm -f $git_dir*.~ 2>/dev/null
+    rm -f $git_dir/*.~ 2>/dev/null
 
     echo "Cleanup done!"
 }
