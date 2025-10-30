@@ -102,50 +102,28 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "grafana"
+        "type": "influxdb",
+        "uid": "ff2k44t741udcc"
       },
-      "description": "Average chrony time offset over last minute in nonoseconds",
+      "description": "System Time (ISO) and Offset (Seconds",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
             },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "footer": {
+              "reducers": [
+                "mean"
+              ]
             },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "inspect": true
           },
-          "displayName": "Offset (ns)",
+          "fieldMinMax": true,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -160,7 +138,7 @@
               }
             ]
           },
-          "unit": "ns"
+          "unit": "s"
         },
         "overrides": []
       },
@@ -170,61 +148,42 @@
         "x": 12,
         "y": 0
       },
-      "id": 3,
+      "id": 9,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
+        "cellHeight": "sm",
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Time"
+          }
+        ]
       },
       "pluginVersion": "12.2.1",
       "targets": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "1m"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
+          "groupBy": [],
+          "limit": "10",
           "measurement": "chrony",
           "orderByTime": "ASC",
-          "policy": "autogen",
+          "policy": "default",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "last_offset"
+                  "system_time"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "Last Time Offset (Nanoseconds)",
-      "type": "timeseries"
+      "title": "System Time and Offset",
+      "type": "table"
     },
     {
       "datasource": {
@@ -362,11 +321,11 @@
         "type": "datasource",
         "uid": "grafana"
       },
-      "description": "Average chrony skew over past minute",
+      "description": "Average chrony time offset over last minute in nonoseconds",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic-by-name"
+            "mode": "palette-classic"
           },
           "custom": {
             "axisBorderShow": false,
@@ -402,7 +361,7 @@
               "mode": "off"
             }
           },
-          "displayName": "Skew (PPM)",
+          "displayName": "Offset (ns)",
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -417,7 +376,7 @@
               }
             ]
           },
-          "unit": "ppm"
+          "unit": "ns"
         },
         "overrides": []
       },
@@ -427,7 +386,7 @@
         "x": 12,
         "y": 8
       },
-      "id": 2,
+      "id": 3,
       "options": {
         "legend": {
           "calcs": [],
@@ -467,7 +426,7 @@
             [
               {
                 "params": [
-                  "skew"
+                  "last_offset"
                 ],
                 "type": "field"
               },
@@ -480,7 +439,7 @@
           "tags": []
         }
       ],
-      "title": "Frequency Skew (PPM)",
+      "title": "Last Time Offset (Nanoseconds)",
       "type": "timeseries"
     },
     {
@@ -608,6 +567,132 @@
       ],
       "title": "Frequency Offset (PPM)",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "description": "Average chrony skew over past minute",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "displayName": "Skew (PPM)",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ppm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.1",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "1m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "chrony",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "skew"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Frequency Skew (PPM)",
+      "type": "timeseries"
     }
   ],
   "preload": false,
@@ -618,12 +703,12 @@
     "list": []
   },
   "time": {
-    "from": "2025-10-29T23:28:59.423Z",
-    "to": "2025-10-30T01:44:27.424Z"
+    "from": "now-6h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Chrony",
   "uid": "69a006d6-ccaa-4e9e-a8ec-6dba0b30fa1e",
-  "version": 40
+  "version": 44
 }
