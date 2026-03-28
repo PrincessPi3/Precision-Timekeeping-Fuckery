@@ -12,7 +12,7 @@
     7.  PPS Settings
     8.  UART Speed settings
     9.  Any pulse out (32kHz maybe?)
-2.  [Pulsar Clock](Pulsar-Clock.md)
+2.  [Pulsar Clock](../../JoplinNotes/Backups/Pulsar-Clock.md)
     1.  all daaat shit lmao
 
 ## Hardware
@@ -20,15 +20,30 @@
 1.  Raspberry Pi 5 16GB
     
     1.  Raspberry OS Lite
-2.  NVME hat for NVME boot (? IF NOT INTERFERE WITH GPIO SHIT)
+        
+    2.  Will need to carefully use real time priority, maybe even pinned to a core?
+        
+```bash
+sudo taskset -cp 2 1234 # set task pid 1234 pin to core 2
+```
+            
+```bash
+sudo chrt -f -p 90 1234 # set pid 1234 to priority 90 (1-99  highest)
+```         
+1.  RTC 32khz pulses
+2.  pulsar readings
+3.  RTC set/read
+4.  GPS Module PPS
+    1.  gpsd, etc?
+5.  NVME hat for NVME boot (? IF NOT INTERFERE WITH GPIO SHIT)
     
     1.  NVME SSD (? IF NOT INTERFERE WITH GPIO SHIT)
-3.  **Custom Hat**
+6.  **Custom Hat**
     
     1.  1.  [RTC](https://www.adafruit.com/product/3013#tutorials) x2
             
             1.  [CR1220](https://www.adafruit.com/products/380) x2 (Battery)
-        2.  Gen 10 Timekeeping Specific GPS Module - NEO-F10T
+        1.  Gen 10 Timekeeping Specific GPS Module - NEO-F10T
             
             1.  &nbsp;[Buy Varieties (Europe)](https://gnss.store/collections/neo-f10t-timing-gnss-modules)
                 
