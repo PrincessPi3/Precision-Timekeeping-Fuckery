@@ -12,7 +12,7 @@
     7.  PPS Settings
     8.  UART Speed settings
     9.  Any pulse out (32kHz maybe?)
-2.  [Pulsar Clock](../../JoplinNotes/Backups/Pulsar-Clock.md)
+2.  [Pulsar Clock](Pulsar-Clock.md)
     1.  all daaat shit lmao
 
 ## Hardware
