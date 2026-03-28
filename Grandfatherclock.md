@@ -1,7 +1,5 @@
 # Version 3
-
 ## To Figure Out
-
 1.  Details on the NEO-F10T/breakout
     1.  Battery
     2.  GPIO Pinouts
@@ -15,6 +13,14 @@
 	1. pulse out/in (32kHz 31.25us period/10mhz 1ns period?)
 3.  [Pulsar Clock](Pulsar-Clock.md)
     1.  all daaat shit lmao
+4. [10MHzReference Sources (If Needed)](10MHz-Reference-Sources.md)
+5.  figure out how to support Universal Beat Time to high precision
+6.  Boot up sequence
+	1.  warm ups
+	2.  get signals
+	3.  run services with affinityies
+	4.  check
+
 ## Hardware
 1.  [Raspberry Pi 5 16GB](https://www.adafruit.com/product/6125)
     1.  Raspberry OS Lite
@@ -40,9 +46,6 @@ sudo chrt -f -p 90 1234 # set pid 1234 to priority 90 (1-99  highest)
     1.  [Adafruit DS3231 RTC Precision I2C Breakout Module](https://www.adafruit.com/product/3013#tutorials) x1  
         [CR1220](https://www.adafruit.com/products/380) x1 (Battery)
 7.  [Gen 10 Timekeeping Specific GPS Module - NEO-F10T](https://gnss.store/collections/neo-f10t-timing-gnss-modules)
-    
-    1.  &nbsp;
-        
 8.  GPS Module
 	1.  [Buy Varieties (Europe)](https://gnss.store/collections/neo-f10t-timing-gnss-modules)
         1.  Make sure **BATTERY** **TYPE** and **APPLICATION** is figured out 
@@ -76,7 +79,7 @@ sudo chrt -f -p 90 1234 # set pid 1234 to priority 90 (1-99  highest)
 ### Wiring of Note
 - CLK/PCM/GPIO18/PIN12:
     - CLK in/out up to 10mHz (1ns period)
-    - ![9824306b308e6d2d21274a5bfe933c6b.png](../../_resources/9824306b308e6d2d21274a5bfe933c6b-1.png)
+    - ![9824306b308e6d2d21274a5bfe933c6b.png](../../_resources/9824306b308e6d2d21274a5bfe933c6b.png)
     - only one i2c port?
     - mostly all 3v3?
     - PCM is kinda like DAC?
